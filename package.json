@@ -1,0 +1,16 @@
+{
+  "name": "aurasct-prod",
+  "private": true,
+  "scripts": {
+    "dev:web": "pnpm --filter @aurasct/web dev",
+    "dev:worker": "pnpm --filter @aurasct/worker dev",
+    "build": "pnpm --recursive build",
+    "test": "pnpm --filter @aurasct/engine test",
+    "db:push": "supabase db push",
+    "setup": "pnpm install && cp .env.example .env && echo 'Now edit .env with your keys'"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.30.3"
+}

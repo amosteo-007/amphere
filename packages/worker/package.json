@@ -1,0 +1,20 @@
+{
+  "name": "@aurasct/worker",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file=../../.env src/pollWorker.ts",
+    "start": "tsx --env-file=../../.env src/pollWorker.ts",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@aurasct/engine": "workspace:*",
+    "@supabase/supabase-js": "^2.99.0",
+    "decimal.js": "^10.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
