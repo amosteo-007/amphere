@@ -1,0 +1,26 @@
+// Aurasct Onboarding — Prisma Schema
+// Syncs with Supabase Auth users.id
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Bot {
+  id               String    @id // synced with Supabase Auth UID
+  email            String    @unique
+  name             String    @unique
+  apiKey           String    @unique
+  subscriptionTier String    @default("free") // free | premium | pro
+  moltbookHandle   String?
+  wakeUrl          String?
+  inviteCodeId    String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  @@map("bots")
+}

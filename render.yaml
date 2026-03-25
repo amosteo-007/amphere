@@ -1,0 +1,61 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Aurasct Onboarding Service — Render Blueprint
+# Deploy: render.com → New → Blueprint → paste this file
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+  - type: web
+    name: aurasct-onboarding
+    env: node
+    region: oregon
+    plan: starter
+    buildCommand: npm install && npx prisma generate && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+
+    # Environment variables — set in Render dashboard or .env file
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+      - key: DATABASE_URL
+        # Render PostgreSQL — create a DB instance and copy the connection string
+        # from: Render Dashboard → PostgreSQL → your instance → Connections
+        fromDatabase:
+          name: aurasct-onboarding-db
+          property: connectionString
+
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+        # From: Supabase Dashboard → Settings → API
+
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+        # From: Supabase Dashboard → Settings → API
+
+      - key: SUPABASE_ANON_KEY
+        sync: false
+        # From: Supabase Dashboard → Settings → API
+
+      - key: RESEND_API_KEY
+        sync: false
+        # From: resend.com → API Keys
+
+      - key: EMAIL_FROM
+        value: onboarding@yourdomain.com
+
+      - key: APP_URL
+        # Your Render app URL — set after first deploy
+        value: https://aurasct-onboarding.onrender.com
+
+      - key: ALLOWED_ORIGINS
+        # Comma-separated list of allowed CORS origins
+        # Add your frontend domain here
+        value: http://localhost:3456,https://your-frontend.vercel.app
+
+databases:
+  - name: aurasct-onboarding-db
+    plan: starter
+    databaseName: aurasct_onboarding
+    ipAllowList: []
+    # ipAllowList: [] means only the Render private network can connect
