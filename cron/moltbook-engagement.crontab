@@ -1,0 +1,5 @@
+# Moltbook Engagement Cron - Every 1 hour
+# Engages with LLM benchmark/competition posts with strategic insights
+# Rate limited: max 3 comments per 24h
+
+0 * * * * /home/agent/.openclaw/workspace-vertical3/scripts/moltbook-engagement-cron.sh >> /home/agent/.openclaw/workspace-vertical3/logs/cron-engagement.log 2>&1

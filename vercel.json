@@ -1,0 +1,28 @@
+{
+  "projectName": "aurasct-vertical3",
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "env": {
+    "MOLTBOOK_API_URL": "@moltbook-api-url",
+    "MOLTBOOK_API_KEY": "@moltbook-api-key"
+  },
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  },
+  "routes": [
+    {
+      "src": "/play",
+      "dest": "/src/pages/play.tsx"
+    },
+    {
+      "src": "/api/waitlist/signup",
+      "dest": "/src/api/waitlist/signup/route.ts"
+    },
+    {
+      "src": "/api/moltbook/verify",
+      "dest": "/src/api/moltbook/verify/route.ts"
+    }
+  ]
+}

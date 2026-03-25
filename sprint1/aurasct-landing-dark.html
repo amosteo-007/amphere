@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurasct — LLM Auction Behavioural Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════
+       DESIGN TOKENS
+    ═══════════════════════════════════════════ */
+    :root {
+      --color-bg-primary: #0a0a0a;
+      --color-bg-secondary: #111111;
+      --color-bg-tertiary: #1a1a1a;
+      --color-text-primary: #ffffff;
+      --color-text-secondary: #a0a0a0;
+      --color-text-muted: #666666;
+      --color-accent-gold: #c9a961;
+      --color-accent-gold-hover: #e0c075;
+      --color-accent-red: #8b2d2d;
+      --color-border: #2a2a2a;
+      --color-success: #2d8b2d;
+      --color-error: #8b2d2d;
+      
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+      
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-20: 80px;
+      --space-24: 96px;
+      
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 8px rgba(0,0,0,0.4);
+      --shadow-lg: 0 8px 16px rgba(0,0,0,0.5);
+      --shadow-glow-gold: 0 0 20px rgba(201,169,97,0.3);
+    }
+
+    /* ═══════════════════════════════════════════
+       BASE
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--color-bg-primary);
+      color: var(--color-text-secondary);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 { font-family: var(--font-display); color: var(--color-text-primary); line-height: 1.2; }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--color-accent-gold); color: var(--color-bg-primary); }
+
+    /* ═══════════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-4) var(--space-8);
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--color-text-primary);
+      letter-spacing: 0.1em;
+    }
+    .logo span { color: var(--color-accent-gold); }
+    .nav-links { display: flex; gap: var(--space-8); }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--color-text-primary); }
+    .nav-cta {
+      background: var(--color-accent-gold);
+      color: var(--color-bg-primary);
+      padding: var(--space-2) var(--space-6);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: all 0.2s;
+    }
+    .nav-cta:hover {
+      background: var(--color-accent-gold-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-glow-gold);
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: var(--space-24) var(--space-8);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 40%, rgba(201,169,97,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 80% at 80% 20%, rgba(139,45,45,0.05) 0%, transparent 50%);
+    }
+    .hero-arch {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 300px;
+      opacity: 0.15;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 100px,
+        var(--color-border) 100px,
+        var(--color-border) 102px,
+        transparent 102px,
+        transparent 200px
+      );
+      mask-image: linear-gradient(180deg, black 0%, transparent 100%);
+      -webkit-mask-image: linear-gradient(180deg, black 0%, transparent 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+      text-align: center;
+    }
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      margin-bottom: var(--space-2);
+      letter-spacing: 0.05em;
+    }
+    .hero-title span {
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--color-accent-gold);
+      margin: var(--space-4) auto;
+    }
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-6);
+      font-weight: 500;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin: 0 auto var(--space-12);
+      line-height: 1.8;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--color-accent-gold);
+      color: var(--color-bg-primary);
+      padding: var(--space-4) var(--space-8);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: var(--color-accent-gold-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow-gold);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-accent-gold);
+      padding: var(--space-4) var(--space-8);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      border: 1px solid var(--color-accent-gold);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-secondary:hover {
+      background: rgba(201,169,97,0.1);
+    }
+    .hero-badge {
+      display: inline-block;
+      margin-top: var(--space-8);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    /* ═══════════════════════════════════════════
+       ARTICLES SECTION
+    ═══════════════════════════════════════════ */
+    #articles {
+      padding: var(--space-24) var(--space-8);
+      background: var(--color-bg-secondary);
+    }
+    .section-label {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: var(--space-4);
+    }
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      margin-bottom: var(--space-4);
+    }
+    .gold-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--color-accent-gold);
+      margin: 0 auto var(--space-12);
+    }
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-6);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .article-card {
+      background: var(--color-bg-tertiary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      transition: all 0.2s;
+    }
+    .article-card:hover {
+      border-color: var(--color-accent-gold);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .article-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-accent-gold);
+      margin-bottom: var(--space-2);
+    }
+    .article-card h3 {
+      font-size: 1.125rem;
+      margin-bottom: var(--space-2);
+    }
+    .article-card p {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+      line-height: 1.7;
+    }
+    .article-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-accent-gold);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .article-link:hover { color: var(--color-accent-gold-hover); }
+    .article-link svg { width: 16px; height: 16px; }
+
+    /* ═══════════════════════════════════════════
+       LIVE AUCTION SECTION
+    ═══════════════════════════════════════════ */
+    #live-auction {
+      padding: var(--space-24) var(--space-8);
+    }
+    .auction-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .live-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+    }
+    .live-pulse {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: rgba(45, 139, 45, 0.2);
+      border: 1px solid var(--color-success);
+      padding: var(--space-2) var(--space-4);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-success);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--color-success);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .auction-card {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+    }
+    .auction-stage {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-6);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .stage-info {
+      display: flex;
+      gap: var(--space-8);
+    }
+    .stage-stat {
+      text-align: center;
+    }
+    .stage-stat-label {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-1);
+    }
+    .stage-stat-value {
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+    .stage-stat-value.gold { color: var(--color-accent-gold); }
+    .multiplier-badge {
+      background: var(--color-accent-gold);
+      color: var(--color-bg-primary);
+      padding: var(--space-2) var(--space-4);
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+    .progress-section { margin-bottom: var(--space-8); }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-2);
+    }
+    .progress-bar {
+      height: 6px;
+      background: var(--color-bg-tertiary);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 60%;
+      background: linear-gradient(90deg, var(--color-accent-gold), var(--color-accent-gold-hover));
+      border-radius: 3px;
+      transition: width 0.3s;
+    }
+    .agents-section h4 {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-4);
+    }
+    .agent-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .agent-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-3);
+      background: var(--color-bg-tertiary);
+      border-radius: var(--radius-md);
+    }
+    .agent-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-bg-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-accent-gold);
+    }
+    .agent-info { flex: 1; }
+    .agent-name {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+    .agent-status {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+    .agent-bid {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--color-text-primary);
+    }
+    .agent-bid.winning { color: var(--color-success); }
+    .filter-pills {
+      display: flex;
+      gap: var(--space-2);
+      margin-top: var(--space-6);
+      flex-wrap: wrap;
+    }
+    .filter-pill {
+      padding: var(--space-2) var(--space-4);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: var(--color-bg-tertiary);
+      color: var(--color-text-secondary);
+      border: 1px solid var(--color-border);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-pill.active, .filter-pill:hover {
+      background: var(--color-accent-gold);
+      color: var(--color-bg-primary);
+      border-color: var(--color-accent-gold);
+    }
+
+    /* ═══════════════════════════════════════════
+       ASK THE PLATFORM
+    ═══════════════════════════════════════════ */
+    #chat {
+      padding: var(--space-24) var(--space-8);
+      background: var(--color-bg-secondary);
+    }
+    .chat-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .chat-box {
+      background: var(--color-bg-tertiary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      margin-bottom: var(--space-6);
+    }
+    .chat-message {
+      display: flex;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+    .chat-message:last-child { margin-bottom: 0; }
+    .chat-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--color-accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .chat-avatar svg { width: 20px; height: 20px; fill: var(--color-bg-primary); }
+    .chat-content {
+      flex: 1;
+    }
+    .chat-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-2);
+    }
+    .chat-text {
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+    .suggested-questions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+    }
+    .suggested-q {
+      padding: var(--space-4);
+      background: var(--color-bg-tertiary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .suggested-q:hover {
+      border-color: var(--color-accent-gold);
+      color: var(--color-text-primary);
+    }
+    .suggested-q svg { width: 16px; height: 16px; fill: var(--color-accent-gold); flex-shrink: 0; }
+    .chat-input-wrapper {
+      display: flex;
+      gap: var(--space-3);
+    }
+    .chat-input {
+      flex: 1;
+      padding: var(--space-4);
+      background: var(--color-bg-primary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      color: var(--color-text-primary);
+      font-size: 0.9375rem;
+      font-family: inherit;
+    }
+    .chat-input:focus {
+      outline: none;
+      border-color: var(--color-accent-gold);
+    }
+    .chat-input::placeholder { color: var(--color-text-muted); }
+    .chat-send {
+      padding: var(--space-4) var(--space-6);
+      background: var(--color-accent-gold);
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .chat-send:hover {
+      background: var(--color-accent-gold-hover);
+      transform: translateY(-1px);
+    }
+    .chat-send svg { width: 20px; height: 20px; fill: var(--color-bg-primary); }
+
+    /* ═══════════════════════════════════════════
+       VALUE PROPS
+    ═══════════════════════════════════════════ */
+    #value-props {
+      padding: var(--space-24) var(--space-8);
+    }
+    .value-header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+    .value-header h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      margin-bottom: var(--space-4);
+    }
+    .value-header p {
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-6);
+      max-width: 1000px;
+      margin: 0 auto var(--space-12);
+    }
+    .value-card {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+    }
+    .value-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-accent-gold);
+      margin-bottom: var(--space-3);
+    }
+    .value-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: var(--space-3);
+    }
+    .value-card p {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: var(--space-4);
+    }
+    .value-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-accent-gold);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .value-link:hover { color: var(--color-accent-gold-hover); }
+
+    /* ═══════════════════════════════════════════
+       WAITLIST
+    ═══════════════════════════════════════════ */
+    #waitlist {
+      padding: var(--space-24) var(--space-8);
+      background: var(--color-bg-secondary);
+    }
+    .waitlist-container {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .waitlist-form-box {
+      background: var(--color-bg-tertiary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-12);
+    }
+    .waitlist-form-box h2 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-6);
+    }
+    .form-group {
+      margin-bottom: var(--space-4);
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-2);
+      text-align: left;
+    }
+    .form-input {
+      width: 100%;
+      padding: var(--space-4);
+      background: var(--color-bg-primary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      color: var(--color-text-primary);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--color-accent-gold);
+      box-shadow: 0 0 0 3px rgba(201,169,97,0.15);
+    }
+    .form-input::placeholder { color: var(--color-text-muted); }
+    .form-submit {
+      width: 100%;
+      padding: var(--space-4);
+      background: var(--color-accent-gold);
+      border: none;
+      border-radius: var(--radius-md);
+      color: var(--color-bg-primary);
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      margin-top: var(--space-4);
+      transition: all 0.2s;
+    }
+    .form-submit:hover {
+      background: var(--color-accent-gold-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow-gold);
+    }
+    .form-note {
+      margin-top: var(--space-4);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+    .form-success {
+      display: none;
+      padding: var(--space-8);
+    }
+    .form-success.show { display: block; }
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto var(--space-4);
+      background: var(--color-success);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+    .form-success h3 { font-size: 1.25rem; margin-bottom: var(--space-2); }
+    .form-success p { color: var(--color-text-muted); font-size: 0.875rem; }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    footer {
+      padding: var(--space-16) var(--space-8);
+      border-top: 1px solid var(--color-border);
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: var(--space-12);
+    }
+    .footer-brand .logo { margin-bottom: var(--space-3); }
+    .footer-tagline {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      max-width: 300px;
+    }
+    .footer-links {
+      display: flex;
+      gap: var(--space-12);
+    }
+    .footer-col h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-4);
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: var(--space-2); }
+    .footer-col a {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--color-accent-gold); }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: var(--space-12) auto 0;
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+    .footer-bottom a {
+      color: var(--color-text-muted);
+      margin-left: var(--space-6);
+      transition: color 0.2s;
+    }
+    .footer-bottom a:hover { color: var(--color-accent-gold); }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .hero-ctas button { width: 100%; max-width: 280px; }
+      .auction-stage { flex-direction: column; gap: var(--space-4); }
+      .stage-info { justify-content: center; }
+      .footer-inner { flex-direction: column; }
+      .footer-links { flex-direction: column; gap: var(--space-6); }
+      .footer-bottom { flex-direction: column; gap: var(--space-4); text-align: center; }
+      .footer-bottom a { margin: 0 var(--space-3); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">AURASCT</div>
+  <div class="nav-links">
+    <a href="#articles">Rules</a>
+    <a href="#live-auction">Live Demo</a>
+    <a href="#chat">Ask</a>
+    <a href="#waitlist">Request Access</a>
+  </div>
+  <a href="#waitlist" class="nav-cta">Request Access</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-arch"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">
+      AURASCT
+      <span></span>
+    </h1>
+    <p class="hero-subtitle">LLM Auction Behavioural Intelligence</p>
+    <p class="hero-desc">
+      An empirical simulation platform studying strategic behaviour of language model agents 
+      under intertemporal payoffs, escalating multipliers, and adversarial market mechanics.
+    </p>
+    <div class="hero-ctas">
+      <button class="btn-primary" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Join Waitlist</button>
+      <button class="btn-secondary" onclick="document.getElementById('articles').scrollIntoView({behavior:'smooth'})">Read the Rules</button>
+    </div>
+    <p class="hero-badge">Private Alpha · Institutional Access Only</p>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section id="articles">
+  <div class="section-label">Tournament Rules</div>
+  <h2 class="section-title">Articles Governing the Tournament</h2>
+  <div class="gold-divider"></div>
+  
+  <div class="articles-grid">
+    <div class="article-card">
+      <div class="article-num">Article I</div>
+      <h3>Structure</h3>
+      <p>15 periods across 3 stages. Each period offers tokens at a floor price. Agents bid to win tokens for their treasury.</p>
+      <a href="#" class="article-link">
+        Read More
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    
+    <div class="article-card">
+      <div class="article-num">Article II</div>
+      <h3>Mechanism</h3>
+      <p>Vickrey sealed-bid auction. Highest bidder wins but pays the second-highest price. Truthful bidding is not dominant.</p>
+      <a href="#" class="article-link">
+        Read More
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    
+    <div class="article-card">
+      <div class="article-num">Article III</div>
+      <h3>Multiplier</h3>
+      <p>Escalating multipliers across stages: 1× in Stage 1, 1.5× in Stage 2, 3× in Stage 3. Late tokens are worth more.</p>
+      <a href="#" class="article-link">
+        Read More
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    
+    <div class="article-card">
+      <div class="article-num">Article IV</div>
+      <h3>Treasury</h3>
+      <p>Each agent receives a $10,000 starting budget. Tokens purchased are held in the treasury. Budget exhaustion is permanent.</p>
+      <a href="#" class="article-link">
+        Read More
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    
+    <div class="article-card">
+      <div class="article-num">Article V</div>
+      <h3>Rescission</h3>
+      <p>Agents may rescind (cancel) past bids to reclaim budget. This creates information asymmetry and strategic depth.</p>
+      <a href="#" class="article-link">
+        Read More
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    
+    <div class="article-card">
+      <div class="article-num">Article VI</div>
+      <h3>Stage Points</h3>
+      <p>Stage Points (SP) determine tournament ranking. SP is the sole determinant of standing, not treasury value.</p>
+      <a href="#" class="article-link">
+        Read More
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE AUCTION -->
+<section id="live-auction">
+  <div class="auction-container">
+    <div class="live-header">
+      <div class="live-pulse">
+        <div class="live-dot"></div>
+        Live Demo
+      </div>
+    </div>
+    
+    <div class="auction-card">
+      <div class="auction-stage">
+        <div class="stage-info">
+          <div class="stage-stat">
+            <div class="stage-stat-label">Stage</div>
+            <div class="stage-stat-value">S2</div>
+          </div>
+          <div class="stage-stat">
+            <div class="stage-stat-label">Period</div>
+            <div class="stage-stat-value">3 / 5</div>
+          </div>
+          <div class="stage-stat">
+            <div class="stage-stat-label">Floor Price</div>
+            <div class="stage-stat-value gold">$15.00</div>
+          </div>
+        </div>
+        <div class="multiplier-badge">1.5× Multiplier</div>
+      </div>
+      
+      <div class="progress-section">
+        <div class="progress-label">
+          <span>Stage Progress</span>
+          <span>60%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 60%"></div>
+        </div>
+      </div>
+      
+      <div class="agents-section">
+        <h4>Agent Bidding Behaviour</h4>
+        <div class="agent-list">
+          <div class="agent-row">
+            <div class="agent-avatar">S</div>
+            <div class="agent-info">
+              <div class="agent-name">spark_001</div>
+              <div class="agent-status">240 tokens · $8,884 spent</div>
+            </div>
+            <div class="agent-bid winning">$16.01</div>
+          </div>
+          <div class="agent-row">
+            <div class="agent-avatar">C</div>
+            <div class="agent-info">
+              <div class="agent-name">charge_007</div>
+              <div class="agent-status">0 tokens · $0 spent</div>
+            </div>
+            <div class="agent-bid">—</div>
+          </div>
+          <div class="agent-row">
+            <div class="agent-avatar">M</div>
+            <div class="agent-info">
+              <div class="agent-name">mistral_2</div>
+              <div class="agent-status">80 tokens · $2,660 spent</div>
+            </div>
+            <div class="agent-bid">$16.00</div>
+          </div>
+        </div>
+        <div class="filter-pills">
+          <button class="filter-pill active">All Stages</button>
+          <button class="filter-pill">S1 · 1×</button>
+          <button class="filter-pill">S2 · 1.5×</button>
+          <button class="filter-pill">S3 · 3×</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ASK THE PLATFORM -->
+<section id="chat">
+  <div class="chat-container">
+    <div class="section-label">Interactive</div>
+    <h2 class="section-title">Ask the Platform</h2>
+    <div class="gold-divider"></div>
+    
+    <div class="chat-box">
+      <div class="chat-message">
+        <div class="chat-avatar">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/></svg>
+        </div>
+        <div class="chat-content">
+          <div class="chat-name">Aurasct Guide</div>
+          <div class="chat-text">
+            I can explain any aspect of the Aurasct tournament: the Vickrey mechanism, 
+            intertemporal budget allocation, the rescind mechanic, or how multipliers affect strategy.
+            What would you like to explore?
+          </div>
+        </div>
+      </div>
+      
+      <div class="suggested-questions">
+        <button class="suggested-q">
+          <svg viewBox="0 0 24 24"><path d="M8 12h8M12 8v8"/></svg>
+          Why does truthful bidding sometimes lose?
+        </button>
+        <button class="suggested-q">
+          <svg viewBox="0 0 24 24"><path d="M8 12h8M12 8v8"/></svg>
+          How does the rescind mechanic work?
+        </button>
+        <button class="suggested-q">
+          <svg viewBox="0 0 24 24"><path d="M8 12h8M12 8v8"/></svg>
+          What is optimal budget allocation across stages?
+        </button>
+        <button class="suggested-q">
+          <svg viewBox="0 0 24 24"><path d="M8 12h8M12 8v8"/></svg>
+          IPO book-building analogy?
+        </button>
+      </div>
+      
+      <div class="chat-input-wrapper">
+        <input type="text" class="chat-input" placeholder="Type your question...">
+        <button class="chat-send">
+          <svg viewBox="0 0 24 24"><path d="M2 12l5-5v3h10v4H7v3l-5-5z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE PROPS -->
+<section id="value-props">
+  <div class="value-header">
+    <div class="section-label">Institutional</div>
+    <h2>Built for Institutions. Tested by Machines.</h2>
+    <div class="gold-divider"></div>
+    <p>Private trial for exchanges, ECM desks, and regulators seeking behavioural intelligence for primary issuance design.</p>
+  </div>
+  
+  <div class="value-grid">
+    <div class="value-card">
+      <div class="value-num">01</div>
+      <h3>Agent Simulation Engine</h3>
+      <p>Run thousands of tournament variations. Bot vs bot, human vs bot, human vs human. Test strategies in a controlled environment before deploying to production.</p>
+      <a href="#" class="value-link">See sample runs →</a>
+    </div>
+    
+    <div class="value-card">
+      <div class="value-num">02</div>
+      <h3>Behavioural Dataset</h3>
+      <p>Proprietary LLM reasoning traces across 350+ tournament runs. The data is the moat. Understand how agents actually make decisions under competitive pressure.</p>
+      <a href="#" class="value-link">Explore dataset schema →</a>
+    </div>
+    
+    <div class="value-card">
+      <div class="value-num">03</div>
+      <h3>API-Native Integration</h3>
+      <p>Embed into existing exchange infrastructure. SGX, HKEX, ECM desk workflows. Full API access with webhook support for real-time tournament events.</p>
+      <a href="#" class="value-link">View API docs →</a>
+    </div>
+  </div>
+  
+  <!-- Waitlist CTA -->
+  <div class="waitlist-container">
+    <div class="waitlist-form-box">
+      <h2>Request Access</h2>
+      <form id="waitlist-form">
+        <div class="form-group">
+          <label>Work Email</label>
+          <input type="email" class="form-input" placeholder="name@institution.com" required>
+        </div>
+        <div class="form-group">
+          <label>Institution</label>
+          <input type="text" class="form-input" placeholder="Goldman Sachs, JPM, etc." required>
+        </div>
+        <div class="form-group">
+          <label>Role</label>
+          <input type="text" class="form-input" placeholder="ECM Desk, Risk, Research...">
+        </div>
+        <button type="submit" class="form-submit">Request Access</button>
+        <p class="form-note">Access is granted to verified institutions only. No retail participants.</p>
+      </form>
+      <div class="form-success" id="form-success">
+        <div class="success-icon">✓</div>
+        <h3>Request Received</h3>
+        <p>We'll review your application and respond within 48 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">AURASCT</div>
+      <p class="footer-tagline">Where AI agents prove their strategic worth in the arena of competition.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">API</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <ul>
+          <li><a href="#">Dataset</a></li>
+          <li><a href="#">Methodology</a></li>
+          <li><a href="#">Publications</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Aurasct. All rights reserved.</span>
+    <div>
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+      <a href="#">Discord</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('form-success').classList.add('show');
+  });
+  
+  document.querySelectorAll('.filter-pill').forEach(function(pill) {
+    pill.addEventListener('click', function() {
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+  
+  document.querySelectorAll('.suggested-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelector('.chat-input').value = this.textContent.trim();
+      document.querySelector('.chat-input').focus();
+    });
+  });
+</script>
+
+</body>
+</html>
