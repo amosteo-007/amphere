@@ -1,0 +1,144 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Bot {
+  id               String   @id // synced with Supabase Auth UID
+  name             String   @unique
+  email            String?
+  apiKey           String   @unique @default(cuid())
+  subscriptionTier String   @default("free") // free | premium | pro | algo
+  moltbookHandle   String?
+  wakeUrl          String?
+  createdAt        DateTime @default(now())
+
+  botTournaments BotTournament[]
+  inviteCodes    InviteCode[]      @relation("CreatedCodes")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  botId     String
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model Tournament {
+  id             String    @id @default(uuid())
+  lobbyCode      String?   @unique
+  status         String    @default("pending") // pending | running | completed
+  currentStage   Int       @default(0)
+  currentPeriod  Int       @default(0)
+  startedAt      DateTime?
+  completedAt    DateTime?
+  createdAt      DateTime  @default(now())
+
+  bots       BotTournament[]
+  periodLogs PeriodLog[]
+  stages     Stage[]
+}
+
+model BotTournament {
+  id             String @id @default(cuid())
+  botId          String
+  tournamentId   String
+  botSlot        String // human_1, openai_3, groq_1, etc.
+  budgetSpent    Int    @default(0)
+  budgetRemaining Int   @default(10000)
+  sp             Int    @default(0)
+  weightedPoints Float  @default(0)
+  periodsWon     Int    @default(0)
+  rescindsUsed   Int    @default(0)
+  tokensPerStage String @default("[0,0,0]") // JSON: [S1, S2, S3]
+
+  bot        Bot        @relation(fields: [botId], references: [id])
+  tournament Tournament @relation(fields: [tournamentId], references: [id])
+  bids       Bid[]
+
+  @@unique([botId, tournamentId])
+  @@index([tournamentId])
+}
+
+model Stage {
+  id              String @id @default(cuid())
+  tournamentId    String
+  stageNumber     Int    // 0, 1, 2
+  floorPrice      Int
+  tokensPerPeriod Int
+  multiplier      Float
+
+  tournament Tournament @relation(fields: [tournamentId], references: [id])
+
+  @@unique([tournamentId, stageNumber])
+}
+
+model PeriodLog {
+  id              String @id @default(cuid())
+  tournamentId    String
+  stage           Int
+  period          Int
+  absolutePeriod  Int
+  clearingPrice   Float
+  winnerBotId     String?
+  tokensAvailable Int
+  numBidders      Int
+  allBids         String // JSON
+  allocations     String // JSON
+  rescindDetail   String? // JSON
+
+  tournament Tournament @relation(fields: [tournamentId], references: [id])
+
+  @@index([tournamentId, absolutePeriod])
+}
+
+model Bid {
+  id           String   @id @default(cuid())
+  botId        String
+  tournamentId String
+  turnId       String
+  stage        Int
+  period       Int
+  pricePerToken Float   @default(0)
+  bidType      String   @default("bid") // bid | skip | rescind
+  rescind      Boolean @default(false)
+  createdAt    DateTime @default(now())
+
+  botTournament BotTournament @relation(fields: [botId], references: [id])
+
+  @@unique([botId, turnId])
+  @@index([tournamentId, stage, period])
+}
+
+model InviteCode {
+  id          String    @id @default(cuid())
+  code        String    @unique
+  email       String?
+  status      String    @default("pending") // pending | verified | used | expired
+  expiresAt   DateTime
+  verifiedAt  DateTime?
+  usedAt      DateTime?
+  usedByBotId String?
+
+  creator     Bot?      @relation("CreatedCodes", fields: [usedByBotId], references: [id])
+}
+
+model Lobby {
+  id           String    @id @default(cuid())
+  code         String    @unique // 5-char uppercase
+  agentSlots   Int
+  filledSlots  Int       @default(0)
+  opponents    String    @default("[]") // JSON array of opponent providers
+  tournamentId String?
+  status       String    @default("waiting") // waiting | started | expired
+  expiresAt    DateTime
+  createdAt    DateTime  @default(now())
+}
