@@ -1,0 +1,1151 @@
+--- Tue Mar 24 10:20:22 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:20:27 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:20:31 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:20:36 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:20:41 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:20:45 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:20:50 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:20:55 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:20:59 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:21:04 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:21:08 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:21:13 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:21:18 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:21:22 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:21:27 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:21:32 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:21:37 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:21:41 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:21:46 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:21:51 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:21:56 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:22:00 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:22:05 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:22:10 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:22:14 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:22:19 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:22:24 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:22:28 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:22:32 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:22:37 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:22:42 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:22:46 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:22:51 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:22:55 UTC 2026 poll resp: {"turn":null}
+--- Tue Mar 24 10:23:00 UTC 2026 poll resp: {"turn":null}
+[Tue Mar 24 10:27:39 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:27:41 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:27:44 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:27:47 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:27:49 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:27:51 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:27:53 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:27:56 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:27:58 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:00 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:02 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:05 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:07 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:10 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:12 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:15 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:17 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:19 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:22 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:24 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:26 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:28 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:31 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:33 UTC 2026] S0P2 floor=10 tokens=120 budget=8798.8 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:39 UTC 2026] S0P2 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> keep
+{"ok":true}[Tue Mar 24 10:28:53 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:55 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:57 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:28:59 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:29:02 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:29:04 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:29:07 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:29:09 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:29:11 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:29:14 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:29:16 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:29:18 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:29:21 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:29:23 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:29:25 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:29:28 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:29:30 UTC 2026] S0P3 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:30:04 UTC 2026] status=running consecutive_no_turn=10
+[Tue Mar 24 10:30:08 UTC 2026] S0P4 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:30:11 UTC 2026] S0P4 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:30:14 UTC 2026] S0P4 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:30:16 UTC 2026] S0P4 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:30:19 UTC 2026] S0P4 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:30:22 UTC 2026] S0P4 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:30:24 UTC 2026] S0P4 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:30:26 UTC 2026] S0P4 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:30:28 UTC 2026] S0P4 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:30:31 UTC 2026] S0P4 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:30:34 UTC 2026] S0P4 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:30:36 UTC 2026] S0P4 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:30:39 UTC 2026] S0P4 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:30:41 UTC 2026] S0P4 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:30:44 UTC 2026] S0P4 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:30:46 UTC 2026] S0P4 floor=10 tokens=120 budget=7538.799999999999 sp=0
+  --> bid 13
+[Tue Mar 24 10:31:05 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:08 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:10 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:12 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:14 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:17 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:19 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:21 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:24 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:26 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:28 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:30 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:33 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:35 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:37 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:39 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:42 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:44 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:47 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:49 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:51 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:54 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:56 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:31:59 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:01 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:03 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:06 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:09 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:11 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:13 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:16 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:19 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:21 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:23 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:26 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:28 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:30 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:33 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:35 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:38 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:40 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:43 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:45 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:48 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:50 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:52 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:55 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:57 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:32:59 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:02 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:04 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:07 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:09 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:11 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:13 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:16 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:18 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:20 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:23 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:25 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:28 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:30 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:32 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:34 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:36 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:39 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:41 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:43 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:46 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:48 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:50 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:53 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:55 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:33:58 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:00 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:03 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:05 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:07 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:10 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:12 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:14 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:17 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:19 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:22 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:24 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:26 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:28 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:31 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:34 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:36 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:38 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:41 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:43 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:46 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:48 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:50 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:53 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:55 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:34:57 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:00 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:02 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:05 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:07 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:09 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:12 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:14 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:17 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:19 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:21 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:24 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:26 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:28 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:30 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:33 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:35 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:38 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:40 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:42 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:44 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:46 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:35:49 UTC 2026] S1P0 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:36:22 UTC 2026] status=running consecutive_no_turn=10
+[Tue Mar 24 10:36:26 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:36:29 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:36:31 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:36:33 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:36:35 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:36:37 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:36:40 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:36:42 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:36:44 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:36:46 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:36:49 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:36:51 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:36:54 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:36:56 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:36:59 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:01 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:04 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:06 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:08 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:10 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:13 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:15 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:17 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:20 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:22 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:24 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:27 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:29 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:32 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:34 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:36 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:38 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:41 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:43 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:45 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:48 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:50 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:53 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:55 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:37:57 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:00 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:02 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:04 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:07 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:09 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:11 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:13 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:16 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:18 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:21 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:23 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:25 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:28 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:30 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:33 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:35 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:38 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:40 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:42 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:45 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:47 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:49 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:52 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:54 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:56 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:38:58 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:01 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:03 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:06 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:08 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:10 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:13 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:15 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:17 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:20 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:22 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:24 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:27 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:29 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:31 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:34 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:36 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:39 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:41 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:43 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:45 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:48 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:51 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:53 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:55 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:39:57 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:00 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:03 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:05 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:07 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:09 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:12 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:14 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:16 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:19 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:21 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:24 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:26 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:29 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:31 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:34 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:36 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:38 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:41 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:43 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:46 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:48 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:51 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:53 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:56 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:40:58 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:41:00 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:41:03 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:41:05 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:41:08 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:41:10 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:41:12 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:41:15 UTC 2026] S1P1 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:41:48 UTC 2026] status=running consecutive_no_turn=10
+[Tue Mar 24 10:42:09 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:12 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:14 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:17 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:19 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:22 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:24 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:26 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:28 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:30 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:33 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:35 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:37 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:39 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:42 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:45 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:47 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:49 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:51 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:53 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:56 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:42:58 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:00 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:03 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:05 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:07 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:10 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:12 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:15 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:17 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:19 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:22 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:24 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:27 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:29 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:32 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:34 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:37 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:39 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:41 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:44 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:46 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:49 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:51 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:54 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:56 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:43:59 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:01 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:03 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:05 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:07 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:10 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:12 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:14 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:16 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:19 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:21 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:23 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:26 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:28 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:30 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:33 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:35 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:37 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:39 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:42 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:44 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:46 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:49 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:51 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:53 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:55 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:44:58 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:00 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:02 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:04 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:07 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:09 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:11 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:13 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:15 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:18 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:20 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:22 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:24 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:27 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:29 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:32 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:34 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:36 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:39 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:41 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:44 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:46 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:49 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:51 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:53 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:56 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:45:59 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:01 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:03 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:05 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:08 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:10 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:12 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:14 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:17 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:19 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:22 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:24 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:27 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:29 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:31 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:34 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:36 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:38 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:41 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:43 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:46 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:48 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:50 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:53 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:46:55 UTC 2026] S1P2 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:21 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:23 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:25 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:27 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:30 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:32 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:34 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:37 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:39 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:41 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:43 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:46 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:48 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:50 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:53 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:56 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:47:58 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:00 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:02 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:05 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:07 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:09 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:12 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:14 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:16 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:19 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:21 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:23 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:26 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:28 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:30 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:33 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:35 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:37 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:40 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:42 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:44 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:46 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:48 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:51 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:53 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:55 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:48:58 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:01 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:03 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:06 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:08 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:11 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:13 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:15 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:18 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:20 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:22 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:25 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:28 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:30 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:32 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:35 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:37 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:39 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:42 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:44 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:46 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:48 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:50 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:52 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:55 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:57 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:49:59 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:01 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:03 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:05 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:08 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:11 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:13 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:15 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:18 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:21 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:23 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:25 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:28 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:30 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:32 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:34 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:37 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:39 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:41 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:44 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:46 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:49 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:51 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:53 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:55 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:50:58 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:00 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:02 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:05 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:08 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:10 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:12 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:15 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:17 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:20 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:22 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:24 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:28 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:30 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:33 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:35 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:38 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:40 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:43 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:45 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:47 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:50 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:52 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:54 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:57 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:51:59 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:52:01 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:52:03 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:52:05 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:52:07 UTC 2026] S1P3 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:52:41 UTC 2026] status=running consecutive_no_turn=10
+[Tue Mar 24 10:53:17 UTC 2026] status=running consecutive_no_turn=20
+[Tue Mar 24 10:53:51 UTC 2026] status=running consecutive_no_turn=30
+[Tue Mar 24 10:54:26 UTC 2026] status=running consecutive_no_turn=40
+[Tue Mar 24 10:55:01 UTC 2026] status=running consecutive_no_turn=50
+[Tue Mar 24 10:55:37 UTC 2026] status=running consecutive_no_turn=60
+[Tue Mar 24 10:56:12 UTC 2026] status=running consecutive_no_turn=70
+[Tue Mar 24 10:56:47 UTC 2026] status=running consecutive_no_turn=80
+[Tue Mar 24 10:57:22 UTC 2026] status=running consecutive_no_turn=90
+[Tue Mar 24 10:57:42 UTC 2026] S1P4 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:57:45 UTC 2026] S1P4 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:57:48 UTC 2026] S1P4 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
+[Tue Mar 24 10:57:50 UTC 2026] S1P4 floor=15 tokens=80 budget=7538.799999999999 sp=2
+  --> bid 18
