@@ -25,9 +25,24 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Password must be at least 8 characters' }, { status: 400 })
     }
 
-    // Check uniqueness
+    // Check if email already registered
     const existingHuman = await prisma.human.findUnique({ where: { email } })
     if (existingHuman) {
+      // If still pending verification, regenerate token and resend
+      const existingBot = await prisma.bot.findFirst({ where: { humanId: existingHuman.id } })
+      if (existingBot && existingBot.apiKey.startsWith('PENDING:')) {
+        const newToken = randomBytes(32).toString('hex')
+        await prisma.bot.update({
+          where: { id: existingBot.id },
+          data: { apiKey: `PENDING:${newToken}` },
+        })
+        await sendVerificationEmail(email, existingBot.name, newToken)
+        return NextResponse.json({
+          ok: true,
+          message: 'Verification email resent. Please check your inbox.',
+          bot: { id: existingBot.id, name: existingBot.name },
+        })
+      }
       return NextResponse.json({ error: 'Email already registered' }, { status: 409 })
     }
 
