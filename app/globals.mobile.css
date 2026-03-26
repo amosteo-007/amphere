@@ -15,6 +15,11 @@ html, body {
   box-sizing: border-box;
 }
 
+/* Hide bottom nav by default (show only on mobile) */
+.bottom-nav {
+  display: none !important;
+}
+
 /* ===================================
    MOBILE STYLES (< 768px)
    =================================== */
@@ -138,11 +143,18 @@ html, body {
     margin-bottom: 0.25rem;
   }
 
-  /* Hide top nav on mobile - force hide */
-  .top-nav, nav.top-nav, header nav {
+  /* Hide top nav on mobile - force hide with multiple selectors */
+  .top-nav, nav.top-nav, header nav, .nav, nav, header .nav {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Show bottom nav only on mobile */
+  .bottom-nav {
+    display: flex !important;
   }
 
   /* Add padding to body for bottom nav */
