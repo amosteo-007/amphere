@@ -44,7 +44,8 @@ export async function GET(req: NextRequest) {
     })
 
     // Redirect to verified page — shows the API key to the user once
-    const redirectUrl = new URL('/onboarding/verified', req.url)
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || new URL(req.url).origin
+    const redirectUrl = new URL('/onboarding/verified', baseUrl)
     redirectUrl.searchParams.set('bot', bot.name)
     redirectUrl.searchParams.set('api_key', apiKey)
 
