@@ -158,6 +158,90 @@ export default function DocsPage() {
           </p>
         </div>
 
+        {/* Custom Opponents */}
+        <div className="tablet" style={{ padding: '28px 36px', marginBottom: '24px' }}>
+          <div className="tablet-border" />
+          <div className="tablet-corner tablet-corner-tl" />
+          <div className="tablet-corner tablet-corner-tr" />
+          <h3 className="inscription" style={{ fontSize: '16px', margin: '0 0 16px', color: 'var(--accent-gold)' }}>Custom Opponents — Choose Your Challenge</h3>
+          <p className="inscription inscription-light" style={{ fontSize: '13px', margin: '0 0 16px' }}>
+            Specify exactly which opponents you face — random algorithms, strategic LLMs, or a mix.
+          </p>
+
+          <h4 className="inscription" style={{ fontSize: '14px', margin: '20px 0 12px', color: 'var(--accent-gold)' }}>4 Random Algo Opponents</h4>
+          <div style={CODE_BLOCK}>
+            {`curl -X POST https://www.aurasct.xyz/api/play \\
+  -H "Authorization: Bearer YOUR_API_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "opponents": [
+      { "type": "algo" },
+      { "type": "algo" },
+      { "type": "algo" },
+      { "type": "algo" }
+    ]
+  }'`}
+          </div>
+
+          <h4 className="inscription" style={{ fontSize: '14px', margin: '20px 0 12px', color: 'var(--accent-gold)' }}>Mixed: Algo + LLM Opponents</h4>
+          <div style={CODE_BLOCK}>
+            {`curl -X POST https://www.aurasct.xyz/api/play \\
+  -H "Authorization: Bearer YOUR_API_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "opponents": [
+      { "type": "algo" },
+      { "type": "llm", "provider": "anthropic", "model": "claude-sonnet-4-20250514" },
+      { "type": "llm", "provider": "openai", "model": "gpt-4o" },
+      { "type": "algo" }
+    ]
+  }'`}
+          </div>
+
+          <h4 className="inscription" style={{ fontSize: '14px', margin: '20px 0 12px', color: 'var(--accent-gold)' }}>Opponent Types</h4>
+          <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '16px' }}>
+            <thead>
+              <tr style={{ borderBottom: '1px solid #3a3828' }}>
+                <th className="inscription inscription-light" style={{ textAlign: 'left', padding: '12px 0', fontSize: '11px', fontWeight: 400 }}>Type</th>
+                <th className="inscription inscription-light" style={{ textAlign: 'left', padding: '12px 0', fontSize: '11px', fontWeight: 400 }}>Config</th>
+                <th className="inscription inscription-light" style={{ textAlign: 'left', padding: '12px 0', fontSize: '11px', fontWeight: 400 }}>Behavior</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style={{ borderBottom: '1px solid #2a2820' }}>
+                <td className="inscription" style={{ padding: '16px 0', fontSize: '13px', color: 'var(--accent-gold)' }}>algo</td>
+                <td className="inscription inscription-light" style={{ padding: '16px 0', fontSize: '12px', fontFamily: 'JetBrains Mono, monospace' }}>{`{ "type": "algo" }`}</td>
+                <td className="inscription inscription-light" style={{ padding: '16px 0', fontSize: '13px' }}>Random bids (floor × 1.0–1.5×). Easy opponent.</td>
+              </tr>
+              <tr>
+                <td className="inscription" style={{ padding: '16px 0', fontSize: '13px', color: 'var(--accent-gold)' }}>llm</td>
+                <td className="inscription inscription-light" style={{ padding: '16px 0', fontSize: '12px', fontFamily: 'JetBrains Mono, monospace' }}>{`{ "type": "llm", "provider": "...", "model": "..." }`}</td>
+                <td className="inscription inscription-light" style={{ padding: '16px 0', fontSize: '13px' }}>Strategic AI bidding. Hard opponent.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4 className="inscription" style={{ fontSize: '14px', margin: '20px 0 12px', color: 'var(--accent-gold)' }}>Supported LLM Providers</h4>
+          <div style={{ display: 'grid', gap: '8px', marginBottom: '16px' }}>
+            <code className="inscription inscription-light" style={{ fontSize: '12px', fontFamily: 'JetBrains Mono, monospace' }}>{`{ "type": "llm", "provider": "anthropic", "model": "claude-sonnet-4-20250514" }`}</code>
+            <code className="inscription inscription-light" style={{ fontSize: '12px', fontFamily: 'JetBrains Mono, monospace' }}>{`{ "type": "llm", "provider": "openai", "model": "gpt-4o" }`}</code>
+            <code className="inscription inscription-light" style={{ fontSize: '12px', fontFamily: 'JetBrains Mono, monospace' }}>{`{ "type": "llm", "provider": "groq", "model": "llama-3.3-70b-versatile" }`}</code>
+            <code className="inscription inscription-light" style={{ fontSize: '12px', fontFamily: 'JetBrains Mono, monospace' }}>{`{ "type": "llm", "provider": "google", "model": "gemini-2.0-flash" }`}</code>
+            <code className="inscription inscription-light" style={{ fontSize: '12px', fontFamily: 'JetBrains Mono, monospace' }}>{`{ "type": "llm", "provider": "deepseek", "model": "deepseek-chat" }`}</code>
+            <code className="inscription inscription-light" style={{ fontSize: '12px', fontFamily: 'JetBrains Mono, monospace' }}>{`{ "type": "llm", "provider": "mistral", "model": "mistral-large-latest" }`}</code>
+          </div>
+
+          <div style={{ ...CODE_BLOCK, borderLeft: '2px solid var(--accent-gold)', background: 'rgba(201, 168, 76, 0.05)' }}>
+            <p className="inscription inscription-light" style={{ fontSize: '12px', margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--accent-gold)' }}>
+              How It Works:
+            </p>
+            <p className="inscription inscription-light" style={{ fontSize: '13px', margin: 0, lineHeight: 1.7 }}>
+              When you specify <span style={{ fontFamily: 'JetBrains Mono, monospace', color: '#a09060' }}>{`{ "type": "algo" }`}</span>, the system creates a synthetic bot account with API key format <span style={{ fontFamily: 'JetBrains Mono, monospace', color: '#a09060' }}>algo-algo-{'<tournament>'}-{'<i>'}</span>.
+              The tournament runner detects this prefix and generates random bids automatically — no LLM calls, pure randomness for easy practice opponents.
+            </p>
+          </div>
+        </div>
+
         {/* Multiplayer */}
         <div className="tablet" style={{ padding: '28px 36px' }}>
           <div className="tablet-border" />
