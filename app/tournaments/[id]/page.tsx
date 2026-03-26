@@ -39,7 +39,7 @@ interface TournamentState {
 }
 
 const STAGE_NAMES = ['Stage 1 — Floor $10', 'Stage 2 — Floor $15', 'Stage 3 — Floor $28']
-const STAGE_COLORS = ['#4a9eff', '#9b7aff', '#ff7a4a']
+const STAGE_COLORS = ['#c9a84c', '#a68a3a', '#8a6e2a'] // Gold tones matching colosseum theme
 
 function SpBadge({ sp }: { sp: number }) {
   return (
@@ -101,7 +101,7 @@ function BotRow({ entry, isWinner }: { entry: LeaderboardEntry; isWinner: boolea
   )
 }
 
-function TokenChip({ value, color, label }: { value: number; color: string; label: string }) {
+function TokenChip({ value, color }: { value: number; color: string; label?: string }) {
   if (value === 0) {
     return (
       <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', color: '#3d3525', minWidth: '32px', textAlign: 'center' }}>
@@ -128,7 +128,8 @@ function TokenChip({ value, color, label }: { value: number; color: string; labe
 
 
 // Assign a consistent color to each bot across the chart
-const BOT_COLORS = ['#c9a84c', '#4a9eff', '#9b7aff', '#ff7a4a', '#4aff7a', '#ff4a9b', '#4affff', '#ffff4a']
+// Colosseum-themed bot colors: gold, bronze, copper, sand, terracotta, olive, stone, amber
+const BOT_COLORS = ['#c9a84c', '#cd7f32', '#b87333', '#d4b896', '#c67a4a', '#8a9a5b', '#9a8e7a', '#e6a817']
 
 function BidChart({ periodLogs, leaderboard }: { periodLogs: PeriodLog[]; leaderboard: LeaderboardEntry[] }) {
   // Sort chronologically

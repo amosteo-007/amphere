@@ -60,6 +60,13 @@ async function runTournamentLoop(tournamentId: string, isStopped: () => boolean)
     const stageConfig = STAGE_CONFIGS[currentStage]
     const absolutePeriod = currentStage * 5 + currentPeriod
 
+    // Update tournament position BEFORE collecting bids so pending-human-turn
+    // returns the correct period to polling bots
+    await prisma.tournament.update({
+      where: { id: tournamentId },
+      data: { currentStage, currentPeriod },
+    })
+
     // Collect bids for this period (polls DB + generates algo/LLM bids)
     const { bids, rescindBotIds } = await collectBids(tournamentId, currentStage, currentPeriod, isStopped)
     if (isStopped()) break
@@ -214,14 +221,17 @@ async function generateAlgoBids(
       const isLLM = parts.length >= 4 && parts[1] !== 'algo'
 
       if (isLLM) {
+        let llmBid: number | null = null
         try {
           const { getLLMBid } = await import('./llm-bidding')
-          const bid = await getLLMBid(bt.bot.apiKey, context)
-          if (bid !== null) {
-            algoBids.set(bt.botId, bid)
-          }
+          llmBid = await getLLMBid(bt.bot.apiKey, context)
         } catch (err) {
           console.error('[generateAlgoBids] LLM bid error:', err)
+        }
+        if (llmBid !== null) {
+          algoBids.set(bt.botId, llmBid)
+        } else {
+          // LLM returned null (unsupported provider, skip, or error) — use algo fallback
           const bid = algoStrategyBid(bt.botSlot, stageConfig.floorPrice, stage, period, bt.budgetRemaining, tokensHeld, bt.sp)
           if (bid !== null) algoBids.set(bt.botId, bid)
         }
@@ -465,6 +475,14 @@ async function resolveCurrentPeriod(
     // Budget refund happens now (minus tax cost handled at reveal)
   }
 
+  // Map botId → botSlot for human-readable names in stored logs
+  const slotMap = new Map(botTournaments.map(bt => [bt.botId, bt.botSlot]))
+  const toSlot = (id: string) => slotMap.get(id) ?? id
+
+  const namedBids = result.allBids.map(b => ({ botId: toSlot(b.botId), bid: b.bid }))
+  const namedAllocations = result.allocations.map(a => ({ ...a, botId: toSlot(a.botId) }))
+  const namedWinner = result.winnerBotId ? toSlot(result.winnerBotId) : null
+
   // Persist period log
   await prisma.periodLog.create({
     data: {
@@ -473,19 +491,13 @@ async function resolveCurrentPeriod(
       period,
       absolutePeriod,
       clearingPrice: result.clearingPrice,
-      winnerBotId: result.winnerBotId,
+      winnerBotId: namedWinner,
       tokensAvailable: result.tokensAvailable,
       numBidders: result.numBidders,
-      allBids: JSON.stringify(result.allBids),
-      allocations: JSON.stringify(result.allocations),
+      allBids: JSON.stringify(namedBids),
+      allocations: JSON.stringify(namedAllocations),
       rescindDetail: rescindDetail ? JSON.stringify(rescindDetail) : null,
     },
-  })
-
-  // Advance tournament position
-  await prisma.tournament.update({
-    where: { id: tournamentId },
-    data: { currentStage: stage, currentPeriod: period },
   })
 
   // Update winner's BotTournament record
