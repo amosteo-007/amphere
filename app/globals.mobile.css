@@ -15,9 +15,16 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Hide bottom nav by default (show only on mobile) */
+/* Hide bottom nav by default (show only on mobile via media query) */
 .bottom-nav {
   display: none !important;
+}
+
+/* Hide all nav on mobile except bottom-nav */
+@media (max-width: 767px) {
+  nav:not(.bottom-nav) {
+    display: none !important;
+  }
 }
 
 /* ===================================
@@ -143,8 +150,8 @@ html, body {
     margin-bottom: 0.25rem;
   }
 
-  /* Hide top nav on mobile - force hide with multiple selectors */
-  .top-nav, nav.top-nav, header nav, .nav, nav, header .nav {
+  /* Hide top/inline nav on mobile - force hide */
+  nav:not(.bottom-nav) {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
