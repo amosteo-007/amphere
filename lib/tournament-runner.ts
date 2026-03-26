@@ -88,6 +88,8 @@ async function runTournamentLoop(tournamentId: string, isStopped: () => boolean)
 
     currentPeriod++
     if (currentPeriod >= 5) {
+      // Award SP at end of each stage (live leaderboard update)
+      await awardStageSP(tournamentId, currentStage)
       currentPeriod = 0
       currentStage++
     }
@@ -556,33 +558,41 @@ async function resolveCurrentPeriod(
   return result
 }
 
+/**
+ * Award SP at the end of a single stage (called live during the tournament loop).
+ * Uses cumulative tokens (carryforward from all prior stages).
+ */
+async function awardStageSP(tournamentId: string, stage: number) {
+  const botTournaments = await prisma.botTournament.findMany({
+    where: { tournamentId },
+  })
+
+  const ranked = [...botTournaments]
+    .map(bt => {
+      const tokens = JSON.parse(bt.tokensPerStage) as [number, number, number]
+      const cumulative = tokens.slice(0, stage + 1).reduce((a, b) => a + b, 0)
+      return { bt, cumulative }
+    })
+    .filter(x => x.cumulative > 0)
+    .sort((a, b) => b.cumulative - a.cumulative)
+
+  const spAwards = [3, 2, 1]
+  for (let i = 0; i < Math.min(3, ranked.length); i++) {
+    await prisma.botTournament.update({
+      where: { id: ranked[i].bt.id },
+      data: { sp: { increment: spAwards[i] } },
+    })
+  }
+}
+
 async function finalizeTournament(tournamentId: string) {
   const botTournaments = await prisma.botTournament.findMany({
     where: { tournamentId },
     include: { bot: true },
   })
 
-  // Award stage SP (1st=3, 2nd=2, 3rd=1) for each stage
-  // Uses cumulative tokens (carryforward from all prior stages)
-  for (let stage = 0; stage < 3; stage++) {
-    const ranked = [...botTournaments]
-      .map(bt => {
-        const tokens = JSON.parse(bt.tokensPerStage) as [number, number, number]
-        // Cumulative: sum all stages up to and including current
-        const cumulative = tokens.slice(0, stage + 1).reduce((a, b) => a + b, 0)
-        return { bt, cumulative }
-      })
-      .filter(x => x.cumulative > 0)
-      .sort((a, b) => b.cumulative - a.cumulative)
-
-    const spAwards = [3, 2, 1]
-    for (let i = 0; i < Math.min(3, ranked.length); i++) {
-      await prisma.botTournament.update({
-        where: { id: ranked[i].bt.id },
-        data: { sp: { increment: spAwards[i] } },
-      })
-    }
-  }
+  // Stage SP already awarded live via awardStageSP() after each stage.
+  // Only award bonus SP here.
 
   // Award bonus SP to highest cumulative weighted points
   const wpScores = calculateWeightedPoints(

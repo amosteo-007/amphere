@@ -27,6 +27,13 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       return NextResponse.json({ error: 'Tournament not found' }, { status: 404 })
     }
 
+    // Build slot-to-name map for translating period log IDs
+    const slotToName = new Map<string, string>()
+    for (const bt of tournament.bots) {
+      slotToName.set(bt.botSlot, bt.bot.name)
+    }
+    const toName = (slot: string) => slotToName.get(slot) ?? slot
+
     // Build leaderboard
     const leaderboard = tournament.bots.map(bt => {
       const tokens = JSON.parse(bt.tokensPerStage) as [number, number, number]
@@ -52,18 +59,24 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
         current_period: tournament.currentPeriod,
         leaderboard,
       },
-      period_logs: tournament.periodLogs.map(pl => ({
-        stage: pl.stage,
-        period: pl.period,
-        absolute_period: pl.absolutePeriod,
-        clearing_price: pl.clearingPrice,
-        winner_bot_id: pl.winnerBotId,
-        tokens_available: pl.tokensAvailable,
-        rescinded: !!pl.rescindDetail,
-        num_bidders: pl.numBidders,
-        allocations: JSON.parse(pl.allocations),
-        all_bids: JSON.parse(pl.allBids),
-      })),
+      period_logs: tournament.periodLogs.map(pl => {
+        const allBids = (JSON.parse(pl.allBids) as { botId: string; bid: number | null }[])
+          .map(b => ({ ...b, botId: toName(b.botId) }))
+        const allocations = (JSON.parse(pl.allocations) as { botId: string; tokensWon: number; totalPaid: number }[])
+          .map(a => ({ ...a, botId: toName(a.botId) }))
+        return {
+          stage: pl.stage,
+          period: pl.period,
+          absolute_period: pl.absolutePeriod,
+          clearing_price: pl.clearingPrice,
+          winner_bot_id: pl.winnerBotId ? toName(pl.winnerBotId) : null,
+          tokens_available: pl.tokensAvailable,
+          rescinded: !!pl.rescindDetail,
+          num_bidders: pl.numBidders,
+          allocations,
+          all_bids: allBids,
+        }
+      }),
     })
   } catch (err) {
     console.error('[tournament GET error]', err)
