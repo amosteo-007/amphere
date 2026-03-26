@@ -13,22 +13,17 @@ interface LeaderboardEntry {
   total_sp: number
 }
 
-function SpBadge({ sp }: { sp: number }) {
-  const color = sp >= 8 ? '#c9a84c' : sp >= 5 ? '#8a7e60' : '#3d3525'
-  return (
-    <span style={{
-      display: 'inline-block',
-      background: color,
-      color: sp >= 5 ? '#1a1710' : '#f5f0e8',
-      borderRadius: '4px',
-      padding: '2px 8px',
-      fontSize: '12px',
-      fontWeight: 600,
-      fontFamily: 'DM Mono, monospace',
-    }}>
-      {sp} SP
-    </span>
-  )
+function RankBadge({ rank }: { rank: number }) {
+  if (rank === 1) {
+    return <span className="rank-badge rank-1">1</span>
+  }
+  if (rank === 2) {
+    return <span className="rank-badge rank-2">2</span>
+  }
+  if (rank === 3) {
+    return <span className="rank-badge rank-3">3</span>
+  }
+  return <span className="rank-badge rank-default">{rank}</span>
 }
 
 export default function LeaderboardPage() {
@@ -65,98 +60,90 @@ export default function LeaderboardPage() {
   ]
 
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '40px 24px' }}>
-      {/* Nav */}
-      <nav style={{ display: 'flex', gap: '32px', marginBottom: '48px', alignItems: 'center' }}>
-        <Link href="/" style={{ fontFamily: 'Playfair Display, serif', fontSize: '22px', fontWeight: 700, color: '#f5f0e8' }}>
-          Aurasct
+    <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '60px 32px' }}>
+      {/* Navigation */}
+      <nav style={{ display: 'flex', gap: '48px', marginBottom: '80px', alignItems: 'center', borderBottom: '1px solid var(--border-dark)', paddingBottom: '32px' }}>
+        <Link href="/" style={{ fontFamily: 'Cinzel, serif', fontSize: '24px', fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '0.05em' }}>
+          AURASCT
         </Link>
-        <div style={{ display: 'flex', gap: '24px', fontSize: '13px' }}>
-          <Link href="/tournaments">Tournaments</Link>
-          <Link href="/leaderboard">Leaderboard</Link>
-          <Link href="/agents">Agents</Link>
-          <Link href="/docs">Docs</Link>
+        <div style={{ display: 'flex', gap: '36px', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
+          <Link href="/tournaments" className="nav-link">Tournaments</Link>
+          <Link href="/leaderboard" className="nav-link" style={{ color: 'var(--accent-ember)' }}>Leaderboard</Link>
+          <Link href="/agents" className="nav-link">Agents</Link>
+          <Link href="/docs" className="nav-link">Docs</Link>
         </div>
       </nav>
 
       {/* Header */}
-      <div style={{ marginBottom: '40px' }}>
-        <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: '48px', margin: '0 0 8px' }}>Leaderboard</h1>
-        <p style={{ color: '#8a7e60', margin: 0 }}>
-          {liveCount > 0 ? `${liveCount} tournaments in progress` : 'Top agents by SP'}
-        </p>
-      </div>
+      <header style={{ marginBottom: '48px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+        <div>
+          <h1 style={{ fontFamily: 'Cinzel, serif', fontSize: 'clamp(48px, 8vw, 72px)', fontWeight: 700, margin: '0 0 12px', letterSpacing: '0.02em', lineHeight: 1.1 }}>
+            Leaderboard
+          </h1>
+          <p style={{ fontSize: '15px', color: 'var(--text-secondary)', margin: 0 }}>
+            {liveCount > 0 ? `${liveCount} tournaments in progress` : 'Champions ranked by Strategic Points'}
+          </p>
+        </div>
+        {liveCount > 0 && (
+          <Link href="/tournaments">
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+              padding: '12px 20px',
+              background: 'rgba(232, 93, 4, 0.1)',
+              border: '1px solid rgba(232, 93, 4, 0.3)',
+              borderRadius: '4px',
+            }}>
+              <span style={{ width: '8px', height: '8px', background: 'var(--accent-ember)', borderRadius: '50%', animation: 'pulse-glow 2s infinite' }} />
+              <span style={{ color: 'var(--accent-ember)', fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                {liveCount} Live
+              </span>
+            </div>
+          </Link>
+        )}
+      </header>
 
-      {/* Live tournaments banner */}
-      {liveCount > 0 && (
-        <Link href="/tournaments" style={{ display: 'block', marginBottom: '24px' }}>
-          <div style={{
-            background: '#2a2518',
-            border: '1px solid #c9a84c',
-            borderRadius: '8px',
-            padding: '16px 24px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-          }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#c9a84c', display: 'inline-block', animation: 'pulse 1.5s infinite' }} />
-            <span style={{ color: '#c9a84c', fontWeight: 600 }}>{liveCount} live tournament{liveCount > 1 ? 's' : ''}</span>
-            <span style={{ color: '#8a7e60' }}>— watch now</span>
-          </div>
-        </Link>
-      )}
-
-      {/* Table */}
+      {/* Rankings Table */}
       {loading ? (
         <div className="loading" />
       ) : (
         <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '14px' }}>
+          <table>
             <thead>
-              <tr style={{ borderBottom: '1px solid #3d3525', textAlign: 'left', color: '#8a7e60', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                <th style={{ padding: '16px 24px' }}>Rank</th>
-                <th style={{ padding: '16px 24px' }}>Agent</th>
-                <th style={{ padding: '16px 24px' }}>SP</th>
-                <th style={{ padding: '16px 24px' }}>Win Rate</th>
-                <th style={{ padding: '16px 24px' }}>Tournaments</th>
-                <th style={{ padding: '16px 24px' }}>Total SP</th>
+              <tr>
+                <th style={{ width: '80px', paddingLeft: '28px' }}>Rank</th>
+                <th>Agent</th>
+                <th>Last SP</th>
+                <th>Win Rate</th>
+                <th>Battles</th>
+                <th>Total SP</th>
               </tr>
             </thead>
             <tbody>
-              {entries.map((entry, i) => (
-                <tr key={entry.bot_id} style={{ borderBottom: i < entries.length - 1 ? '1px solid #3d3525' : 'none' }}>
-                  <td style={{ padding: '16px 24px' }}>
-                    <span style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: '28px',
-                      height: '28px',
-                      borderRadius: '50%',
-                      background: entry.rank === 1 ? '#c9a84c' : entry.rank <= 3 ? '#3d3525' : 'transparent',
-                      color: entry.rank <= 3 ? '#1a1710' : '#8a7e60',
-                      fontWeight: 700,
-                      fontSize: '13px',
-                    }}>
-                      {entry.rank}
-                    </span>
+              {entries.map((entry) => (
+                <tr key={entry.bot_id}>
+                  <td style={{ paddingLeft: '28px' }}>
+                    <RankBadge rank={entry.rank} />
                   </td>
-                  <td style={{ padding: '16px 24px' }}>
-                    <Link href={`/agents/${encodeURIComponent(entry.bot_id)}`} style={{ color: '#f5f0e8', fontFamily: 'DM Mono, monospace' }}>
+                  <td>
+                    <Link href={`/agents/${encodeURIComponent(entry.bot_id)}`} style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '15px', color: 'var(--text-primary)' }}>
                       {entry.bot_id}
                     </Link>
                   </td>
-                  <td style={{ padding: '16px 24px' }}>
-                    <SpBadge sp={entry.sp} />
+                  <td>
+                    <span className="sp-badge">{entry.sp} SP</span>
                   </td>
-                  <td style={{ padding: '16px 24px', color: '#8a7e60' }}>
+                  <td style={{ color: entry.win_rate >= 0.5 ? 'var(--accent-gold)' : 'var(--text-secondary)' }}>
                     {(entry.win_rate * 100).toFixed(0)}%
                   </td>
-                  <td style={{ padding: '16px 24px', color: '#8a7e60' }}>
+                  <td style={{ color: 'var(--text-secondary)' }}>
                     {entry.tournaments_played}
                   </td>
-                  <td style={{ padding: '16px 24px', fontFamily: 'DM Mono, monospace', color: '#8a7e60' }}>
-                    {entry.total_sp}
+                  <td>
+                    <span style={{ fontFamily: 'JetBrains Mono, monospace', color: 'var(--accent-gold)' }}>
+                      {entry.total_sp}
+                    </span>
                   </td>
                 </tr>
               ))}
@@ -165,12 +152,17 @@ export default function LeaderboardPage() {
         </div>
       )}
 
-      <style>{`
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.4; }
-        }
-      `}</style>
+      {/* Footer stats */}
+      {!loading && entries.length > 0 && (
+        <div style={{ marginTop: '32px', display: 'flex', gap: '48px', color: 'var(--text-muted)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+          <div>
+            <span style={{ color: 'var(--text-secondary)' }}>{entries.length}</span> ranked agents
+          </div>
+          <div>
+            <span style={{ color: 'var(--accent-gold)' }}>{entries.reduce((acc, e) => acc + e.total_sp, 0)}</span> total SP awarded
+          </div>
+        </div>
+      )}
     </div>
   )
 }

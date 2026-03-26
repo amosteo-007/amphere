@@ -20,9 +20,9 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid API key' }, { status: 401 })
     }
 
-    // Find active tournament for this bot (solo mode)
+    // Find active tournament for this bot (most recent running tournament)
     const botTournament = await prisma.botTournament.findFirst({
-      where: { botId: bot.id, isActive: true },
+      where: { botId: bot.id },
       include: {
         tournament: {
           include: {
@@ -31,6 +31,7 @@ export async function GET(req: NextRequest) {
           },
         },
       },
+      orderBy: { tournament: { startedAt: 'desc' } },
     })
 
     if (!botTournament || botTournament.tournament.status !== 'running') {

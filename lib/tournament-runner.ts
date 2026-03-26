@@ -1,23 +1,27 @@
 /**
  * Tournament Runner
  *
- * This module manages the active tournament loop.
- * It advances periods, resolves auctions, and emits WebSocket events.
+ * Manages the active tournament loop.
+ * Advances periods, resolves auctions, and emits Socket.IO events.
  *
- * In production this runs as a background job (e.g., BullMQ, Inngest, or cron).
- * Here we implement it as an in-process runner for simplicity.
+ * Flow:
+ * 1. POST /api/play creates tournament in DB → calls startTournament()
+ * 2. startTournament() returns ActiveRunner immediately, loop runs in background
+ * 3. Runner loop: collectBids() → resolveCurrentPeriod() → emit period_result
+ * 4. On completion: finalizeTournament() → emit tournament_complete
+ *
+ * Socket.IO events emitted:
+ *   period_result       → broadcast to tournament room (tournament:<id>)
+ *   tournament_complete → broadcast to tournament room
+ *   turn_notification   → sent to individual bot room (bot:<id>)
  */
 
 import { prisma } from './db'
 import { STAGE_CONFIGS, resolvePeriod, calculateWeightedPoints } from './auction-engine'
+import { getIO } from './socket-server'
 
 const PERIOD_INTERVAL_MS = 15_000 // 15 seconds per period
-const RESOLUTION_DELAY_MS = 3_000 // 3 seconds after all bids received
-
-interface TournamentRunner {
-  tournamentId: string
-  stop: () => void
-}
+const RESOLUTION_DELAY_MS = 3_000 // 3 seconds before closing bids
 
 interface ActiveRunner {
   stop: () => void
@@ -25,40 +29,42 @@ interface ActiveRunner {
 
 const activeRunners = new Map<string, ActiveRunner>()
 
-export async function startTournament(tournamentId: string): Promise<ActiveRunner> {
-  // Cancel any existing runner for this tournament
+/**
+ * Start the tournament loop in the background.
+ * Returns immediately with an ActiveRunner that can stop the loop.
+ */
+export function startTournament(tournamentId: string): ActiveRunner {
   const existing = activeRunners.get(tournamentId)
   if (existing) existing.stop()
 
-  const runner = runTournamentLoop(tournamentId)
+  let stopped = false
+  const stop = () => { stopped = true }
+  const runner: ActiveRunner = { stop }
   activeRunners.set(tournamentId, runner)
+
+  // Fire-and-forget: loop runs in background
+  runTournamentLoop(tournamentId, () => stopped).catch(err => {
+    console.error(`[runner] Fatal error in tournament ${tournamentId}:`, err)
+  }).finally(() => {
+    activeRunners.delete(tournamentId)
+  })
+
   return runner
 }
 
-async function runTournamentLoop(tournamentId: string): Promise<ActiveRunner> {
+async function runTournamentLoop(tournamentId: string, isStopped: () => boolean) {
   let currentStage = 0
   let currentPeriod = 0
-  let resolved = false
-  let timeoutId: NodeJS.Timeout | null = null
 
-  const stop = () => {
-    if (timeoutId) clearTimeout(timeoutId)
-    resolved = true
-  }
-
-  while (!resolved) {
-    // Wait for all bots to submit bids OR period timeout
+  while (!isStopped()) {
     const stageConfig = STAGE_CONFIGS[currentStage]
     const absolutePeriod = currentStage * 5 + currentPeriod
 
-    // Collect bids for this period
-    const bids = await collectBids(tournamentId, currentStage, currentPeriod)
+    // Collect bids for this period (polls DB + generates algo/LLM bids)
+    const bids = await collectBids(tournamentId, currentStage, currentPeriod, isStopped)
+    if (isStopped()) break
 
-    if (bids.size === 0 && currentStage === 0 && currentPeriod === 0) {
-      // No bids at start — run the period anyway
-    }
-
-    // Resolve period
+    // Resolve auction and persist results
     const result = await resolveCurrentPeriod(
       tournamentId,
       currentStage,
@@ -67,11 +73,11 @@ async function runTournamentLoop(tournamentId: string): Promise<ActiveRunner> {
       bids,
       stageConfig
     )
+    if (isStopped()) break
 
-    // Emit WebSocket event
+    // Emit live update to all watchers
     emitPeriodResult(tournamentId, result)
 
-    // Advance
     currentPeriod++
     if (currentPeriod >= 5) {
       currentPeriod = 0
@@ -79,32 +85,28 @@ async function runTournamentLoop(tournamentId: string): Promise<ActiveRunner> {
     }
 
     if (currentStage >= 3) {
-      // Tournament complete
       await finalizeTournament(tournamentId)
-      resolved = true
       break
     }
 
-    // Schedule next period
+    // Wait before next period
     await sleep(PERIOD_INTERVAL_MS)
   }
-
-  return { stop }
 }
 
 async function collectBids(
   tournamentId: string,
   stage: number,
-  period: number
+  period: number,
+  isStopped: () => boolean
 ): Promise<Map<string, number>> {
   const bids = new Map<string, number>()
 
-  // Poll for all bot bids for this stage/period
   const maxWait = PERIOD_INTERVAL_MS - RESOLUTION_DELAY_MS
   const pollInterval = 500
   let waited = 0
 
-  while (waited < maxWait) {
+  while (waited < maxWait && !isStopped()) {
     const botBids = await prisma.bid.findMany({
       where: { tournamentId, stage, period },
     })
@@ -115,13 +117,13 @@ async function collectBids(
       }
     }
 
-    // Also include algo bot decisions (generated on-the-fly)
+    // Generate algo/LLM bids for non-human opponents
     const algoBids = await generateAlgoBids(tournamentId, stage, period, bids)
     for (const [botId, bid] of algoBids) {
       if (!bids.has(botId)) bids.set(botId, bid)
     }
 
-    if (bids.size >= 2) break // At least 2 bots have bid
+    if (bids.size >= 2) break
 
     await sleep(pollInterval)
     waited += pollInterval
@@ -134,7 +136,7 @@ async function generateAlgoBids(
   tournamentId: string,
   stage: number,
   period: number,
-  humanBids: Map<string, number>
+  _existingBids: Map<string, number>
 ): Promise<Map<string, number>> {
   const algoBids = new Map<string, number>()
 
@@ -145,18 +147,110 @@ async function generateAlgoBids(
 
   const stageConfig = STAGE_CONFIGS[stage]
 
+  const periodLogs = await prisma.periodLog.findMany({
+    where: { tournamentId },
+    orderBy: { absolutePeriod: 'asc' },
+  })
+
+  const leaderboard = buildLeaderboard(algoBots, periodLogs)
+
+  const history = periodLogs.slice(-5).map(pl => ({
+    stage: pl.stage,
+    period: pl.period,
+    allBids: JSON.parse(pl.allBids) as { botId: string; bid: number | null }[],
+    clearingPrice: pl.clearingPrice,
+    winnerBotId: pl.winnerBotId,
+  }))
+
   for (const bt of algoBots) {
     if (bt.bot.subscriptionTier === 'algo' || bt.bot.apiKey.startsWith('algo-')) {
-      // Simple algo: bid floor + small random
-      const floor = stageConfig.floorPrice
-      const bid = Math.random() < 0.7
-        ? floor * (1 + Math.random() * 0.1) // 70% chance: bid just above floor
-        : floor * (1.3 + Math.random() * 0.5) // 30% chance: aggressive
-      algoBids.set(bt.botId, Math.round(bid * 100) / 100)
+      const tokensHeld = getTokensHeldForBot(bt.botId, stage, periodLogs)
+
+      const context = {
+        stage,
+        period,
+        floorPrice: stageConfig.floorPrice,
+        tokensAvailable: stageConfig.tokensPerPeriod,
+        remainingBudget: bt.budgetRemaining,
+        tokensHeld,
+        weightedPoints: bt.weightedPoints,
+        leaderboard,
+        history,
+      }
+
+      // LLM opponent: apiKey encoded as algo-<provider>-<model>-<tournamentId>
+      if (bt.bot.apiKey.startsWith('algo-') && bt.bot.apiKey.split('-').length >= 4) {
+        try {
+          const { getLLMBid } = await import('./llm-bidding')
+          const bid = await getLLMBid(bt.bot.apiKey, context)
+          if (bid !== null) {
+            algoBids.set(bt.botId, bid)
+          }
+        } catch (err) {
+          console.error('[generateAlgoBids] LLM bid error:', err)
+          const bid = fallbackAlgoBid(stageConfig.floorPrice)
+          if (bid !== null) algoBids.set(bt.botId, bid)
+        }
+      } else {
+        // Pure algo bot: simple probabilistic bid
+        const bid = fallbackAlgoBid(stageConfig.floorPrice)
+        if (bid !== null) algoBids.set(bt.botId, bid)
+      }
     }
   }
 
   return algoBids
+}
+
+function fallbackAlgoBid(floor: number): number | null {
+  const rand = Math.random()
+  if (rand < 0.15) return null // skip
+  if (rand < 0.85) return Math.round(floor * (1 + Math.random() * 0.1) * 100) / 100
+  return Math.round(floor * (1.3 + Math.random() * 0.5) * 100) / 100
+}
+
+function buildLeaderboard(
+  botTournaments: { botId: string; botSlot: string; bot: { name: string }; tokensPerStage: string; weightedPoints: number; sp: number }[],
+  periodLogs: { stage: number; allocations: string }[]
+): { botId: string; botSlot: string; tokensPerStage: number[]; weightedPoints: number }[] {
+  const tokenMap = new Map<string, [number, number, number]>()
+
+  for (const bt of botTournaments) {
+    tokenMap.set(bt.botId, [0, 0, 0])
+  }
+
+  for (const log of periodLogs) {
+    const alloc = JSON.parse(log.allocations) as { botId: string; tokensWon: number }[]
+    for (const a of alloc) {
+      const [s1, s2, s3] = tokenMap.get(a.botId) ?? [0, 0, 0]
+      if (log.stage === 0) tokenMap.set(a.botId, [s1 + a.tokensWon, s2, s3])
+      else if (log.stage === 1) tokenMap.set(a.botId, [s1, s2 + a.tokensWon, s3])
+      else if (log.stage === 2) tokenMap.set(a.botId, [s1, s2, s3 + a.tokensWon])
+    }
+  }
+
+  return botTournaments.map(bt => ({
+    botId: bt.botId,
+    botSlot: bt.botSlot ?? bt.bot.name,
+    tokensPerStage: tokenMap.get(bt.botId) ?? [0, 0, 0],
+    weightedPoints: bt.weightedPoints,
+  }))
+}
+
+function getTokensHeldForBot(
+  botId: string,
+  upToStage: number,
+  periodLogs: { stage: number; allocations: string }[]
+): number {
+  let tokens = 0
+  for (const log of periodLogs) {
+    if (log.stage > upToStage) break
+    const alloc = JSON.parse(log.allocations) as { botId: string; tokensWon: number }[]
+    for (const a of alloc) {
+      if (a.botId === botId) tokens += a.tokensWon
+    }
+  }
+  return tokens
 }
 
 async function resolveCurrentPeriod(
@@ -167,7 +261,6 @@ async function resolveCurrentPeriod(
   bids: Map<string, number>,
   stageConfig: { floorPrice: number; tokensPerPeriod: number; stageNumber: number; multiplier: number }
 ) {
-  // Get current token holdings
   const botTournaments = await prisma.botTournament.findMany({
     where: { tournamentId },
     include: { bot: true },
@@ -175,29 +268,25 @@ async function resolveCurrentPeriod(
 
   const tokensHeld = new Map<string, number>()
   const paidThisStage = new Map<string, number>()
-  const tokensPerStageMap = new Map<string, [number, number, number]>()
 
   for (const bt of botTournaments) {
     tokensHeld.set(bt.botId, 0)
     paidThisStage.set(bt.botId, 0)
-    tokensPerStageMap.set(bt.botId, [0, 0, 0])
   }
 
-  // Get previous period logs for this tournament to rebuild state
+  // Rebuild token holdings from period logs
   const prevLogs = await prisma.periodLog.findMany({
     where: { tournamentId, absolutePeriod: { lt: absolutePeriod } },
     orderBy: { absolutePeriod: 'asc' },
   })
 
   for (const log of prevLogs) {
-    const alloc = JSON.parse(log.allocations) as any[]
+    const alloc = JSON.parse(log.allocations) as { botId: string; tokensWon: number; totalPaid: number }[]
     for (const a of alloc) {
-      const held = tokensHeld.get(a.botId) ?? 0
-      tokensHeld.set(a.botId, held + a.tokensWon)
-      const [s1, s2, s3] = tokensPerStageMap.get(a.botId) ?? [0, 0, 0]
-      if (log.stage === 0) tokensPerStageMap.set(a.botId, [s1 + a.tokensWon, s2, s3])
-      if (log.stage === 1) tokensPerStageMap.set(a.botId, [s1, s2 + a.tokensWon, s3])
-      if (log.stage === 2) tokensPerStageMap.set(a.botId, [s1, s2, s3 + a.tokensWon])
+      tokensHeld.set(a.botId, (tokensHeld.get(a.botId) ?? 0) + a.tokensWon)
+      if (log.stage === stage) {
+        paidThisStage.set(a.botId, (paidThisStage.get(a.botId) ?? 0) + a.totalPaid)
+      }
     }
   }
 
@@ -230,16 +319,13 @@ async function resolveCurrentPeriod(
     },
   })
 
-  // Update tournament current position
+  // Advance tournament position
   await prisma.tournament.update({
     where: { id: tournamentId },
-    data: {
-      currentStage: stage,
-      currentPeriod: period,
-    },
+    data: { currentStage: stage, currentPeriod: period },
   })
 
-  // Update BotTournament records
+  // Update winner's BotTournament record
   if (result.winnerBotId) {
     const alloc = result.allocations.find(a => a.botId === result.winnerBotId)
     if (alloc) {
@@ -251,7 +337,6 @@ async function resolveCurrentPeriod(
         await prisma.botTournament.update({
           where: { id: bt.id },
           data: {
-            tokensHeld: { increment: alloc.tokensWon },
             tokensPerStage: JSON.stringify(tokens),
             budgetRemaining: { decrement: alloc.totalPaid },
             budgetSpent: { increment: alloc.totalPaid },
@@ -268,35 +353,31 @@ async function resolveCurrentPeriod(
 }
 
 async function finalizeTournament(tournamentId: string) {
-  // Award SP for each stage
   const botTournaments = await prisma.botTournament.findMany({
     where: { tournamentId },
     include: { bot: true },
   })
 
+  // Award stage SP (1st=3, 2nd=2, 3rd=1) for each stage
   for (let stage = 0; stage < 3; stage++) {
-    // Rank by tokens at end of this stage
     const ranked = [...botTournaments]
-      .filter(bt => {
+      .map(bt => {
         const tokens = JSON.parse(bt.tokensPerStage) as [number, number, number]
-        return tokens[stage] > 0
+        return { bt, stageTokens: tokens[stage] }
       })
-      .sort((a, b) => {
-        const ta = JSON.parse(a.tokensPerStage) as [number, number, number]
-        const tb = JSON.parse(b.tokensPerStage) as [number, number, number]
-        return tb[stage] - ta[stage]
-      })
+      .filter(x => x.stageTokens > 0)
+      .sort((a, b) => b.stageTokens - a.stageTokens)
 
     const spAwards = [3, 2, 1]
     for (let i = 0; i < Math.min(3, ranked.length); i++) {
       await prisma.botTournament.update({
-        where: { id: ranked[i].id },
+        where: { id: ranked[i].bt.id },
         data: { sp: { increment: spAwards[i] } },
       })
     }
   }
 
-  // Award bonus SP for weighted points
+  // Award bonus SP to highest cumulative weighted points
   const wpScores = calculateWeightedPoints(
     new Map(botTournaments.map(bt => [bt.botId, JSON.parse(bt.tokensPerStage) as [number, number, number]]))
   )
@@ -321,28 +402,27 @@ async function finalizeTournament(tournamentId: string) {
 
   await prisma.tournament.update({
     where: { id: tournamentId },
-    data: {
-      status: 'completed',
-      completedAt: new Date(),
-    },
+    data: { status: 'completed', completedAt: new Date() },
   })
 
-  // Emit completion event
   emitTournamentComplete(tournamentId)
 }
 
-function emitPeriodResult(tournamentId: string, result: any) {
-  // Will be connected to Socket.IO in server.ts
-  const io = (global as any).__socketIO
-  if (io) {
+function emitPeriodResult(tournamentId: string, result: unknown) {
+  try {
+    const io = getIO()
     io.to(`tournament:${tournamentId}`).emit('period_result', result)
+  } catch {
+    // Socket.IO not initialized — no-op in test environments
   }
 }
 
 function emitTournamentComplete(tournamentId: string) {
-  const io = (global as any).__socketIO
-  if (io) {
+  try {
+    const io = getIO()
     io.to(`tournament:${tournamentId}`).emit('tournament_complete', { tournamentId })
+  } catch {
+    // Socket.IO not initialized — no-op in test environments
   }
 }
 

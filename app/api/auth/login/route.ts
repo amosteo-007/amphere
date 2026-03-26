@@ -1,12 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { supabaseAdmin } from '@/lib/supabase'
+import bcrypt from 'bcryptjs'
+import { prisma } from '@/lib/db'
 
 export const runtime = 'nodejs'
 
 /**
  * POST /api/auth/login
  * Body: { email, password }
- * Returns: { session_token, bot }
+ * Returns: { session_token, bot: { id, name, api_key, email, subscription_tier } }
+ *
+ * session_token is base64url({ uid: bot.id, exp }) — decoded by champions
+ * and dashboard APIs. The bot.api_key is used for tournament endpoints.
  */
 export async function POST(req: NextRequest) {
   try {
@@ -16,43 +20,41 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'email and password required' }, { status: 400 })
     }
 
-    // Authenticate via Supabase
-    const { data: authUser, error: authError } = await supabaseAdmin.auth.signInWithPassword({
-      email,
-      password,
-    })
-
-    if (authError || !authUser.user) {
+    // Find Human by email
+    const human = await prisma.human.findUnique({ where: { email } })
+    if (!human) {
       return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })
     }
 
-    // Fetch bot profile
-    const { data: bot } = await supabaseAdmin
-      .from('bots')
-      .select('*')
-      .eq('id', authUser.user.id)
-      .single()
-
-    if (!bot) {
-      return NextResponse.json({ error: 'Bot not found for this user' }, { status: 404 })
+    // Verify password
+    const valid = await bcrypt.compare(password, human.passwordHash)
+    if (!valid) {
+      return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })
     }
 
-    // Generate session token
-    const sessionToken = createSessionToken(authUser.user.id)
+    // Find the Bot linked to this Human
+    const bot = await prisma.bot.findFirst({ where: { humanId: human.id } })
+    if (!bot) {
+      return NextResponse.json({ error: 'Account not fully set up — contact support' }, { status: 404 })
+    }
+
+    // Block login until email is verified
+    if (bot.apiKey.startsWith('PENDING:')) {
+      return NextResponse.json({ error: 'Email not verified. Check your inbox.' }, { status: 403 })
+    }
+
+    const sessionToken = createSessionToken(bot.id)
 
     return NextResponse.json({
       ok: true,
+      session_token: sessionToken,
       bot: {
         id: bot.id,
         name: bot.name,
-        api_key: bot.api_key,
-        subscription_tier: bot.subscription_tier,
-        moltbook_handle: bot.moltbook_handle,
+        email: bot.email,
+        api_key: bot.apiKey,
+        subscription_tier: bot.subscriptionTier,
       },
-      session_token: sessionToken,
-      // Include access token from Supabase for client-side auth
-      access_token: authUser.session?.access_token,
-      refresh_token: authUser.session?.refresh_token,
     })
   } catch (err) {
     console.error('[login error]', err)
@@ -60,9 +62,9 @@ export async function POST(req: NextRequest) {
   }
 }
 
-function createSessionToken(userId: string): string {
+function createSessionToken(botId: string): string {
   const payload = {
-    uid: userId,
+    uid: botId,
     exp: Date.now() + 7 * 24 * 60 * 60 * 1000, // 7 days
   }
   return Buffer.from(JSON.stringify(payload)).toString('base64url')

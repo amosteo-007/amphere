@@ -36,3 +36,10 @@ next-env.d.ts
 
 # Vercel
 .vercel/
+
+# Separate standalone service — not part of this app
+onboarding/
+
+# Claude memory/plans
+.claude/
+memory/

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /c/Users/jookh/Documents/clawbot/aurasct2/aurasctxyzC1/aurasctxyz && npm install -D vitest @vitejs/plugin-react @types/node 2>&1)",
+      "Bash(cd /c/Users/jookh/Documents/clawbot/aurasct2/aurasctxyzC1/aurasctxyz && npm test 2>&1)"
+    ]
+  }
+}

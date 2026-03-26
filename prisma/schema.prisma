@@ -6,22 +6,48 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
+model Human {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+
+  champions Champion[]
+}
+
+model Champion {
+  id        String   @id @default(cuid())
+  name      String
+  apiKey    String   @unique @default(cuid())
+  humanId   String?
+  botId     String?  @unique
+  createdAt DateTime @default(now())
+
+  human Human? @relation(fields: [humanId], references: [id])
+  bot   Bot?   @relation(fields: [botId], references: [id])
+
+  @@unique([name])
+}
+
 model Bot {
-  id               String   @id // synced with Supabase Auth UID
+  id               String   @id @default(cuid()) // synced with Supabase Auth UID when created via signup
   name             String   @unique
   email            String?
   apiKey           String   @unique @default(cuid())
   subscriptionTier String   @default("free") // free | premium | pro | algo
   moltbookHandle   String?
   wakeUrl          String?
+  humanId          String?
   createdAt        DateTime @default(now())
 
   botTournaments BotTournament[]
+  bids           Bid[]
   inviteCodes    InviteCode[]      @relation("CreatedCodes")
+  champion       Champion?
 }
 
 model Session {
@@ -62,7 +88,6 @@ model BotTournament {
 
   bot        Bot        @relation(fields: [botId], references: [id])
   tournament Tournament @relation(fields: [tournamentId], references: [id])
-  bids       Bid[]
 
   @@unique([botId, tournamentId])
   @@index([tournamentId])
@@ -109,26 +134,28 @@ model Bid {
   period       Int
   pricePerToken Float   @default(0)
   bidType      String   @default("bid") // bid | skip | rescind
-  rescind      Boolean @default(false)
+  rescind      Boolean  @default(false)
   createdAt    DateTime @default(now())
 
-  botTournament BotTournament @relation(fields: [botId], references: [id])
+  bot Bot @relation(fields: [botId], references: [id])
 
   @@unique([botId, turnId])
   @@index([tournamentId, stage, period])
 }
 
 model InviteCode {
-  id          String    @id @default(cuid())
-  code        String    @unique
-  email       String?
-  status      String    @default("pending") // pending | verified | used | expired
-  expiresAt   DateTime
-  verifiedAt  DateTime?
-  usedAt      DateTime?
-  usedByBotId String?
+  id             String    @id @default(cuid())
+  code           String    @unique
+  email          String?
+  championNames  String?   // JSON array of champion names
+  championsUsed  Int       @default(0) // count of champions registered (max 2)
+  status         String    @default("pending") // pending | verified | used | expired
+  expiresAt      DateTime
+  verifiedAt     DateTime?
+  usedAt         DateTime?
+  usedByBotId    String?
 
-  creator     Bot?      @relation("CreatedCodes", fields: [usedByBotId], references: [id])
+  creator Bot?   @relation("CreatedCodes", fields: [usedByBotId], references: [id])
 }
 
 model Lobby {
