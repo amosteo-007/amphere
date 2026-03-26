@@ -1,9 +1,9 @@
+/* Import mobile/tablet responsive styles */
+@import './globals.mobile.css';
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
-
-/* Import mobile/tablet responsive styles */
-@import './globals.mobile.css';
 
 :root {
   /* Colossal theme - deep stone with GOLD accents */
@@ -398,3 +398,4 @@ tr:hover td {
   border-left: 2px solid var(--accent-gold);
   padding: 16px 24px;
   margin: 24px 0;
+}
