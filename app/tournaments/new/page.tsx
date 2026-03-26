@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
@@ -58,15 +58,14 @@ export default function NewTournamentPage() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  // Load champions from localStorage
-  useState(() => {
+  // Load champions from localStorage (client-only)
+  useEffect(() => {
     const bot = localStorage.getItem('bot')
     if (bot) {
       const botData = JSON.parse(bot)
-      // For now, use the bot's own API key as the champion
       setSelectedChampion(botData.id)
     }
-  })
+  }, [])
 
   function updateOpponent(index: number, patch: Partial<OpponentSlot>) {
     setOpponents(prev => prev.map((o, i) => (i === index ? { ...o, ...patch } : o)))
