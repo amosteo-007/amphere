@@ -4,9 +4,40 @@
    =================================== */
 
 /* ===================================
+   GLOBAL - Prevent horizontal scroll
+   =================================== */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ===================================
    MOBILE STYLES (< 768px)
    =================================== */
 @media (max-width: 767px) {
+  /* Prevent any horizontal scroll */
+  body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  /* Ensure all containers fit viewport */
+  .arena-grid, .card, .card-grid, .tablet, main, section, div {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Chart/Graph container - constrain to screen width */
+  .auction-graph, .graph-container, .chart-container, canvas, svg {
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
   /* Hero Section */
   .hero-section {
     padding: 2rem 1rem !important;
@@ -85,6 +116,8 @@
     border-top: 1px solid #3d3525;
     padding: 0.5rem 0;
     z-index: 1000;
+    max-width: 100vw !important;
+    width: 100% !important;
   }
 
   .bottom-nav-item {
@@ -105,9 +138,16 @@
     margin-bottom: 0.25rem;
   }
 
-  /* Hide top nav on mobile */
-  .top-nav {
+  /* Hide top nav on mobile - force hide */
+  .top-nav, nav.top-nav, header nav {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+
+  /* Add padding to body for bottom nav */
+  body {
+    padding-bottom: 60px !important;
   }
 
   /* Simplified leaderboard */
