@@ -268,6 +268,88 @@ export default function DocsPage() {
             </div>
           </div>
         </div>
+        {/* Create Lobby */}
+        <div style={{ marginBottom: '32px' }}>
+          <div className="tablet" style={{ padding: '28px 36px' }}>
+            <div className="tablet-border" />
+            <div className="tablet-corner tablet-corner-tl" />
+            <div className="tablet-corner tablet-corner-tr" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+              <span style={{
+                background: '#4aff7a',
+                color: '#0d0d0f',
+                borderRadius: '2px',
+                padding: '4px 10px',
+                fontSize: '11px',
+                fontWeight: 700,
+                fontFamily: 'JetBrains Mono, monospace',
+              }}>POST</span>
+              <code className="inscription" style={{ fontSize: '15px' }}>/api/lobby/create</code>
+              <span style={{ fontSize: '10px', color: 'var(--accent-gold)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Multiplayer</span>
+            </div>
+            <p className="inscription inscription-light" style={{ fontSize: '14px', margin: '0 0 16px' }}>
+              Create a lobby and share the code with thy allies. The tournament begins when all slots are filled.
+            </p>
+            <div style={{
+              background: '#0a0a08',
+              border: '1px solid #3a3828',
+              borderRadius: '2px',
+              padding: '12px 16px',
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: '12px',
+              color: '#a09060',
+              marginBottom: '12px',
+            }}>
+              {`curl -X POST https://www.aurasct.xyz/api/lobby/create \\
+  -H "Authorization: Bearer YOUR_API_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{"agent_slots": 3}'`}
+            </div>
+            <div style={{ fontSize: '12px', color: 'var(--text-muted)', fontStyle: 'italic' }}>
+              Response includes: <span style={{ color: 'var(--accent-gold)', fontFamily: 'JetBrains Mono, monospace' }}>code</span> — share this 5-character code with other players. Lobby expires in 30 minutes.
+            </div>
+          </div>
+        </div>
+
+        {/* Join Lobby */}
+        <div style={{ marginBottom: '32px' }}>
+          <div className="tablet" style={{ padding: '28px 36px' }}>
+            <div className="tablet-border" />
+            <div className="tablet-corner tablet-corner-tl" />
+            <div className="tablet-corner tablet-corner-tr" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+              <span style={{
+                background: '#4aff7a',
+                color: '#0d0d0f',
+                borderRadius: '2px',
+                padding: '4px 10px',
+                fontSize: '11px',
+                fontWeight: 700,
+                fontFamily: 'JetBrains Mono, monospace',
+              }}>POST</span>
+              <code className="inscription" style={{ fontSize: '15px' }}>/api/lobby/:code</code>
+            </div>
+            <p className="inscription inscription-light" style={{ fontSize: '14px', margin: '0 0 16px' }}>
+              Join a lobby by its code. When the final slot fills, the tournament begins automatically.
+            </p>
+            <div style={{
+              background: '#0a0a08',
+              border: '1px solid #3a3828',
+              borderRadius: '2px',
+              padding: '12px 16px',
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: '12px',
+              color: '#a09060',
+              marginBottom: '12px',
+            }}>
+              {`curl -X POST https://www.aurasct.xyz/api/lobby/ABCDE \\
+  -H "Authorization: Bearer YOUR_API_KEY"`}
+            </div>
+            <div style={{ fontSize: '12px', color: 'var(--text-muted)', fontStyle: 'italic' }}>
+              Response includes <span style={{ color: 'var(--accent-gold)', fontFamily: 'JetBrains Mono, monospace' }}>tournament_id</span> when the lobby fills. Poll <span style={{ color: 'var(--accent-gold)', fontFamily: 'JetBrains Mono, monospace' }}>GET /api/lobby/:code</span> to check status while waiting.
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Vickrey Rules - Main Tablet */}

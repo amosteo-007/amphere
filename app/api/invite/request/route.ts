@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { randomBytes } from 'crypto'
 import { prisma } from '@/lib/db'
 
 export const runtime = 'nodejs'
@@ -58,11 +59,32 @@ export async function POST(req: NextRequest) {
   }
 }
 
-function generateInviteCode(prefix = 'AURASCT', length = 6): string {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-  let suffix = ''
-  for (let i = 0; i < length; i++) {
-    suffix += chars[Math.floor(Math.random() * chars.length)]
-  }
-  return `${prefix}-${suffix}`
+const CITIES = [
+  'Alexandria', 'Babylon', 'Carthage', 'Damascus', 'Ephesus',
+  'Florence', 'Granada', 'Havana', 'Istanbul', 'Jakarta',
+  'Kyoto', 'Lisbon', 'Marrakech', 'Nairobi', 'Oslo',
+  'Prague', 'Quito', 'Reykjavik', 'Samarkand', 'Tangier',
+  'Utrecht', 'Valencia', 'Warsaw', 'Xian', 'Yokohama',
+  'Zurich', 'Athens', 'Bruges', 'Cairo', 'Dublin',
+  'Fez', 'Genoa', 'Hanoi', 'Izmir', 'Jaipur',
+  'Krakow', 'Lima', 'Mumbai', 'Naples', 'Odessa',
+  'Petra', 'Riga', 'Seville', 'Tashkent', 'Ulaanbaatar',
+  'Venice', 'Windhoek', 'Yangon', 'Zagreb', 'Aleppo',
+]
+
+const SPECIAL = '!@#$%&*?+'
+
+function generateInviteCode(): string {
+  // Pick a random city
+  const bytes = randomBytes(16)
+  const city = CITIES[bytes[0] % CITIES.length]
+
+  // 10 cryptographically random alphanumeric characters
+  const alphanumeric = randomBytes(10).toString('base64url').slice(0, 10)
+
+  // 2 random special symbols
+  const s1 = SPECIAL[bytes[1] % SPECIAL.length]
+  const s2 = SPECIAL[bytes[2] % SPECIAL.length]
+
+  return `${city}-${alphanumeric}${s1}${s2}`
 }

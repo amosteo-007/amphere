@@ -20,8 +20,8 @@ import { prisma } from './db'
 import { STAGE_CONFIGS, resolvePeriod, calculateWeightedPoints } from './auction-engine'
 import { getIO } from './socket-server'
 
-const PERIOD_INTERVAL_MS = 15_000 // 15 seconds per period
-const RESOLUTION_DELAY_MS = 3_000 // 3 seconds before closing bids
+const HUMAN_BID_TIMEOUT_MS = 60_000 // 60 seconds for human to submit bid
+const POST_RESOLUTION_DELAY_MS = 3_000 // 3 seconds between periods
 
 interface ActiveRunner {
   stop: () => void
@@ -91,7 +91,7 @@ async function runTournamentLoop(tournamentId: string, isStopped: () => boolean)
     }
 
     // Wait before next period
-    await sleep(PERIOD_INTERVAL_MS)
+    await sleep(POST_RESOLUTION_DELAY_MS)
   }
 }
 
@@ -109,11 +109,22 @@ async function collectBids(
   const bids = new Map<string, number>()
   const rescindBotIds = new Set<string>()
 
-  const maxWait = PERIOD_INTERVAL_MS - RESOLUTION_DELAY_MS
-  const pollInterval = 500
+  // Find which bots are human (non-algo) — we must wait for their bids
+  const allBotTournaments = await prisma.botTournament.findMany({
+    where: { tournamentId },
+    include: { bot: true },
+  })
+  const humanBotIds = new Set(
+    allBotTournaments
+      .filter(bt => !bt.bot.apiKey.startsWith('algo-'))
+      .map(bt => bt.botId)
+  )
+
+  const pollInterval = 1_000
   let waited = 0
 
-  while (waited < maxWait && !isStopped()) {
+  // Wait for all human bots to submit bids (or timeout)
+  while (waited < HUMAN_BID_TIMEOUT_MS && !isStopped()) {
     const botBids = await prisma.bid.findMany({
       where: { tournamentId, stage, period },
     })
@@ -123,19 +134,29 @@ async function collectBids(
         bids.set(bid.botId, bid.pricePerToken)
       } else if (bid.bidType === 'rescind') {
         rescindBotIds.add(bid.botId)
+      } else if (bid.bidType === 'skip') {
+        // Mark as responded even if skipping
+        bids.set(bid.botId, -1) // sentinel: will be filtered before auction
       }
     }
 
-    // Generate algo/LLM bids for non-human opponents
-    const algoBids = await generateAlgoBids(tournamentId, stage, period, bids)
-    for (const [botId, bid] of algoBids) {
-      if (!bids.has(botId)) bids.set(botId, bid)
-    }
-
-    if (bids.size >= 2) break
+    // Check if all human bots have responded
+    const allHumansResponded = [...humanBotIds].every(id => bids.has(id))
+    if (allHumansResponded) break
 
     await sleep(pollInterval)
     waited += pollInterval
+  }
+
+  // Remove skip sentinels
+  for (const [botId, price] of bids) {
+    if (price < 0) bids.delete(botId)
+  }
+
+  // Now generate algo/LLM bids (after human bids are in)
+  const algoBids = await generateAlgoBids(tournamentId, stage, period, bids)
+  for (const [botId, bid] of algoBids) {
+    if (!bids.has(botId)) bids.set(botId, bid)
   }
 
   return { bids, rescindBotIds }
@@ -187,8 +208,12 @@ async function generateAlgoBids(
         history,
       }
 
-      // LLM opponent: apiKey encoded as algo-<provider>-<model>-<tournamentId>
-      if (bt.bot.apiKey.startsWith('algo-') && bt.bot.apiKey.split('-').length >= 4) {
+      // LLM opponent: apiKey format algo-<provider>-<model>-<tournamentId>
+      // Pure algo: apiKey format algo-algo-<tournamentId>-<i>
+      const parts = bt.bot.apiKey.split('-')
+      const isLLM = parts.length >= 4 && parts[1] !== 'algo'
+
+      if (isLLM) {
         try {
           const { getLLMBid } = await import('./llm-bidding')
           const bid = await getLLMBid(bt.bot.apiKey, context)
@@ -197,12 +222,12 @@ async function generateAlgoBids(
           }
         } catch (err) {
           console.error('[generateAlgoBids] LLM bid error:', err)
-          const bid = fallbackAlgoBid(stageConfig.floorPrice)
+          const bid = algoStrategyBid(bt.botSlot, stageConfig.floorPrice, stage, period, bt.budgetRemaining, tokensHeld, bt.sp)
           if (bid !== null) algoBids.set(bt.botId, bid)
         }
       } else {
-        // Pure algo bot: simple probabilistic bid
-        const bid = fallbackAlgoBid(stageConfig.floorPrice)
+        // Pure algo bot: use differentiated strategy based on slot
+        const bid = algoStrategyBid(bt.botSlot, stageConfig.floorPrice, stage, period, bt.budgetRemaining, tokensHeld, bt.sp)
         if (bid !== null) algoBids.set(bt.botId, bid)
       }
     }
@@ -211,11 +236,103 @@ async function generateAlgoBids(
   return algoBids
 }
 
-function fallbackAlgoBid(floor: number): number | null {
-  const rand = Math.random()
-  if (rand < 0.15) return null // skip
-  if (rand < 0.85) return Math.round(floor * (1 + Math.random() * 0.1) * 100) / 100
-  return Math.round(floor * (1.3 + Math.random() * 0.5) * 100) / 100
+/**
+ * Differentiated algo strategies keyed by bot slot name.
+ * Each strategy has distinct personality affecting bid sizing, skip rate, and stage preference.
+ */
+function algoStrategyBid(
+  botSlot: string,
+  floor: number,
+  stage: number,
+  period: number,
+  budget: number,
+  _tokensHeld: number,
+  sp: number
+): number | null {
+  const round = (n: number) => Math.round(n * 100) / 100
+
+  // Determine strategy from slot name
+  const strategy = getStrategy(botSlot)
+
+  // Budget safety: skip if can't afford floor cost
+  const cost = floor * STAGE_CONFIGS[stage].tokensPerPeriod
+  if (budget < cost) return null
+
+  switch (strategy) {
+    case 'aggressive': {
+      // Bids high, rarely skips. Dominates early, risks running out of budget.
+      const skipChance = 0.05
+      if (Math.random() < skipChance) return null
+      // Higher in S1/S2 to secure early SP, pulls back in S3 if budget low
+      const budgetRatio = budget / 10_000
+      const mult = budgetRatio > 0.4
+        ? 1.2 + Math.random() * 0.6  // 1.2-1.8× floor
+        : 1.0 + Math.random() * 0.15 // conservative when low
+      return round(floor * mult)
+    }
+
+    case 'conservative': {
+      // Bids just above floor, skips often. Preserves budget for S3.
+      const skipChance = stage === 0 ? 0.4 : stage === 1 ? 0.3 : 0.1
+      if (Math.random() < skipChance) return null
+      const mult = 1.0 + Math.random() * 0.08 // 1.0-1.08× floor
+      return round(floor * mult)
+    }
+
+    case 'sniper': {
+      // Skips most periods, then bids very high on select ones.
+      // Targets late periods in each stage and all of S3.
+      const isLateInStage = period >= 3
+      const isS3 = stage === 2
+      if (!isLateInStage && !isS3) {
+        // Early periods: 70% skip
+        if (Math.random() < 0.7) return null
+        return round(floor * (1.0 + Math.random() * 0.05))
+      }
+      // Late periods / S3: aggressive
+      if (Math.random() < 0.05) return null
+      const mult = 1.3 + Math.random() * 0.8 // 1.3-2.1× floor
+      return round(floor * mult)
+    }
+
+    case 'adaptive': {
+      // Adjusts based on current position. Bids harder when behind, coasts when ahead.
+      const behind = sp === 0 && stage > 0
+      const periodsLeft = (2 - stage) * 5 + (4 - period)
+
+      if (behind && periodsLeft <= 5) {
+        // Desperate: bid aggressively
+        if (Math.random() < 0.05) return null
+        return round(floor * (1.4 + Math.random() * 0.6))
+      }
+      if (sp >= 6) {
+        // Comfortable lead: coast
+        if (Math.random() < 0.35) return null
+        return round(floor * (1.0 + Math.random() * 0.1))
+      }
+      // Middle ground
+      if (Math.random() < 0.15) return null
+      return round(floor * (1.05 + Math.random() * 0.25))
+    }
+
+    default: {
+      // Balanced fallback
+      if (Math.random() < 0.15) return null
+      if (Math.random() < 0.7) return round(floor * (1.0 + Math.random() * 0.1))
+      return round(floor * (1.3 + Math.random() * 0.5))
+    }
+  }
+}
+
+function getStrategy(botSlot: string): 'aggressive' | 'conservative' | 'sniper' | 'adaptive' | 'balanced' {
+  // Map slot names to strategies for deterministic personality
+  const slot = botSlot.toLowerCase()
+  if (slot.includes('openai') || slot.includes('player_2')) return 'aggressive'
+  if (slot.includes('groq') || slot.includes('player_3')) return 'conservative'
+  if (slot.includes('mistral') || slot.includes('player_4')) return 'sniper'
+  if (slot.includes('anthropic') || slot.includes('player_5')) return 'adaptive'
+  if (slot.includes('algo')) return 'aggressive'
+  return 'balanced'
 }
 
 function buildLeaderboard(

@@ -163,6 +163,7 @@ model Lobby {
   code         String    @unique // 5-char uppercase
   agentSlots   Int
   filledSlots  Int       @default(0)
+  joinedBotIds String    @default("[]") // JSON array of bot IDs that joined
   opponents    String    @default("[]") // JSON array of opponent providers
   tournamentId String?
   status       String    @default("waiting") // waiting | started | expired

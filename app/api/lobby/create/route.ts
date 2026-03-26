@@ -30,6 +30,7 @@ export async function POST(req: NextRequest) {
         code,
         agentSlots: agent_slots,
         filledSlots: 1, // creator occupies 1 slot
+        joinedBotIds: JSON.stringify([bot.id]),
         opponents: JSON.stringify(opponents ?? []),
         expiresAt: new Date(Date.now() + 30 * 60 * 1000), // 30 min
       },
