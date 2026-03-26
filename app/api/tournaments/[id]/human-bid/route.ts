@@ -8,8 +8,9 @@ export const runtime = 'nodejs'
  * POST /api/tournaments/{id}/human-bid
  * Body: { turn_id, price_per_token } | { turn_id, skip: true } | { turn_id, rescind: bool }
  */
-export async function POST(req: NextRequest, { params }: { params: { id: string } }) {
+export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const { id } = await params
     const apiKey = req.headers.get('authorization')?.replace('Bearer ', '')
     if (!apiKey) return NextResponse.json({ error: 'Authorization required' }, { status: 401 })
 
@@ -22,7 +23,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
     if (!turn_id) return NextResponse.json({ error: 'turn_id required' }, { status: 400 })
 
     const tournament = await prisma.tournament.findFirst({
-      where: { id: params.id, status: 'running' },
+      where: { id, status: 'running' },
       include: { bots: { where: { botId: bot.id } } },
     })
 

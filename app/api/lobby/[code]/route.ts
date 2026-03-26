@@ -7,15 +7,16 @@ export const runtime = 'nodejs'
  * POST /api/lobby/{code}/join
  * Join a lobby by its 5-character code.
  */
-export async function POST(req: NextRequest, { params }: { params: { code: string } }) {
+export async function POST(req: NextRequest, { params }: { params: Promise<{ code: string }> }) {
   try {
+    const { code } = await params
     const apiKey = req.headers.get('authorization')?.replace('Bearer ', '')
     if (!apiKey) return NextResponse.json({ error: 'Authorization required' }, { status: 401 })
 
     const bot = await prisma.bot.findUnique({ where: { apiKey } })
     if (!bot) return NextResponse.json({ error: 'Invalid API key' }, { status: 401 })
 
-    const lobby = await prisma.lobby.findUnique({ where: { code: params.code } })
+    const lobby = await prisma.lobby.findUnique({ where: { code } })
 
     if (!lobby) {
       return NextResponse.json({ error: 'Lobby not found' }, { status: 404 })

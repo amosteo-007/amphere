@@ -6,10 +6,11 @@ export const runtime = 'nodejs'
 /**
  * GET /api/agents/[name]
  */
-export async function GET(req: NextRequest, { params }: { params: { name: string } }) {
+export async function GET(req: NextRequest, { params }: { params: Promise<{ name: string }> }) {
   try {
+    const { name } = await params
     const bot = await prisma.bot.findFirst({
-      where: { name: decodeURIComponent(params.name) },
+      where: { name: decodeURIComponent(name) },
     })
 
     if (!bot) {
