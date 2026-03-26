@@ -125,10 +125,8 @@ export default function TournamentLivePage() {
 
     s.on('period_result', (result: PeriodLog) => {
       setPeriodLogs(prev => [result, ...prev].slice(0, 15))
-    })
-
-    s.on('tournament_update', (tournament: TournamentState) => {
-      setState(tournament)
+      // Refetch full state to update leaderboard after each period
+      fetchTournament()
     })
 
     s.on('tournament_complete', () => {

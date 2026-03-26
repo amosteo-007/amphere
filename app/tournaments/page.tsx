@@ -49,47 +49,35 @@ export default function TournamentsPage() {
     setNewTournament(null)
 
     try {
-      // First check if we have a bot session
-      const apiKey = localStorage.getItem('api_key')
+      // Read API key from stored bot session
+      const botData = localStorage.getItem('bot')
+      const bot = botData ? JSON.parse(botData) : null
+      const apiKey = bot?.api_key
 
       if (!apiKey) {
-        // For demo, we'll create a tournament without auth (for testing)
-        // In production, users need to register/login first
-        const res = await fetch('/api/play', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ opponents: [] }),
-        })
-
-        if (!res.ok) {
-          const data = await res.json()
-          throw new Error(data.error || 'Failed to start tournament')
-        }
-
-        const data = await res.json()
-        setNewTournament(data.tournament_id)
-        await fetchTournaments()
-      } else {
-        const res = await fetch('/api/play', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${apiKey}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ opponents: [] }),
-        })
-
-        if (!res.ok) {
-          const data = await res.json()
-          throw new Error(data.error || 'Failed to start tournament')
-        }
-
-        const data = await res.json()
-        setNewTournament(data.tournament_id)
-        await fetchTournaments()
+        setError('Please log in or sign up first to start a tournament.')
+        return
       }
-    } catch (err: any) {
-      setError(err.message || 'Failed to start tournament. Check if you are registered.')
+
+      const res = await fetch('/api/play', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ opponents: [] }),
+      })
+
+      if (!res.ok) {
+        const data = await res.json()
+        throw new Error(data.error || 'Failed to start tournament')
+      }
+
+      const data = await res.json()
+      setNewTournament(data.tournament_id)
+      await fetchTournaments()
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to start tournament.')
     } finally {
       setStarting(false)
     }
@@ -112,11 +100,15 @@ export default function TournamentsPage() {
         <Link href="/" style={{ fontFamily: 'Cinzel, serif', fontSize: '24px', fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '0.05em' }}>
           AURASCT
         </Link>
-        <div style={{ display: 'flex', gap: '36px', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
+        <div style={{ display: 'flex', gap: '36px', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.12em', flex: 1 }}>
           <Link href="/tournaments" className="nav-link" style={{ color: 'var(--accent-gold)' }}>Tournaments</Link>
           <Link href="/leaderboard" className="nav-link">Leaderboard</Link>
           <Link href="/agents" className="nav-link">Agents</Link>
           <Link href="/docs" className="nav-link">Docs</Link>
+        </div>
+        <div style={{ display: 'flex', gap: '16px', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
+          <Link href="/onboarding/login" className="nav-link">Log In</Link>
+          <Link href="/onboarding/signup" className="btn btn-primary" style={{ padding: '8px 16px', fontSize: '11px' }}>Sign Up</Link>
         </div>
       </nav>
 

@@ -61,7 +61,7 @@ async function runTournamentLoop(tournamentId: string, isStopped: () => boolean)
     const absolutePeriod = currentStage * 5 + currentPeriod
 
     // Collect bids for this period (polls DB + generates algo/LLM bids)
-    const bids = await collectBids(tournamentId, currentStage, currentPeriod, isStopped)
+    const { bids, rescindBotIds } = await collectBids(tournamentId, currentStage, currentPeriod, isStopped)
     if (isStopped()) break
 
     // Resolve auction and persist results
@@ -71,7 +71,8 @@ async function runTournamentLoop(tournamentId: string, isStopped: () => boolean)
       currentPeriod,
       absolutePeriod,
       bids,
-      stageConfig
+      stageConfig,
+      rescindBotIds
     )
     if (isStopped()) break
 
@@ -94,13 +95,19 @@ async function runTournamentLoop(tournamentId: string, isStopped: () => boolean)
   }
 }
 
+interface CollectedBids {
+  bids: Map<string, number>
+  rescindBotIds: Set<string>
+}
+
 async function collectBids(
   tournamentId: string,
   stage: number,
   period: number,
   isStopped: () => boolean
-): Promise<Map<string, number>> {
+): Promise<CollectedBids> {
   const bids = new Map<string, number>()
+  const rescindBotIds = new Set<string>()
 
   const maxWait = PERIOD_INTERVAL_MS - RESOLUTION_DELAY_MS
   const pollInterval = 500
@@ -114,6 +121,8 @@ async function collectBids(
     for (const bid of botBids) {
       if (bid.bidType === 'bid' && bid.pricePerToken >= STAGE_CONFIGS[stage].floorPrice) {
         bids.set(bid.botId, bid.pricePerToken)
+      } else if (bid.bidType === 'rescind') {
+        rescindBotIds.add(bid.botId)
       }
     }
 
@@ -129,7 +138,7 @@ async function collectBids(
     waited += pollInterval
   }
 
-  return bids
+  return { bids, rescindBotIds }
 }
 
 async function generateAlgoBids(
@@ -259,7 +268,8 @@ async function resolveCurrentPeriod(
   period: number,
   absolutePeriod: number,
   bids: Map<string, number>,
-  stageConfig: { floorPrice: number; tokensPerPeriod: number; stageNumber: number; multiplier: number }
+  stageConfig: { floorPrice: number; tokensPerPeriod: number; stageNumber: number; multiplier: number },
+  rescindBotIds: Set<string>
 ) {
   const botTournaments = await prisma.botTournament.findMany({
     where: { tournamentId },
@@ -290,7 +300,29 @@ async function resolveCurrentPeriod(
     }
   }
 
+  // Load pending rescinds from previous period logs
   const pendingRescinds = new Map<string, { period: number; tokens: number; taxTokens: number }[]>()
+  for (const log of prevLogs) {
+    if (log.rescindDetail) {
+      const detail = JSON.parse(log.rescindDetail) as { botId: string; tokensReturned: number; taxTokens: number; revealAt: number }
+      if (detail.revealAt > absolutePeriod) {
+        // Still pending — hasn't revealed yet
+        const existing = pendingRescinds.get(detail.botId) ?? []
+        existing.push({ period: detail.revealAt, tokens: detail.tokensReturned, taxTokens: detail.taxTokens })
+        pendingRescinds.set(detail.botId, existing)
+      }
+    }
+  }
+
+  // Process rescinds that reveal this period: deduct tokens + tax from holdings
+  for (const [botId, rescinds] of pendingRescinds.entries()) {
+    const revealing = rescinds.filter(r => r.period <= absolutePeriod)
+    for (const r of revealing) {
+      const held = tokensHeld.get(botId) ?? 0
+      // Deduct the rescinded tokens (already removed from budget) + tax
+      tokensHeld.set(botId, Math.max(0, held - r.tokens - r.taxTokens))
+    }
+  }
 
   const result = resolvePeriod(
     stageConfig,
@@ -301,6 +333,20 @@ async function resolveCurrentPeriod(
     pendingRescinds,
     paidThisStage
   )
+
+  // Process new rescind requests for this period's winner
+  let rescindDetail: { botId: string; tokensReturned: number; taxTokens: number; revealAt: number } | null = null
+  if (result.winnerBotId && rescindBotIds.has(result.winnerBotId)) {
+    const taxTokens = Math.ceil(stageConfig.tokensPerPeriod * 0.1)
+    rescindDetail = {
+      botId: result.winnerBotId,
+      tokensReturned: stageConfig.tokensPerPeriod,
+      taxTokens,
+      revealAt: absolutePeriod + 2, // Phantom: visible for 2 periods before reveal
+    }
+    // Note: tokens remain in tokensHeld (phantom) — they won't be deducted until revealAt
+    // Budget refund happens now (minus tax cost handled at reveal)
+  }
 
   // Persist period log
   await prisma.periodLog.create({
@@ -315,7 +361,7 @@ async function resolveCurrentPeriod(
       numBidders: result.numBidders,
       allBids: JSON.stringify(result.allBids),
       allocations: JSON.stringify(result.allocations),
-      rescindDetail: result.rescindDetail ? JSON.stringify(result.rescindDetail) : null,
+      rescindDetail: rescindDetail ? JSON.stringify(rescindDetail) : null,
     },
   })
 
@@ -334,13 +380,42 @@ async function resolveCurrentPeriod(
         const tokens = JSON.parse(bt.tokensPerStage) as [number, number, number]
         tokens[stage] += alloc.tokensWon
 
+        // If rescinded: tokens still show (phantom) but budget is refunded
+        const budgetChange = rescindDetail && rescindDetail.botId === result.winnerBotId
+          ? 0 // Rescind: no net budget change (refunded)
+          : alloc.totalPaid
+
         await prisma.botTournament.update({
           where: { id: bt.id },
           data: {
             tokensPerStage: JSON.stringify(tokens),
-            budgetRemaining: { decrement: alloc.totalPaid },
-            budgetSpent: { increment: alloc.totalPaid },
+            ...(budgetChange > 0 ? {
+              budgetRemaining: { decrement: budgetChange },
+              budgetSpent: { increment: budgetChange },
+            } : {}),
             periodsWon: { increment: 1 },
+            weightedPoints:
+              tokens[0] * 1.0 + tokens[1] * 1.5 + tokens[2] * 3.0,
+          },
+        })
+      }
+    }
+  }
+
+  // Process rescind reveals: deduct phantom tokens + tax from BotTournament
+  for (const [botId, rescinds] of pendingRescinds.entries()) {
+    const revealing = rescinds.filter(r => r.period === absolutePeriod)
+    for (const r of revealing) {
+      const bt = botTournaments.find(b => b.botId === botId)
+      if (bt) {
+        const tokens = JSON.parse(bt.tokensPerStage) as [number, number, number]
+        // Deduct rescinded tokens + tax from the stage they were won in
+        tokens[stage] = Math.max(0, tokens[stage] - r.tokens - r.taxTokens)
+
+        await prisma.botTournament.update({
+          where: { id: bt.id },
+          data: {
+            tokensPerStage: JSON.stringify(tokens),
             weightedPoints:
               tokens[0] * 1.0 + tokens[1] * 1.5 + tokens[2] * 3.0,
           },
@@ -359,14 +434,17 @@ async function finalizeTournament(tournamentId: string) {
   })
 
   // Award stage SP (1st=3, 2nd=2, 3rd=1) for each stage
+  // Uses cumulative tokens (carryforward from all prior stages)
   for (let stage = 0; stage < 3; stage++) {
     const ranked = [...botTournaments]
       .map(bt => {
         const tokens = JSON.parse(bt.tokensPerStage) as [number, number, number]
-        return { bt, stageTokens: tokens[stage] }
+        // Cumulative: sum all stages up to and including current
+        const cumulative = tokens.slice(0, stage + 1).reduce((a, b) => a + b, 0)
+        return { bt, cumulative }
       })
-      .filter(x => x.stageTokens > 0)
-      .sort((a, b) => b.stageTokens - a.stageTokens)
+      .filter(x => x.cumulative > 0)
+      .sort((a, b) => b.cumulative - a.cumulative)
 
     const spAwards = [3, 2, 1]
     for (let i = 0; i < Math.min(3, ranked.length); i++) {

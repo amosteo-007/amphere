@@ -79,16 +79,22 @@ export async function getLLMBid(
 }
 
 /**
- * Load the base prompt from the markdown file.
+ * Load the base prompt from the markdown file (cached after first read).
  * The base prompt contains all game rules, strategy, and format instructions.
  * Runtime game state is injected at the end.
  */
+let _cachedPrompt: string | null = null
+
 function loadBasePrompt(): string {
+  if (_cachedPrompt) return _cachedPrompt
   try {
-    return readFileSync(join(process.cwd(), 'lib', 'llm-bid-prompt.md'), 'utf-8')
+    _cachedPrompt = readFileSync(join(process.cwd(), 'lib', 'llm-bid-prompt.md'), 'utf-8')
+    return _cachedPrompt
   } catch {
     // Fallback inline prompt if file not found
-    return `You are a competitive bidding agent. Output ONLY JSON: {"bid": <number|null>}. Bid is price per token.`
+    const fallback = `You are a competitive bidding agent. Output ONLY JSON: {"bid": <number|null>}. Bid is price per token.`
+    _cachedPrompt = fallback
+    return fallback
   }
 }
 

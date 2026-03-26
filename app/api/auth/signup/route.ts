@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { randomBytes } from 'crypto'
 import bcrypt from 'bcryptjs'
 import { prisma } from '@/lib/db'
 import { sendVerificationEmail } from '@/lib/email'
@@ -41,19 +42,22 @@ export async function POST(req: NextRequest) {
       data: { email, passwordHash },
     })
 
+    // Generate a cryptographically random verification token
+    const verifyToken = randomBytes(32).toString('hex')
+
     // Create Bot linked to Human — API key is PENDING until email verified
     const bot = await prisma.bot.create({
       data: {
         name: bot_name,
         email,
-        apiKey: `PENDING:${human.id}`,
+        apiKey: `PENDING:${verifyToken}`,
         humanId: human.id,
         subscriptionTier: 'free',
       },
     })
 
     // Send verification email (prints to console in dev)
-    await sendVerificationEmail(email, bot_name, human.id)
+    await sendVerificationEmail(email, bot_name, verifyToken)
 
     return NextResponse.json({
       ok: true,

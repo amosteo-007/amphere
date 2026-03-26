@@ -205,30 +205,28 @@ export function resolvePeriod(
 
 /**
  * Calculate SP awards after a stage completes.
+ * Uses cumulative token holdings (carryforward from all prior stages).
  */
 export function calculateStageSPRewards(
   tokensPerStage: Map<string, [number, number, number]>, // botId -> [S1tokens, S2tokens, S3tokens]
   stage: number,
   stageConfig: StageConfig
 ): Map<string, { rank: number; sp: number }> {
-  // Get token counts for this stage
-  const stageTokens = Array.from(tokensPerStage.entries())
-    .map(([botId, tokens]) => ({ botId, tokens: tokens[stage] }))
+  // Cumulative tokens: sum all stages up to and including current
+  const cumulativeTokens = Array.from(tokensPerStage.entries())
+    .map(([botId, tokens]) => ({
+      botId,
+      tokens: tokens.slice(0, stage + 1).reduce((a, b) => a + b, 0),
+    }))
+    .filter(x => x.tokens > 0)
     .sort((a, b) => b.tokens - a.tokens) // descending
 
   const rewards: Map<string, { rank: number; sp: number }> = new Map()
   const rankSp = [3, 2, 1] // 1st=3, 2nd=2, 3rd=1
 
-  for (let i = 0; i < stageTokens.length; i++) {
-    const { botId, tokens } = stageTokens[i]
-    if (tokens === 0 && i > 0) {
-      // 0 tokens — no SP (but carryforward may apply)
-      continue
-    }
-    const rank = i + 1
-    if (rank <= 3) {
-      rewards.set(botId, { rank, sp: rankSp[rank - 1] })
-    }
+  for (let i = 0; i < Math.min(3, cumulativeTokens.length); i++) {
+    const { botId } = cumulativeTokens[i]
+    rewards.set(botId, { rank: i + 1, sp: rankSp[i] })
   }
 
   return rewards
@@ -262,15 +260,16 @@ export function canRescind(
   tokensHeld: number,
   pendingRescinds: { period: number; tokens: number; taxTokens: number }[],
   stage: number,
-  period: number
+  period: number,
+  tokensPerPeriod: number
 ): { allowed: boolean; reason?: string } {
   // Forbidden in S3P4 and S3P5
   if (stage === 2 && period >= 4) {
     return { allowed: false, reason: 'Rescind forbidden in S3P4 and S3P5' }
   }
 
-  // Must have enough tokens for tax
-  const taxTokens = Math.ceil(40 * 0.1) // rough estimate, actual varies by tokens
+  // Must have enough tokens for 10% rescind tax
+  const taxTokens = Math.ceil(tokensPerPeriod * 0.1)
   if (tokensHeld < taxTokens) {
     return { allowed: false, reason: `Insufficient tokens for rescind tax (need ${taxTokens})` }
   }
