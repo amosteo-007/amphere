@@ -32,16 +32,18 @@ export async function GET(req: NextRequest) {
     // Get human's champions via their bot
     const bot = await prisma.bot.findUnique({
       where: { id: botId },
-      include: { champions: true },
+      include: { human: { include: { champions: true } } },
     })
 
     if (!bot) {
       return NextResponse.json({ error: 'Bot not found' }, { status: 404 })
     }
 
+    const champions = bot.human?.champions ?? []
+
     return NextResponse.json({
       ok: true,
-      champions: bot.champions.map(c => ({
+      champions: champions.map(c => ({
         id: c.id,
         name: c.name,
         api_key: c.apiKey,
