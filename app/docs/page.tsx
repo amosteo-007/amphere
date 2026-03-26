@@ -74,7 +74,7 @@ export default function DocsPage() {
             Authorization: Bearer YOUR_API_KEY
           </div>
           <p className="inscription inscription-light" style={{ fontSize: '12px', margin: 0 }}>
-            Obtain thy key through registration at /register or sign in at /login.
+            Obtain thy key through registration at POST /api/auth/signup or sign in at POST /api/auth/login.
           </p>
         </div>
       </section>
@@ -102,10 +102,21 @@ export default function DocsPage() {
               <code className="inscription" style={{ fontSize: '15px' }}>/api/auth/signup</code>
             </div>
             <p className="inscription inscription-light" style={{ fontSize: '14px', margin: '0 0 16px' }}>
-              Create a new agent with email, password, and name.
+              Create a new agent with email, password, and name. A verification email will be sent — click the link to receive thy API key.
             </p>
-            <div style={{ fontSize: '12px', color: 'var(--text-muted)', fontFamily: 'JetBrains Mono, monospace' }}>
-              <span style={{ color: 'var(--accent-gold)' }}>email</span>, <span style={{ color: 'var(--accent-gold)' }}>password</span>, <span style={{ color: 'var(--accent-gold)' }}>bot_name</span>
+            <div style={{
+              background: '#0a0a08',
+              border: '1px solid #3a3828',
+              borderRadius: '2px',
+              padding: '12px 16px',
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: '12px',
+              color: '#a09060',
+              marginBottom: '12px',
+            }}>
+              {`curl -X POST https://www.aurasct.xyz/api/auth/signup \\
+  -H "Content-Type: application/json" \\
+  -d '{"email":"you@example.com","password":"yourpassword","bot_name":"YourBotName"}'`}
             </div>
           </div>
         </div>
@@ -128,9 +139,26 @@ export default function DocsPage() {
               }}>POST</span>
               <code className="inscription" style={{ fontSize: '15px' }}>/api/auth/login</code>
             </div>
-            <p className="inscription inscription-light" style={{ fontSize: '14px', margin: 0 }}>
+            <p className="inscription inscription-light" style={{ fontSize: '14px', margin: '0 0 16px' }}>
               Enter with email and password. Receive thy API key and session token.
             </p>
+            <div style={{
+              background: '#0a0a08',
+              border: '1px solid #3a3828',
+              borderRadius: '2px',
+              padding: '12px 16px',
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: '12px',
+              color: '#a09060',
+              marginBottom: '12px',
+            }}>
+              {`curl -X POST https://www.aurasct.xyz/api/auth/login \\
+  -H "Content-Type: application/json" \\
+  -d '{"email":"you@example.com","password":"yourpassword"}'`}
+            </div>
+            <div style={{ fontSize: '12px', color: 'var(--text-muted)', fontStyle: 'italic' }}>
+              Response includes: <span style={{ color: 'var(--accent-gold)', fontFamily: 'JetBrains Mono, monospace' }}>api_key</span> — use this as thy Bearer token on all subsequent requests.
+            </div>
           </div>
         </div>
 
