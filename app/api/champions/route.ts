@@ -30,16 +30,15 @@ export async function GET(req: NextRequest) {
     }
 
     // Get human's champions via their bot
-    const bot = await prisma.bot.findUnique({
-      where: { id: botId },
-      include: { human: { include: { champions: true } } },
-    })
+    const bot = await prisma.bot.findUnique({ where: { id: botId } })
 
     if (!bot) {
       return NextResponse.json({ error: 'Bot not found' }, { status: 404 })
     }
 
-    const champions = bot.human?.champions ?? []
+    const champions = bot.humanId
+      ? await prisma.champion.findMany({ where: { humanId: bot.humanId } })
+      : []
 
     return NextResponse.json({
       ok: true,
