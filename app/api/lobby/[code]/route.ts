@@ -116,6 +116,8 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ code
 }
 
 async function createAndStartTournament(lobby: { id: string; code: string; opponents: string }, botIds: string[]): Promise<string> {
+  console.log(`[lobby] Creating tournament for lobby ${lobby.code} with ${botIds.length} humans`)
+
   // Create tournament
   const tournament = await prisma.tournament.create({
     data: {
@@ -124,6 +126,8 @@ async function createAndStartTournament(lobby: { id: string; code: string; oppon
       startedAt: new Date(),
     },
   })
+
+  console.log(`[lobby] Tournament ${tournament.id} created`)
 
   // Create stages
   for (const cfg of STAGE_CONFIGS) {
@@ -150,20 +154,24 @@ async function createAndStartTournament(lobby: { id: string; code: string; oppon
         tokensPerStage: '[0,0,0]',
       },
     })
+    console.log(`[lobby] Added human ${slotName} (${botIds[i]})`)
   }
 
   // Add algo opponents if configured
   const opponents = JSON.parse(lobby.opponents) as { provider?: string; model?: string }[]
+  console.log(`[lobby] Adding ${opponents.length} algo/LLM opponents`)
+
   for (let i = 0; i < opponents.length; i++) {
     const opp = opponents[i]
     const provider = opp.provider ?? 'algo'
     const model = opp.model ?? 'algo'
     const algoApiKey = `algo-${provider}-${model}-${tournament.id}-${i}`
+    const shortId = tournament.id.slice(0, 6)
     const algoBot = await prisma.bot.upsert({
       where: { apiKey: algoApiKey },
       update: {},
       create: {
-        name: `${provider.toUpperCase()}_${i + 1}`,
+        name: `${provider.toUpperCase()}_${i + 1}_${shortId}`,
         apiKey: algoApiKey,
         subscriptionTier: 'algo',
       },
@@ -177,9 +185,11 @@ async function createAndStartTournament(lobby: { id: string; code: string; oppon
         tokensPerStage: '[0,0,0]',
       },
     })
+    console.log(`[lobby] Added algo opponent algo_${i + 1} (${algoBot.id})`)
   }
 
   // Start the tournament runner
+  console.log(`[lobby] Starting tournament runner for ${tournament.id}`)
   startTournament(tournament.id)
   emitTournamentCreated(tournament.id)
 

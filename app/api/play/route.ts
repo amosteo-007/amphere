@@ -75,6 +75,8 @@ export async function POST(req: NextRequest) {
       const opp = opponents[i] || { type: 'algo' }
       const slotName = slotNames[i + 1] ?? `player_${i + 2}`
 
+      const shortId = tournament.id.slice(0, 6)
+
       if (opp.type === 'llm' && opp.provider && opp.model) {
         // LLM opponent: encode provider+model in apiKey for tournament-runner to detect
         // Format: algo-<provider>-<model>-<tournamentId>
@@ -83,7 +85,7 @@ export async function POST(req: NextRequest) {
           where: { apiKey: llmApiKey },
           update: {},
           create: {
-            name: `${opp.provider.toUpperCase()}_${opp.model.split('-')[0]}_${i + 2}`,
+            name: `${opp.provider.toUpperCase()}_${opp.model.split('-')[0]}_${shortId}`,
             apiKey: llmApiKey,
             subscriptionTier: 'algo',
           },
@@ -104,7 +106,7 @@ export async function POST(req: NextRequest) {
           where: { apiKey: `human-${tournament.id}-${i}` },
           update: {},
           create: {
-            name: `Human_${i + 2}`,
+            name: `Human_${shortId}_${i + 2}`,
             apiKey: `human-${tournament.id}-${i}`,
             subscriptionTier: 'free',
           },
@@ -125,7 +127,7 @@ export async function POST(req: NextRequest) {
           where: { apiKey: `algo-algo-${tournament.id}-${i}` },
           update: {},
           create: {
-            name: `ALGO_${i + 2}`,
+            name: `ALGO_${shortId}_${i + 2}`,
             apiKey: `algo-algo-${tournament.id}-${i}`,
             subscriptionTier: 'algo',
           },

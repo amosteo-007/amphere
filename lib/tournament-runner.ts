@@ -56,52 +56,77 @@ async function runTournamentLoop(tournamentId: string, isStopped: () => boolean)
   let currentStage = 0
   let currentPeriod = 0
 
+  console.log(`[runner] Tournament ${tournamentId} loop started`)
+
   while (!isStopped()) {
     const stageConfig = STAGE_CONFIGS[currentStage]
     const absolutePeriod = currentStage * 5 + currentPeriod
 
-    // Update tournament position BEFORE collecting bids so pending-human-turn
-    // returns the correct period to polling bots
-    await prisma.tournament.update({
-      where: { id: tournamentId },
-      data: { currentStage, currentPeriod },
-    })
+    try {
+      console.log(`[runner] ${tournamentId} → S${currentStage + 1}P${currentPeriod + 1} (abs: ${absolutePeriod})`)
 
-    // Collect bids for this period (polls DB + generates algo/LLM bids)
-    const { bids, rescindBotIds } = await collectBids(tournamentId, currentStage, currentPeriod, isStopped)
-    if (isStopped()) break
+      // Update tournament position BEFORE collecting bids so pending-human-turn
+      // returns the correct period to polling bots
+      await prisma.tournament.update({
+        where: { id: tournamentId },
+        data: { currentStage, currentPeriod },
+      })
 
-    // Resolve auction and persist results
-    const result = await resolveCurrentPeriod(
-      tournamentId,
-      currentStage,
-      currentPeriod,
-      absolutePeriod,
-      bids,
-      stageConfig,
-      rescindBotIds
-    )
-    if (isStopped()) break
+      // Collect bids for this period (polls DB + generates algo/LLM bids)
+      const { bids, rescindBotIds } = await collectBids(tournamentId, currentStage, currentPeriod, isStopped)
+      if (isStopped()) break
 
-    // Emit live update to all watchers
-    emitPeriodResult(tournamentId, result)
+      console.log(`[runner] ${tournamentId} S${currentStage + 1}P${currentPeriod + 1}: ${bids.size} bids collected`)
 
-    currentPeriod++
-    if (currentPeriod >= 5) {
-      // Award SP at end of each stage (live leaderboard update)
-      await awardStageSP(tournamentId, currentStage)
-      currentPeriod = 0
-      currentStage++
+      // Resolve auction and persist results
+      const result = await resolveCurrentPeriod(
+        tournamentId,
+        currentStage,
+        currentPeriod,
+        absolutePeriod,
+        bids,
+        stageConfig,
+        rescindBotIds
+      )
+      if (isStopped()) break
+
+      console.log(`[runner] ${tournamentId} S${currentStage + 1}P${currentPeriod + 1}: resolved, winner=${result.winnerBotId}, clearing=$${result.clearingPrice}`)
+
+      // Emit live update to all watchers
+      emitPeriodResult(tournamentId, result)
+
+      currentPeriod++
+      if (currentPeriod >= 5) {
+        // Award SP at end of each stage (live leaderboard update)
+        await awardStageSP(tournamentId, currentStage)
+        currentPeriod = 0
+        currentStage++
+      }
+
+      if (currentStage >= 3) {
+        await finalizeTournament(tournamentId)
+        break
+      }
+
+      // Wait before next period
+      await sleep(POST_RESOLUTION_DELAY_MS)
+    } catch (err) {
+      console.error(`[runner] Error in ${tournamentId} S${currentStage + 1}P${currentPeriod + 1}:`, err)
+      // Don't let one period's error kill the whole tournament — skip to next period
+      currentPeriod++
+      if (currentPeriod >= 5) {
+        currentPeriod = 0
+        currentStage++
+      }
+      if (currentStage >= 3) {
+        await finalizeTournament(tournamentId).catch(e => console.error('[runner] finalize error:', e))
+        break
+      }
+      await sleep(POST_RESOLUTION_DELAY_MS)
     }
-
-    if (currentStage >= 3) {
-      await finalizeTournament(tournamentId)
-      break
-    }
-
-    // Wait before next period
-    await sleep(POST_RESOLUTION_DELAY_MS)
   }
+
+  console.log(`[runner] Tournament ${tournamentId} loop ended`)
 }
 
 interface CollectedBids {
@@ -129,32 +154,39 @@ async function collectBids(
       .map(bt => bt.botId)
   )
 
-  const pollInterval = 1_000
-  let waited = 0
+  // If no human bots (pure algo/LLM tournament), skip polling entirely
+  if (humanBotIds.size > 0) {
+    const pollInterval = 1_000
+    let waited = 0
 
-  // Wait for all human bots to submit bids (or timeout)
-  while (waited < HUMAN_BID_TIMEOUT_MS && !isStopped()) {
-    const botBids = await prisma.bid.findMany({
-      where: { tournamentId, stage, period },
-    })
+    // Wait for all human bots to submit bids (or timeout)
+    while (waited < HUMAN_BID_TIMEOUT_MS && !isStopped()) {
+      const botBids = await prisma.bid.findMany({
+        where: { tournamentId, stage, period },
+      })
 
-    for (const bid of botBids) {
-      if (bid.bidType === 'bid' && bid.pricePerToken >= STAGE_CONFIGS[stage].floorPrice) {
-        bids.set(bid.botId, bid.pricePerToken)
-      } else if (bid.bidType === 'rescind') {
-        rescindBotIds.add(bid.botId)
-      } else if (bid.bidType === 'skip') {
-        // Mark as responded even if skipping
-        bids.set(bid.botId, -1) // sentinel: will be filtered before auction
+      for (const bid of botBids) {
+        if (bid.bidType === 'bid' && bid.pricePerToken >= STAGE_CONFIGS[stage].floorPrice) {
+          bids.set(bid.botId, bid.pricePerToken)
+        } else if (bid.bidType === 'rescind') {
+          rescindBotIds.add(bid.botId)
+        } else if (bid.bidType === 'skip') {
+          // Mark as responded even if skipping
+          bids.set(bid.botId, -1) // sentinel: will be filtered before auction
+        }
       }
+
+      // Check if all human bots have responded
+      const allHumansResponded = [...humanBotIds].every(id => bids.has(id) || rescindBotIds.has(id))
+      if (allHumansResponded) break
+
+      await sleep(pollInterval)
+      waited += pollInterval
     }
 
-    // Check if all human bots have responded
-    const allHumansResponded = [...humanBotIds].every(id => bids.has(id))
-    if (allHumansResponded) break
-
-    await sleep(pollInterval)
-    waited += pollInterval
+    if (waited >= HUMAN_BID_TIMEOUT_MS) {
+      console.log(`[runner] ${tournamentId} S${stage + 1}P${period + 1}: human bid timeout after ${waited}ms`)
+    }
   }
 
   // Remove skip sentinels
@@ -163,9 +195,13 @@ async function collectBids(
   }
 
   // Now generate algo/LLM bids (after human bids are in)
-  const algoBids = await generateAlgoBids(tournamentId, stage, period, bids)
-  for (const [botId, bid] of algoBids) {
-    if (!bids.has(botId)) bids.set(botId, bid)
+  try {
+    const algoBids = await generateAlgoBids(tournamentId, stage, period, bids)
+    for (const [botId, bid] of algoBids) {
+      if (!bids.has(botId)) bids.set(botId, bid)
+    }
+  } catch (err) {
+    console.error(`[runner] generateAlgoBids error for ${tournamentId}:`, err)
   }
 
   return { bids, rescindBotIds }
