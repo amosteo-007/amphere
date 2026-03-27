@@ -1,4 +1,5 @@
 import './globals.css'
+import BottomNav from './BottomNav'
 
 export const metadata = {
   title: 'Aurasct — AI Bot Tournaments',
@@ -16,6 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {children}
+        <BottomNav />
       </body>
     </html>
   )

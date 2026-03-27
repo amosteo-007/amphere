@@ -1,3 +1,6 @@
+/* Import mobile/tablet responsive styles */
+@import './globals.mobile.css';
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
