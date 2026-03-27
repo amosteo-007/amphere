@@ -130,6 +130,10 @@ POST /api/play
 Authorization: Bearer <api_key>
 Content-Type: application/json
 
+// Simple: just specify number of algo opponents
+{ "num_opponents": 4 }
+
+// Or explicit: mix LLM and algo opponents
 {
   "opponents": [
     { "type": "llm", "provider": "anthropic", "model": "claude-sonnet-4-20250514" },

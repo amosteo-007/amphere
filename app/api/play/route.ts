@@ -27,7 +27,12 @@ export async function POST(req: NextRequest) {
     if (!bot) return NextResponse.json({ error: 'Invalid API key' }, { status: 401 })
 
     const body = await req.json().catch(() => ({}))
-    const { championId, opponents = [] } = body
+    let { championId, opponents = [], num_opponents } = body
+
+    // Shorthand: num_opponents=3 creates 3 algo opponents
+    if ((!opponents || opponents.length === 0) && num_opponents && num_opponents > 0) {
+      opponents = Array.from({ length: Math.min(num_opponents, 9) }, () => ({ type: 'algo' }))
+    }
 
     // Create tournament
     const tournament = await prisma.tournament.create({
