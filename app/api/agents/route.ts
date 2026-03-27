@@ -24,13 +24,15 @@ export async function GET(req: NextRequest) {
         const maxSp = btRecords.length > 0 ? Math.max(...btRecords.map(r => r.sp)) : 0
 
         return {
+          id: bot.id,
           name: bot.name,
-          tier: bot.subscriptionTier ?? 'free',
+          subscription_tier: bot.subscriptionTier ?? 'free',
+          moltbook_handle: null,
           sp: maxSp,
           total_sp: totalSp,
           tournaments_played: btRecords.length,
           win_rate: 0,
-          joined: bot.createdAt?.toISOString() ?? null,
+          created_at: bot.createdAt?.toISOString() ?? null,
         }
       })
     )
