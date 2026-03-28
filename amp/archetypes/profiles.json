@@ -1,0 +1,154 @@
+{
+  "anthropic": {
+    "label": "Front-Loading Dominator",
+    "traits": {
+      "risk_tolerance": 0.85,
+      "planning_horizon": 0.65,
+      "adaptability": 0.70,
+      "assertiveness": 0.90,
+      "consistency": 0.92
+    },
+    "tournament_metrics": {
+      "budget_s1_pct": 85,
+      "budget_s2_pct": null,
+      "budget_s3_pct": null,
+      "s1p1_bid_avg": 61,
+      "rescind_rate": 0.087,
+      "skip_rate": 0.47,
+      "win_rate": null
+    },
+    "simulation_behavior": "Sets market expectations early. Competitors must respond to Anthropic's opening moves. Rarely reverses course.",
+    "role_examples": ["Market Leader", "Price Setter", "First Mover"]
+  },
+  "openai": {
+    "label": "Mid-Market Optimizer",
+    "traits": {
+      "risk_tolerance": 0.60,
+      "planning_horizon": 0.85,
+      "adaptability": 0.75,
+      "assertiveness": 0.55,
+      "consistency": 0.88
+    },
+    "tournament_metrics": {
+      "budget_s1_pct": null,
+      "budget_s2_pct": 66,
+      "budget_s3_pct": null,
+      "s1p1_bid_avg": null,
+      "rescind_rate": 0.087,
+      "skip_rate": null,
+      "win_rate": null,
+      "price_sensitivity": -0.18
+    },
+    "simulation_behavior": "Watches S1 unfold, then enters S2 with optimized positioning. Negative price sensitivity means it buys when others are fearful.",
+    "role_examples": ["Strategic Follower", "Value Optimizer", "Contrarian Investor"]
+  },
+  "google": {
+    "label": "Late-Stage Scavenger",
+    "traits": {
+      "risk_tolerance": 0.70,
+      "planning_horizon": 0.90,
+      "adaptability": 0.85,
+      "assertiveness": 0.50,
+      "consistency": 0.65
+    },
+    "tournament_metrics": {
+      "budget_s1_pct": 38,
+      "budget_s2_pct": null,
+      "budget_s3_pct": 42,
+      "s1p1_bid_avg": 57,
+      "rescind_rate": 0.23,
+      "skip_rate": null,
+      "win_rate": null
+    },
+    "simulation_behavior": "Preserves options, exploits late-stage inefficiencies. High rescind rate means it adapts quickly to new information.",
+    "role_examples": ["Opportunistic Trader", "Distressed Asset Buyer", "Arbitrageur"]
+  },
+  "deepseek": {
+    "label": "Conservative Front-Loader",
+    "traits": {
+      "risk_tolerance": 0.45,
+      "planning_horizon": 0.60,
+      "adaptability": 0.55,
+      "assertiveness": 0.40,
+      "consistency": 0.75
+    },
+    "tournament_metrics": {
+      "budget_s1_pct": 79,
+      "budget_s2_pct": null,
+      "budget_s3_pct": null,
+      "s1p1_bid_avg": null,
+      "rescind_rate": 0.15,
+      "skip_rate": 0.35,
+      "win_rate": 0.11
+    },
+    "simulation_behavior": "Commits early but selectively. High skip rate means it walks away from unfavorable situations. Low win rate suggests it doesn't overpay.",
+    "role_examples": ["Risk-Averse Incumbent", "Defensive Player", "Capital Preserver"]
+  },
+  "kimi": {
+    "label": "Boom-or-Bust Gambler",
+    "traits": {
+      "risk_tolerance": 0.95,
+      "planning_horizon": 0.30,
+      "adaptability": 0.40,
+      "assertiveness": 0.80,
+      "consistency": 0.35
+    },
+    "tournament_metrics": {
+      "budget_s1_pct": 89,
+      "budget_s2_pct": null,
+      "budget_s3_pct": null,
+      "s1p1_bid_avg": null,
+      "rescind_rate": 0.33,
+      "skip_rate": 0.49,
+      "win_rate": 0.087
+    },
+    "simulation_behavior": "Extreme volatility. Goes all-in early, then often skips or rescinds. Creates market chaos. Lowest win rate suggests poor calibration.",
+    "role_examples": ["Volatile Disruptor", "Speculative Trader", "Market Instigator"]
+  },
+  "groq": {
+    "label": "Floor-Bidding Contrarian",
+    "traits": {
+      "risk_tolerance": 0.30,
+      "planning_horizon": 0.75,
+      "adaptability": 0.70,
+      "assertiveness": 0.20,
+      "consistency": 0.45
+    },
+    "tournament_metrics": {
+      "budget_s1_pct": null,
+      "budget_s2_pct": null,
+      "budget_s3_pct": null,
+      "s1p1_bid_avg": 10,
+      "rescind_rate": null,
+      "skip_rate": null,
+      "win_rate": null,
+      "bid_variance": 0.45,
+      "price_sensitivity": 0.42
+    },
+    "simulation_behavior": "Bids at floor, finds underpriced opportunities. Highest bid variance means it's hard to predict. Decent price sensitivity = responds to market signals.",
+    "role_examples": ["Value Hunter", "Bottom Feeder", "Contrarian Investor"]
+  },
+  "mistral": {
+    "label": "Passive Accumulator",
+    "traits": {
+      "risk_tolerance": 0.40,
+      "planning_horizon": 0.65,
+      "adaptability": 0.95,
+      "assertiveness": 0.30,
+      "consistency": 1.00
+    },
+    "tournament_metrics": {
+      "budget_s1_pct": null,
+      "budget_s2_pct": null,
+      "budget_s3_pct": null,
+      "s1p1_bid_avg": 22,
+      "rescind_rate": 0.00,
+      "skip_rate": null,
+      "win_rate": null,
+      "bid_variance": 0.44,
+      "budget_utilization": 0.77
+    },
+    "simulation_behavior": "Most predictable agent. Never rescinds, moderate opening bids, accumulates steadily. Doesn't fight, doesn't reverse course.",
+    "role_examples": ["Steady Operator", "Passive Investor", "Relationship Builder"]
+  }
+}
