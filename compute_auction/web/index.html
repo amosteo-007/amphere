@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compute Auction Tournament | Results Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Design Tokens - Dark Theme */
+            --color-bg-primary: #0a0f1a;
+            --color-bg-secondary: #111827;
+            --color-bg-tertiary: #1f2937;
+            --color-bg-elevated: #374151;
+            
+            --color-text-primary: #f9fafb;
+            --color-text-secondary: #9ca3af;
+            --color-text-muted: #6b7280;
+            
+            --color-accent-primary: #60a5fa;
+            --color-accent-secondary: #a78bfa;
+            --color-accent-success: #34d399;
+            --color-accent-warning: #fbbf24;
+            --color-accent-danger: #f87171;
+            
+            --color-bidder-llm: #f472b6;
+            --color-bidder-mdp: #60a5fa;
+            
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.4);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.5);
+            
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', Monaco, monospace;
+            
+            --transition-fast: 150ms ease;
+            --transition-normal: 250ms ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* Layout */
+        .app-container {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar Navigation */
+        .sidebar {
+            background: var(--color-bg-secondary);
+            border-right: 1px solid var(--color-bg-tertiary);
+            padding: var(--spacing-lg);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding-bottom: var(--spacing-xl);
+            border-bottom: 1px solid var(--color-bg-tertiary);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .brand-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+        
+        .brand-text h1 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+        
+        .brand-text span {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+        }
+        
+        .nav-section {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .nav-section-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-sm);
+            padding-left: var(--spacing-sm);
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-xs);
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            width: 100%;
+            text-align: left;
+        }
+        
+        .nav-item:hover {
+            background: var(--color-bg-tertiary);
+            color: var(--color-text-primary);
+        }
+        
+        .nav-item.active {
+            background: var(--color-accent-primary);
+            color: var(--color-bg-primary);
+        }
+        
+        .nav-item .icon {
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: var(--spacing-xl);
+            overflow-y: auto;
+        }
+        
+        .page-header {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .page-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .page-header p {
+            color: var(--color-text-secondary);
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .stat-card {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-bg-tertiary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .stat-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+        }
+        
+        .stat-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        
+        .stat-icon.blue { background: rgba(96, 165, 250, 0.1); }
+        .stat-icon.green { background: rgba(52, 211, 153, 0.1); }
+        .stat-icon.purple { background: rgba(167, 139, 250, 0.1); }
+        .stat-icon.orange { background: rgba(251, 191, 36, 0.1); }
+        
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+        
+        .stat-change {
+            font-size: 0.8rem;
+            color: var(--color-accent-success);
+            margin-top: var(--spacing-xs);
+        }
+        
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+        }
+        
+        .card {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-bg-tertiary);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .card.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .card-header {
+            padding: var(--spacing-lg);
+            border-bottom: 1px solid var(--color-bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+        
+        .card-body {
+            padding: var(--spacing-lg);
+        }
+        
+        /* Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        
+        .data-table th {
+            text-align: left;
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--color-text-muted);
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            border-bottom: 1px solid var(--color-bg-tertiary);
+        }
+        
+        .data-table td {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--color-bg-tertiary);
+            color: var(--color-text-secondary);
+        }
+        
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .data-table tr:hover td {
+            background: rgba(255,255,255,0.02);
+        }
+        
+        .bidder-name {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .bidder-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .bidder-avatar.llm {
+            background: rgba(244, 114, 182, 0.2);
+            color: var(--color-bidder-llm);
+        }
+        
+        .bidder-avatar.mdp {
+            background: rgba(96, 165, 250, 0.2);
+            color: var(--color-bidder-mdp);
+        }
+        
+        .bidder-name span {
+            color: var(--color-text-primary);
+            font-weight: 500;
+        }
+        
+        .bidder-type {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            margin-left: auto;
+        }
+        
+        .value-positive {
+            color: var(--color-accent-success);
+            font-weight: 500;
+        }
+        
+        .value-negative {
+            color: var(--color-accent-danger);
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .badge-success {
+            background: rgba(52, 211, 153, 0.1);
+            color: var(--color-accent-success);
+        }
+        
+        .badge-neutral {
+            background: var(--color-bg-tertiary);
+            color: var(--color-text-muted);
+        }
+        
+        /* Chart Container */
+        .chart-container {
+            position: relative;
+            height: 280px;
+        }
+        
+        /* Auction Cards */
+        .auction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .auction-card {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-bg-tertiary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            transition: all var(--transition-fast);
+        }
+        
+        .auction-card:hover {
+            border-color: var(--color-accent-primary);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .auction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .auction-title {
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+        
+        .auction-id {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+        }
+        
+        .auction-winner {
+            background: var(--color-accent-success);
+            color: var(--color-bg-primary);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .auction-winner.none {
+            background: var(--color-bg-tertiary);
+            color: var(--color-text-muted);
+        }
+        
+        .auction-stats {
+            display: flex;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .auction-stat {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .auction-stat-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+        
+        .auction-stat-label {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+        }
+        
+        .price-chart-small {
+            height: 60px;
+            margin-top: var(--spacing-sm);
+        }
+        
+        /* Scratchpad */
+        .scratchpad-container {
+            background: var(--color-bg-primary);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .scratchpad-entry {
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px dashed var(--color-bg-tertiary);
+        }
+        
+        .scratchpad-entry:last-child {
+            border-bottom: none;
+        }
+        
+        .scratchpad-header {
+            color: var(--color-accent-primary);
+            font-weight: 500;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .scratchpad-content {
+            color: var(--color-text-secondary);
+            padding-left: var(--spacing-md);
+        }
+        
+        .scratchpad-reasoning {
+            color: var(--color-text-muted);
+            font-style: italic;
+            margin-top: var(--spacing-xs);
+            padding-left: var(--spacing-md);
+        }
+        
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: var(--spacing-2xl);
+            color: var(--color-text-muted);
+        }
+        
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--color-bg-primary);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-bg-elevated);
+            border-radius: var(--radius-sm);
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-text-muted);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .app-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Utility */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Loading State */
+        .skeleton {
+            background: linear-gradient(90deg, var(--color-bg-tertiary) 25%, var(--color-bg-elevated) 50%, var(--color-bg-tertiary) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: var(--radius-sm);
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">⚡</div>
+                <div class="brand-text">
+                    <h1>Auction Arena</h1>
+                    <span>Compute Market Sim</span>
+                </div>
+            </div>
+            
+            <nav class="nav-section">
+                <div class="nav-section-title">Dashboard</div>
+                <button class="nav-item active" onclick="showView('overview')">
+                    <span class="icon">📊</span>
+                    Overview
+                </button>
+                <button class="nav-item" onclick="showView('leaderboard')">
+                    <span class="icon">🏆</span>
+                    Leaderboard
+                </button>
+                <button class="nav-item" onclick="showView('auctions')">
+                    <span class="icon">🔨</span>
+                    Auctions
+                </button>
+                <button class="nav-item" onclick="showView('scratchpad')">
+                    <span class="icon">📝</span>
+                    Scratchpad
+                </button>
+                <button class="nav-item" onclick="showView('analytics')">
+                    <span class="icon">📈</span>
+                    Analytics
+                </button>
+            </nav>
+            
+            <nav class="nav-section">
+                <div class="nav-section-title">Settings</div>
+                <button class="nav-item" onclick="refreshData()">
+                    <span class="icon">🔄</span>
+                    Refresh Data
+                </button>
+                <button class="nav-item" onclick="exportData()">
+                    <span class="icon">💾</span>
+                    Export JSON
+                </button>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Overview View -->
+            <div id="overview-view" class="view">
+                <div class="page-header">
+                    <h2>Tournament <span class="text-gradient">Overview</span></h2>
+                    <p>LLM Agent vs MDP Scripts in Double Dutch Auctions</p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-label">Total Auctions</span>
+                            <div class="stat-icon blue">📊</div>
+                        </div>
+                        <div class="stat-value" id="stat-auctions">0</div>
+                        <div class="stat-change">Completed</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-label">Total Profit</span>
+                            <div class="stat-icon green">💰</div>
+                        </div>
+                        <div class="stat-value" id="stat-profit">$0</div>
+                        <div class="stat-change">All bidders</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-label">Participants</span>
+                            <div class="stat-icon purple">👥</div>
+                        </div>
+                        <div class="stat-value" id="stat-participants">0</div>
+                        <div class="stat-change">Active bidders</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-label">Top Performer</span>
+                            <div class="stat-icon orange">👑</div>
+                        </div>
+                        <div class="stat-value" id="stat-top" style="font-size: 1.25rem;">-</div>
+                        <div class="stat-change">By profit</div>
+                    </div>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Win Distribution</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="winChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Profit by Bidder</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="profitChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card full-width">
+                        <div class="card-header">
+                            <h3 class="card-title">Win Rate vs Budget Efficiency</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="efficiencyChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Leaderboard View -->
+            <div id="leaderboard-view" class="view hidden">
+                <div class="page-header">
+                    <h2>Tournament <span class="text-gradient">Leaderboard</span></h2>
+                    <p>Rankings by profit, win rate, and efficiency</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <table class="data-table" id="leaderboard-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Bidder</th>
+                                    <th>Wins</th>
+                                    <th>Win Rate</th>
+                                    <th>Total Profit</th>
+                                    <th>Budget Used</th>
+                                    <th>Efficiency</th>
+                                    <th>Final Budget</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboard-body">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Auctions View -->
+            <div id="auctions-view" class="view hidden">
+                <div class="page-header">
+                    <h2>Auction <span class="text-gradient">Details</span></h2>
+                    <p>Individual auction results and price curves</p>
+                </div>
+                
+                <div id="auction-grid" class="auction-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            
+            <!-- Scratchpad View -->
+            <div id="scratchpad-view" class="view hidden">
+                <div class="page-header">
+                    <h2>LLM <span class="text-gradient">Scratchpad</span></h2>
+                    <p>Reasoning traces and strategic decisions</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Agent Thought Process</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="scratchpad-content" class="scratchpad-container">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Analytics View -->
+            <div id="analytics-view" class="view hidden">
+                <div class="page-header">
+                    <h2>Deep <span class="text-gradient">Analytics</span></h2>
+                    <p>Timing patterns and strategic insights</p>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Win Timing Distribution</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="timingChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Price vs Profit</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="priceProfitChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        // Tournament Data (will be replaced by actual data)
+        let tournamentData = null;
+        
+        // Load data
+        async function loadData() {
+            try {
+                const response = await fetch('./data/tournament_results.json');
+                tournamentData = await response.json();
+                updateDashboard();
+            } catch (e) {
+                console.log('Using default data');
+                // Use sample data if file not found
+                tournamentData = {
+                    summary: {
+                        "llm_agent": {auctions_participated: 5, auctions_won: 0, win_rate: 0, total_profit: 0, budget_utilized: 0, profit_per_dollar_spent: 0, final_budget: 5000},
+                        "mdp_myopic": {auctions_participated: 5, auctions_won: 0, win_rate: 0, total_profit: 0, budget_utilized: 0, profit_per_dollar_spent: 0, final_budget: 5000},
+                        "mdp_conservative": {auctions_participated: 5, auctions_won: 0, win_rate: 0, total_profit: 0, budget_utilized: 0, profit_per_dollar_spent: 0, final_budget: 5000},
+                        "mdp_aggressive": {auctions_participated: 5, auctions_won: 3, win_rate: 60, total_profit: 199.79, budget_utilized: 1442.71, profit_per_dollar_spent: 0.138, final_budget: 3557.29}
+                    },
+                    auction_logs: [],
+                    scratchpad_logs: {}
+                };
+                updateDashboard();
+            }
+        }
+        
+        function updateDashboard() {
+            if (!tournamentData) return;
+            
+            updateStats();
+            updateLeaderboard();
+            updateAuctions();
+            updateScratchpad();
+            initCharts();
+        }
+        
+        function updateStats() {
+            const summary = tournamentData.summary;
+            const bidders = Object.keys(summary);
+            
+            // Calculate totals
+            let totalAuctions = 0;
+            let totalProfit = 0;
+            let topBidder = ['', 0];
+            
+            for (const [id, stats] of Object.entries(summary)) {
+                totalAuctions = Math.max(totalAuctions, stats.auctions_participated);
+                totalProfit += stats.total_profit;
+                if (stats.total_profit > topBidder[1]) {
+                    topBidder = [id, stats.total_profit];
+                }
+            }
+            
+            document.getElementById('stat-auctions').textContent = totalAuctions;
+            document.getElementById('stat-profit').textContent = '$' + totalProfit.toFixed(2);
+            document.getElementById('stat-participants').textContent = bidders.length;
+            document.getElementById('stat-top').textContent = topBidder[0] || '-';
+        }
+        
+        function updateLeaderboard() {
+            const summary = tournamentData.summary;
+            const tbody = document.getElementById('leaderboard-body');
+            
+            // Sort by profit
+            const sorted = Object.entries(summary).sort((a, b) => b[1].total_profit - a[1].total_profit);
+            
+            tbody.innerHTML = sorted.map(([id, stats], i) => {
+                const isLLM = id.includes('llm');
+                const rank = i + 1;
+                const winRate = stats.win_rate.toFixed(1);
+                
+                return `
+                    <tr>
+                        <td>#${rank}</td>
+                        <td>
+                            <div class="bidder-name">
+                                <div class="bidder-avatar ${isLLM ? 'llm' : 'mdp'}">${isLLM ? 'AI' : 'MDP'}</div>
+                                <span>${id}</span>
+                            </div>
+                        </td>
+                        <td>${stats.auctions_won}/${stats.auctions_participated}</td>
+                        <td>
+                            <span class="badge ${stats.win_rate > 0 ? 'badge-success' : 'badge-neutral'}">${winRate}%</span>
+                        </td>
+                        <td class="value-positive">$${stats.total_profit.toFixed(2)}</td>
+                        <td>$${stats.budget_utilized.toFixed(2)}</td>
+                        <td>$${stats.profit_per_dollar_spent.toFixed(3)}</td>
+                        <td>$${stats.final_budget.toFixed(2)}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+        
+        function updateAuctions() {
+            const logs = tournamentData.auction_logs || [];
+            const grid = document.getElementById('auction-grid');
+            
+            if (logs.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📭</div>
+                        <p>No auction data available</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            grid.innerHTML = logs.map((log, i) => {
+                const config = log.config || {};
+                const result = log.result || {};
+                const winner = result.winner;
+                
+                return `
+                    <div class="auction-card">
+                        <div class="auction-header">
+                            <div>
+                                <div class="auction-title">${config.auction_id || `Auction ${i+1}`}</div>
+                                <div class="auction-id">${config.compute_units || 0} units @ $${config.unit_value || 0}/unit</div>
+                            </div>
+                            ${winner ? `<span class="auction-winner">${winner}</span>` : '<span class="auction-winner none">No Winner</span>'}
+                        </div>
+                        <div class="auction-stats">
+                            <div class="auction-stat">
+                                <span class="auction-stat-value">$${(result.winning_price || 0).toFixed(2)}</span>
+                                <span class="auction-stat-label">Final Price</span>
+                            </div>
+                            <div class="auction-stat">
+                                <span class="auction-stat-value">${result.winning_period || '-'}</span>
+                                <span class="auction-stat-label">Period</span>
+                            </div>
+                            <div class="auction-stat">
+                                <span class="auction-stat-value">${(log.periods || []).length}</span>
+                                <span class="auction-stat-label">Rounds</span>
+                            </div>
+                        </div>
+                        <div class="price-chart-small">
+                            <canvas id="auction-chart-${i}"></canvas>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Initialize mini charts
+            setTimeout(() => {
+                logs.forEach((log, i) => {
+                    const ctx = document.getElementById(`auction-chart-${i}`);
+                    if (!ctx) return;
+                    
+                    const prices = (log.periods || []).map(p => p.price || 0);
+                    
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: prices.map((_, i) => i),
+                            datasets: [{
+                                data: prices,
+                                borderColor: '#60a5fa',
+                                borderWidth: 2,
+                                pointRadius: 0,
+                                tension: 0.4
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: { legend: { display: false } },
+                            scales: {
+                                x: { display: false },
+                                y: { display: false }
+                            }
+                        }
+                    });
+                });
+            }, 100);
+        }
+        
+        function updateScratchpad() {
+            const scratchpads = tournamentData.scratchpad_logs || {};
+            const container = document.getElementById('scratchpad-content');
+            
+            let html = '';
+            for (const [bidderId, logs] of Object.entries(scratchpads)) {
+                if (!logs || logs.length === 0) continue;
+                
+                html += `<div style="margin-bottom: var(--spacing-lg);">`;
+                html += `<div style="color: var(--color-accent-primary); font-weight: 600; margin-bottom: var(--spacing-sm);">${bidderId}</div>`;
+                
+                for (const log of logs) {
+                    html += `<div class="scratchpad-entry">`;
+                    html += `<div class="scratchpad-header">${log.auction_id || 'Unknown'}</div>`;
+                    
+                    for (const entry of (log.scratchpad || [])) {
+                        html += `<div class="scratchpad-content">`;
+                        html += `Period ${entry.period}: <strong>${entry.action}</strong> @ $${entry.price?.toFixed?.(2) || entry.price || 0}`;
+                        html += `</div>`;
+                        if (entry.reasoning) {
+                            html += `<div class="scratchpad-reasoning">→ ${entry.reasoning}</div>`;
+                        }
+                    }
+                    
+                    html += `</div>`;
+                }
+                html += `</div>`;
+            }
+            
+            container.innerHTML = html || '<div class="empty-state">No scratchpad data available</div>';
+        }
+        
+        let charts = {};
+        
+        function initCharts() {
+            const summary = tournamentData.summary;
+            const bidders = Object.keys(summary);
+            const colors = ['#f472b6', '#60a5fa', '#34d399', '#fbbf24', '#a78bfa', '#f87171'];
+            
+            // Win Distribution
+            const winCtx = document.getElementById('winChart');
+            if (winCtx) {
+                charts.win = new Chart(winCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: bidders,
+                        datasets: [{
+                            data: bidders.map(b => summary[b].auctions_won),
+                            backgroundColor: colors,
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '70%',
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                                labels: { color: '#9ca3af', boxWidth: 12 }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Profit Chart
+            const profitCtx = document.getElementById('profitChart');
+            if (profitCtx) {
+                charts.profit = new Chart(profitCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: bidders,
+                        datasets: [{
+                            label: 'Profit ($)',
+                            data: bidders.map(b => summary[b].total_profit),
+                            backgroundColor: colors,
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            y: {
+                                ticks: { color: '#6b7280' },
+                                grid: { color: '#374151' }
+                            },
+                            x: {
+                                ticks: { color: '#9ca3af' },
+                                grid: { display: false }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Efficiency Scatter
+            const effCtx = document.getElementById('efficiencyChart');
+            if (effCtx) {
+                charts.efficiency = new Chart(effCtx, {
+                    type: 'scatter',
+                    data: {
+                        datasets: [{
+                            label: 'Bidders',
+                            data: bidders.map((b, i) => ({
+                                x: summary[b].win_rate,
+                                y: summary[b].profit_per_dollar_spent * 100
+                            })),
+                            backgroundColor: colors,
+                            pointRadius: 12
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            x: {
+                                title: { display: true, text: 'Win Rate (%)', color: '#9ca3af' },
+                                ticks: { color: '#6b7280' },
+                                grid: { color: '#374151' }
+                            },
+                            y: {
+                                title: { display: true, text: 'Profit per $ (%)', color: '#9ca3af' },
+                                ticks: { color: '#6b7280' },
+                                grid: { color: '#374151' }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+        
+        // Navigation
+        function showView(viewName) {
+            // Hide all views
+            document.querySelectorAll('.view').forEach(v => v.classList.add('hidden'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            // Show selected view
+            document.getElementById(viewName + '-view').classList.remove('hidden');
+            event.target.classList.add('active');
+        }
+        
+        function refreshData() {
+            loadData();
+        }
+        
+        function exportData() {
+            if (!tournamentData) return;
+            const dataStr = JSON.stringify(tournamentData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'tournament_results.json';
+            link.click();
+        }
+        
+        // Initialize
+        loadData();
+    </script>
+</body>
+</html>

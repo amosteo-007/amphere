@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-Sided Compute Auction | Convergence Market</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Background */
+            --bg-primary: #0a0f1a;
+            --bg-secondary: #111827;
+            --bg-tertiary: #1f2937;
+            --bg-elevated: #374151;
+            
+            /* Text */
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            
+            /* Accents */
+            --ask-color: #f87171;
+            --ask-color-dark: #dc2626;
+            --bid-color: #34d399;
+            --bid-color-dark: #059669;
+            --trade-color: #fbbf24;
+            --trade-glow: rgba(251, 191, 36, 0.4);
+            --neutral: #60a5fa;
+            
+            /* Spacing */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            
+            /* Animation */
+            --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --duration-normal: 300ms;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        .header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--bg-tertiary);
+            padding: var(--space-4) var(--space-8);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .brand-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--ask-color), var(--bid-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .brand-icon::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.2) 100%);
+        }
+        
+        .brand-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--text-primary), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .brand-text span {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        
+        /* Live Status Badge */
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            padding: var(--space-2) var(--space-4);
+            border-radius: 999px;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--bid-color);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        
+        /* Main Layout */
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: var(--space-6);
+            padding: var(--space-6);
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        /* Convergence Clock - The Hero Component */
+        .convergence-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--bg-tertiary);
+            border-radius: 16px;
+            padding: var(--space-8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .convergence-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, var(--trade-color), transparent);
+            opacity: 0.3;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-6);
+        }
+        
+        .section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .section-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        
+        /* The Clock Visual */
+        .convergence-clock {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: var(--space-8) 0;
+        }
+        
+        .clock-sides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            gap: var(--space-12);
+        }
+        
+        .clock-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .side-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-4);
+            padding: var(--space-1) var(--space-3);
+            border-radius: 4px;
+        }
+        
+        .side-label.ask {
+            color: var(--ask-color);
+            background: rgba(248, 113, 113, 0.1);
+        }
+        
+        .side-label.bid {
+            color: var(--bid-color);
+            background: rgba(52, 211, 153, 0.1);
+        }
+        
+        /* Price Bars */
+        .price-track {
+            flex: 1;
+            width: 80px;
+            background: var(--bg-tertiary);
+            border-radius: var(--space-2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-bar {
+            position: absolute;
+            width: 100%;
+            border-radius: var(--space-2);
+            transition: all 1s var(--ease-spring);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 600;
+            font-size: 0.875rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        .price-bar.ask {
+            background: linear-gradient(180deg, var(--ask-color), var(--ask-color-dark));
+            color: white;
+            top: 0;
+            height: 60%;
+        }
+        
+        .price-bar.bid {
+            background: linear-gradient(0deg, var(--bid-color), var(--bid-color-dark));
+            color: white;
+            bottom: 0;
+            height: 40%;
+        }
+        
+        /* Center Spread Display */
+        .spread-center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .spread-value {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--trade-color);
+            text-shadow: 0 0 30px var(--trade-glow);
+            animation: glow-pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes glow-pulse {
+            0%, 100% { text-shadow: 0 0 20px var(--trade-glow); }
+            50% { text-shadow: 0 0 40px var(--trade-glow), 0 0 60px var(--trade-glow); }
+        }
+        
+        .spread-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: var(--space-1);
+        }
+        
+        /* Timeline */
+        .timeline-container {
+            margin-top: var(--space-6);
+        }
+        
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: var(--space-2);
+        }
+        
+        .timeline-track {
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--ask-color), var(--bid-color));
+            border-radius: 4px;
+            width: 40%;
+            transition: width 1s ease;
+            position: relative;
+        }
+        
+        .timeline-progress::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 20px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3));
+        }
+        
+        /* Order Book */
+        .order-book {
+            background: var(--bg-secondary);
+            border: 1px solid var(--bg-tertiary);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .book-header {
+            background: var(--bg-tertiary);
+            padding: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .book-header h3 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .book-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .book-side {
+            flex: 1;
+        }
+        
+        .book-side-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-4);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .book-side-header.ask {
+            color: var(--ask-color);
+            border-bottom: 1px solid rgba(248, 113, 113, 0.2);
+        }
+        
+        .book-side-header.bid {
+            color: var(--bid-color);
+            border-bottom: 1px solid rgba(52, 211, 153, 0.2);
+        }
+        
+        .order-list {
+            padding: var(--space-2);
+        }
+        
+        .order-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-2) var(--space-4);
+            border-radius: 6px;
+            transition: background 0.15s ease;
+            cursor: pointer;
+        }
+        
+        .order-row:hover {
+            background: var(--bg-tertiary);
+        }
+        
+        .order-row.highlight {
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid var(--trade-color);
+        }
+        
+        .order-price {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .order-row.ask .order-price {
+            color: var(--ask-color);
+        }
+        
+        .order-row.bid .order-price {
+            color: var(--bid-color);
+        }
+        
+        .order-qty {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        
+        .order-provider {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
+        .provider-avatar {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            font-weight: 700;
+        }
+        
+        .provider-avatar.aws {
+            background: #ff9900;
+            color: #000;
+        }
+        
+        .provider-avatar.gcp {
+            background: #4285f4;
+            color: #fff;
+        }
+        
+        .provider-avatar.azure {
+            background: #0078d4;
+            color: #fff;
+        }
+        
+        .provider-avatar.llm {
+            background: var(--ask-color);
+            color: #fff;
+        }
+        
+        /* Spread Indicator */
+        .spread-indicator {
+            background: var(--bg-tertiary);
+            padding: var(--space-4);
+            border-top: 1px solid var(--bg-elevated);
+            border-bottom: 1px solid var(--bg-elevated);
+            text-align: center;
+        }
+        
+        .spread-value-small {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--trade-color);
+        }
+        
+        .spread-status {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: var(--space-1);
+        }
+        
+        /* Participants Panel */
+        .participants-panel {
+            margin-top: var(--space-6);
+        }
+        
+        .participant-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--bg-tertiary);
+            border-radius: 12px;
+            padding: var(--space-4);
+            margin-bottom: var(--space-4);
+            transition: all 0.2s ease;
+        }
+        
+        .participant-card:hover {
+            border-color: var(--bg-elevated);
+            transform: translateY(-2px);
+        }
+        
+        .participant-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-3);
+        }
+        
+        .participant-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+        
+        .participant-avatar.llm {
+            background: linear-gradient(135deg, #f472b6, #db2777);
+            color: white;
+        }
+        
+        .participant-avatar.mdp {
+            background: linear-gradient(135deg, #60a5fa, #2563eb);
+            color: white;
+        }
+        
+        .participant-info h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .participant-info span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        
+        .participant-budget {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        .participant-action {
+            margin-top: var(--space-3);
+            padding: var(--space-3);
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            font-size: 0.8rem;
+        }
+        
+        .action-label {
+            color: var(--text-muted);
+            margin-bottom: var(--space-1);
+        }
+        
+        .action-value {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        /* Trade Animation Overlay */
+        .trade-overlay {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        .trade-badge {
+            background: var(--trade-color);
+            color: #000;
+            padding: var(--space-4) var(--space-8);
+            border-radius: 16px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            opacity: 0;
+            transform: scale(0.5);
+            box-shadow: 0 0 60px var(--trade-glow);
+        }
+        
+        .trade-badge.animate {
+            animation: trade-pop 1.5s var(--ease-spring) forwards;
+        }
+        
+        @keyframes trade-pop {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            20% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.2);
+            }
+        }
+        
+        /* Bottom Stats Bar */
+        .stats-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--bg-tertiary);
+            padding: var(--space-4) var(--space-8);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-8);
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .stat-icon-box {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        
+        .stat-icon-box.blue { background: rgba(96, 165, 250, 0.1); }
+        .stat-icon-box.green { background: rgba(52, 211, 153, 0.1); }
+        .stat-icon-box.orange { background: rgba(251, 191, 36, 0.1); }
+        
+        .stat-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .stat-value {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .order-book {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Trade Animation Overlay -->
+    <div class="trade-overlay" id="tradeOverlay">
+        <div class="trade-badge" id="tradeBadge">TRADE $14.50</div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="brand">
+            <div class="brand-icon">⚡</div>
+            <div class="brand-text">
+                <h1>Two-Sided Compute Auction</h1>
+                <span>Supply meets Demand • Convergence Market</span>
+            </div>
+        </div>
+        
+        <div class="status-badge">
+            <div class="status-dot"></div>
+            <span>LIVE • Period 8/20</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Left: Convergence Clock -->
+        <div class="left-column">
+            <section class="convergence-section">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Convergence Clock</h2>
+                        <span class="section-subtitle">Watch supply and demand converge to clearing price</span>
+                    </div>
+                </div>
+                
+                <div class="convergence-clock">
+                    <div class="clock-sides">
+                        <!-- ASK Side (Supply) -->
+                        <div class="clock-side">
+                            <div class="side-label ask">⬇ Supply (Ask)</div>
+                            <div class="price-track">
+                                <div class="price-bar ask" id="askBar">$16.00</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Center Spread -->
+                        <div class="spread-center">
+                            <div class="spread-value" id="spreadValue">$2.50</div>
+                            <div class="spread-label">Current Spread</div>
+                        </div>
+                        
+                        <!-- BID Side (Demand) -->
+                        <div class="clock-side">
+                            <div class="side-label bid">Bid (Demand) ⬆</div>
+                            <div class="price-track">
+                                <div class="price-bar bid" id="bidBar">$13.50</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-container">
+                    <div class="timeline-header">
+                        <span>Auction Start</span>
+                        <span>Period 8/20</span>
+                        <span>Auction End</span>
+                    </div>
+                    <div class="timeline-track">
+                        <div class="timeline-progress" id="timelineProgress"></div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Participants Panel -->
+            <section class="participants-panel">
+                <div class="section-header">
+                    <h2 class="section-title">Active Participants</h2>
+                </div>
+                
+                <div class="participant-card">
+                    <div class="participant-header">
+                        <div class="participant-avatar llm">AI</div>
+                        <div class="participant-info">
+                            <h4>llm_agent</h4>
+                            <span>Strategic Bidder</span>
+                        </div>
+                        <div class="participant-budget">$5,000</div>
+                    </div>
+                    
+                    <div class="participant-action">
+                        <div class="action-label">Current Action</div>
+                        <div class="action-value">BID $13.50 for 200 units</div>
+                    </div>
+                </div>
+                
+                <div class="participant-card">
+                    <div class="participant-header">
+                        <div class="participant-avatar mdp">M</div>
+                        <div class="participant-info">
+                            <h4>mdp_aggressive</h4>
+                            <span>MDP Script • Threshold 85%</span>
+                        </div>
+                        <div class="participant-budget">$5,000</div>
+                    </div>
+                    
+                    <div class="participant-action">
+                        <div class="action-label">Current Action</div>
+                        <div class="action-value">ASK $16.00 for 300 units</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Right: Order Book -->
+        <aside class="right-column">
+            <div class="order-book">
+                <div class="book-header">
+                    <span>📖</span>
+                    <h3>Live Order Book</h3>
+                </div>
+                
+                <div class="book-content">
+                    <!-- Asks (Supply) -->
+                    <div class="book-side">
+                        <div class="book-side-header ask">
+                            <span>⬇</span>
+                            Asks (Supply)
+                        </div>
+                        
+                        <div class="order-list">
+                            <div class="order-row ask">
+                                <span class="order-price">$20.00</span>
+                                <span class="order-qty">500 units</span>
+                                <div class="order-provider">
+                                    <div class="provider-avatar aws">AWS</div>
+                                    <span>AWS</span>
+                                </div>
+                            </div>
+                            
+                            <div class="order-row ask">
+                                <span class="order-price">$18.50</span>
+                                <span class="order-qty">300 units</span>
+                                <div class="order-provider">
+                                    <div class="provider-avatar gcp">GCP</div>
+                                    <span>GCP</span>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="order-row ask highlight">
+                                <span class="order-price">$16.00</span>
+                                <span class="order-qty">300 units</span>
+                                <div class="order-provider">
+                                    <div class="provider-avatar llm">MDP</div>
+                                    <span>mdp_aggressive</span>
+                                </div>
+                            </div>
+                            
+                            <div class="order-row ask">
+                                <span class="order-price">$17.00</span>
+                                <span class="order-qty">400 units</span>
+                                <div class="order-provider">
+                                    <div class="provider-avatar azure">AZ</div>
+                                    <span>Azure</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- Spread Indicator -->
+                    <div class="spread-indicator">
+                        <div class="spread-value-small">$2.50</div>
+                        <div class="spread-status">Spread narrowing • 3 potential matches</div>
+                    </div>
+                    
+                    
+                    <!-- Bids (Demand) -->
+                    <div class="book-side">
+                        <div class="book-side-header bid">
+                            <span>⬆</span>
+                            Bids (Demand)
+                        </div>
+                        
+                        <div class="order-list">
+                            <div class="order-row bid highlight">
+                                <div class="order-provider">
+                                    <div class="provider-avatar llm">AI</div>
+                                    <span>llm_agent</span>
+                                </div>
+                                <span class="order-qty">200 units</span>
+                                <span class="order-price">$13.50</span>
+                            </div>
+                            
+                            <div class="order-row bid">
+                                <div class="order-provider">
+                                    <div class="provider-avatar mdp">M</div>
+                                    <span>mdp_conservative</span>
+                                </div>
+                                <span class="order-qty">150 units</span>
+                                <span class="order-price">$12.00</span>
+                            </div>
+                            
+                            <div class="order-row bid">
+                                <div class="order-provider">
+                                    <div class="provider-avatar mdp">M</div>
+                                    <span>mdp_myopic</span>
+                                </div>
+                                <span class="order-qty">100 units</span>
+                                <span class="order-price">$10.50</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Bottom Stats Bar -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-icon-box blue">📊</div>
+            <div class="stat-content">
+                <span class="stat-value">4 Active</span>
+                <span class="stat-label">Participants</span>
+            </div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-icon-box green">💰</div>
+            <div class="stat-content">
+                <span class="stat-value">$199.79</span>
+                <span class="stat-label">Total Profit</span>
+            </div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-icon-box orange">🎯</div>
+            <div class="stat-content">
+                <span class="stat-value">3/5</span>
+                <span class="stat-label">Auctions Completed</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulate live auction updates
+        let currentPeriod = 8;
+        const maxPeriods = 20;
+        
+        function updatePrices() {
+            // Simulated price movement
+            const askPrice = 16.00 - (currentPeriod * 0.25);
+            const bidPrice = 13.50 + (currentPeriod * 0.15);
+            const spread = askPrice - bidPrice;
+            
+            // Update bars
+            const askBar = document.getElementById('askBar');
+            const bidBar = document.getElementById('bidBar');
+            
+            if (askBar) {
+                askBar.textContent = `$${askPrice.toFixed(2)}`;
+                askBar.style.height = `${70 - currentPeriod * 2}%`;
+            }
+            
+            if (bidBar) {
+                bidBar.textContent = `$${bidPrice.toFixed(2)}`;
+                bidBar.style.height = `${30 + currentPeriod * 2}%`;
+            }
+            
+            // Update spread
+            const spreadValue = document.getElementById('spreadValue');
+            if (spreadValue) {
+                spreadValue.textContent = `$${Math.max(0, spread).toFixed(2)}`;
+            }
+            
+            // Update timeline
+            const timeline = document.getElementById('timelineProgress');
+            if (timeline) {
+                timeline.style.width = `${(currentPeriod / maxPeriods) * 100}%`;
+            }
+        }
+        
+        // Animate trade
+        function triggerTrade() {
+            const badge = document.getElementById('tradeBadge');
+            if (badge) {
+                badge.classList.add('animate');
+                setTimeout(() => badge.classList.remove('animate'), 1500);
+            }
+        }
+        
+        // Demo: Update every 2 seconds
+        setInterval(() => {
+            if (currentPeriod < maxPeriods) {
+                currentPeriod++;
+                updatePrices();
+                
+                // Random trade trigger
+                if (Math.random() > 0.8) {
+                    triggerTrade();
+                }
+            }
+        }, 2000);
+        
+        // Initial update
+        updatePrices();
+    </script>
+</body>
+</html>
