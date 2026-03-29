@@ -260,7 +260,7 @@ class LiveMDPOracle:
 
 if __name__ == "__main__":
     # Read tournament state from stdin (JSON)
-    # Example input:
+    # Single LLM mode:
     # {
     #   "stage": 1,
     #   "period": 3,
@@ -269,6 +269,17 @@ if __name__ == "__main__":
     #   "sp": 3,
     #   "sp_gap": -1,
     #   "phantom_tokens": 0
+    # }
+    #
+    # Multi-LLM mode (batch):
+    # {
+    #   "stage": 1,
+    #   "period": 3,
+    #   "llms": {
+    #     "anthropic": {"budget": 6000, "tokens": 360, "sp": 5, "sp_gap": -1},
+    #     "kimi": {"budget": 1500, "tokens": 120, "sp": 2, "sp_gap": -4},
+    #     ...
+    #   }
     # }
     
     try:
@@ -279,15 +290,30 @@ if __name__ == "__main__":
     
     oracle = LiveMDPOracle()
     
-    result = oracle.get_optimal_action(
-        stage=input_data.get("stage", 1),
-        period=input_data.get("period", 1),
-        budget=input_data.get("budget", 10000.0),
-        tokens_held=input_data.get("tokens_held", 0),
-        sp=input_data.get("sp", 0),
-        sp_gap=input_data.get("sp_gap", 0),
-        phantom_tokens=input_data.get("phantom_tokens", 0)
-    )
+    # Multi-LLM mode
+    if "llms" in input_data:
+        results = {}
+        for model, state in input_data["llms"].items():
+            results[model] = oracle.get_optimal_action(
+                stage=input_data.get("stage", 1),
+                period=input_data.get("period", 1),
+                budget=state.get("budget", 10000.0),
+                tokens_held=state.get("tokens_held", 0),
+                sp=state.get("sp", 0),
+                sp_gap=state.get("sp_gap", 0),
+                phantom_tokens=state.get("phantom_tokens", 0)
+            )
+        print(json.dumps(results, indent=2))
     
-    # Output as JSON (for prompt injection)
-    print(json.dumps(result, indent=2))
+    # Single LLM mode
+    else:
+        result = oracle.get_optimal_action(
+            stage=input_data.get("stage", 1),
+            period=input_data.get("period", 1),
+            budget=input_data.get("budget", 10000.0),
+            tokens_held=input_data.get("tokens_held", 0),
+            sp=input_data.get("sp", 0),
+            sp_gap=input_data.get("sp_gap", 0),
+            phantom_tokens=input_data.get("phantom_tokens", 0)
+        )
+        print(json.dumps(result, indent=2))
