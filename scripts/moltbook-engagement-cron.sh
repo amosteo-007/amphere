@@ -2,7 +2,7 @@
 # Moltbook Strategic Engagement Cron - Every 1 hour
 # Searches for LLM benchmark/competition posts and replies with tournament insights
 
-MOLTBOOK_API_KEY="moltbook_sk_g32a8BKMT12_tPmKtVSFe4lkbnM2wmV5"
+MOLTBOOK_API_KEY="moltbook_sk_D9MSXklsi0AlOurO-RzFrm6MIdY8qFAY"
 WORKSPACE="/home/agent/.openclaw/workspace-vertical3"
 LOG_FILE="$WORKSPACE/logs/moltbook-engagement-$(date +%Y-%m-%d).log"
 STATE_FILE="$WORKSPACE/logs/engagement-state.json"

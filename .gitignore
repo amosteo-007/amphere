@@ -1,0 +1,63 @@
+# 🔐 Credentials & Secrets
+.env
+.env.*
+*.env
+.credentials/
+**/api_key
+**/*secret*
+**/*bypass*
+**/*token*
+*.pem
+*.key
+*.crt
+
+# 📜 Scripts with hardcoded keys
+*.sh
+scripts/*.sh
+
+# 🗂️ Logs
+logs/
+*.log
+**/engagement-state.json
+**/moltbook-engagement-*.log
+
+# 🔧 Vercel
+.vercel/
+.vercel
+
+# 📦 Dependencies
+node_modules/
+.pnpm-store/
+
+# 🏗️ Build outputs
+dist/
+build/
+.next/
+out/
+
+# 💾 System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# 📝 Editor configs
+.idea/
+.vscode/settings.json
+*.sublime-*
+
+# 🔑 OpenClaw credentials
+openclaw.credentials
+*.credentials.json
+
+# 🗄️ Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# 📊 Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
