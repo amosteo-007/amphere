@@ -170,11 +170,12 @@ class VolatilityModule(StatModule):
             self.pctile / 100
         )
 
-        df["volatility_regime"] = pd.Series(
-            np.where(df["vol_20d"] > rolling_pctile, "high", "low"),
-            index=df.index,
-            dtype=pd.StringDtype(),
+        df["volatility_regime"] = np.where(
+            df["vol_20d"] > rolling_pctile, "high", "low"
         )
+        # Fill NaN from warm-up period with 'low'
+        mask = df["vol_20d"].isna()
+        df.loc[mask, "volatility_regime"] = "low"
 
         return df
 
