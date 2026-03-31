@@ -1344,3 +1344,267 @@ Hyperliquid S3 (L2 + fills)
 ---
 
 *End of Charge's Statistical Methods Section*
+
+---
+
+# Liquidation Engine — Almgren-Chriss, Waterfall Modeling & Execution Algorithms
+## Additional Technical Reference — Charge 🔋
+
+---
+
+## 1. Almgren-Chriss Optimal Execution Framework
+
+### Core Intuition
+
+Every seller faces the same tension:
+- **Market impact cost**: Selling too fast moves the price against you.
+- **Timing risk**: Selling too slow exposes you to price uncertainty.
+
+The Almgren-Chriss (2000) framework formalizes this as mean-variance optimization.
+
+### Classical AC Formulation
+
+**Setup:**
+- Total position to liquidate: $X$ (units)
+- Horizon: $[0, T]$, discretized into $N$ steps, $\Delta t = T/N$
+- Execution rate at step $i$: $v_i$ (units per $\Delta t$)
+- Price process (log-Brownian with drift $\mu$, vol $\sigma$)
+- Permanent impact: $\eta$ (price impact per unit of cumulative order flow)
+- Temporary impact: $\gamma$ (immediate impact per unit of instantaneous flow)
+
+**Permanent price impact:**
+$$P_k = S_k - \eta \cdot \sum_{i=1}^{k} v_i$$
+
+**Temporary impact:**
+$$\text{temp\_impact}_k = \gamma \cdot \frac{v_k}{\text{ADV}_k}$$
+
+**Optimization:**
+$$
+\min_{\{v_i\}} \quad \mathbb{E}\left[\sum_{k=1}^{N} P_k \cdot v_k\right] + \lambda \cdot \text{Var}\left[\sum_{k=1}^{N} P_k \cdot v_k\right]
+$$
+
+**Closed-form solution:**
+$$
+v_i^* = \frac{X}{N} + \frac{\lambda \sigma^2 X}{\gamma} \cdot \frac{\sinh(\kappa(T - t_i))}{\sinh(\kappa T)} \cdot \Delta t
+$$
+where $\kappa = \sqrt{\lambda \sigma^2 / \gamma}$.
+
+First term = uniform baseline. Second term = risk-adjusted front-loading push.
+
+### Crypto Extensions
+
+**A. Leverage amplification:** Position $X$ at leverage $L$ means the liquidation decision is binary — either hold or forced exit at $P_{\text{liq}}$.
+
+**B. Cascading stop-losses:** Cascade multiplier when $P$ crosses liquidation triggers:
+$$\text{cascade\_fraction}(P) = \text{OCR}(P) \cdot (1 + \alpha \cdot \text{open\_interest\_concentration})$$
+
+**C. Volatile orderbook:**
+$$\gamma_{\text{eff}} = \gamma_{\text{base}} \cdot (1 + \psi \cdot \text{orderbook\_imbalance})$$
+
+```python
+def ac_optimal_trajectory(cfg: ACConfig) -> np.ndarray:
+    X, N, dt = cfg.X, cfg.N, cfg.dt
+    kappa = cfg.kappa
+    t = np.linspace(0, cfg.T, N)
+    baseline = X / N
+    risk_push = (cfg.lam * cfg.sigma**2 * X / cfg.gamma) * \
+                np.sinh(kappa * (cfg.T - t)) / np.sinh(kappa * cfg.T) * dt
+    v = np.maximum(baseline + risk_push, 0.0)
+    return v / v.sum() * X  # normalize to exact total
+
+def crypto_adjusted_impact(cfg: ACConfig, orderbook_imbalance: float,
+                           cascade_risk: float) -> np.ndarray:
+    v_base = ac_optimal_trajectory(cfg)
+    book_urgency = 1.0 + cfg.gamma_book * (-orderbook_imbalance)
+    combined = book_urgency * (1.0 + cascade_risk)
+    t = np.linspace(0, cfg.T, cfg.N)
+    urgency_profile = np.exp(-0.5 * (1 - combined) * t / cfg.T)
+    v_adj = v_base * (1 + 0.3 * (combined - 1) * urgency_profile)
+    v_adj = np.maximum(v_adj, 0.0)
+    return v_adj / v_adj.sum() * cfg.X
+```
+
+---
+
+## 2. Global Liquidation Engine
+
+### Liquidation Urgency Function
+
+Agents decide when to flip from HOLD to LIQUIDATE via urgency score $U_t$:
+
+$$U_t = \frac{P_{\text{liq}} - P_t}{P_t} \cdot \frac{1}{\text{RP}_t} \cdot e^{\beta \cdot \text{vol\_regime}}$$
+
+```python
+VOL_REGIME_LAM_SCALAR = {
+    "low":      0.5,   # Can afford to go slow
+    "normal":   1.0,   # Baseline
+    "elevated": 2.5,   # Speed up materially
+    "crisis":   8.0,   # Liquidate as fast as possible
+}
+
+def detect_vol_regime(returns: np.ndarray) -> tuple[str, float]:
+    var_short = np.mean(returns[-20:]**2)
+    var_long  = np.mean(returns[-60:]**2)
+    vol_ratio = np.sqrt(var_short / var_long) if var_long > 0 else 1.0
+    regime = "crisis" if vol_ratio > 3.0 else \
+             "elevated" if vol_ratio > 2.0 else \
+             "normal" if vol_ratio > 1.5 else "low"
+    return regime, vol_ratio
+```
+
+### Volatility Regime Detection
+
+Short vs long volatility ratio classifies the regime. High vol_ratio = crisis = maximum liquidation speed regardless of cost.
+
+---
+
+## 3. Reverse Engineering the Liquidation Waterfall
+
+### Data from Hyperliquid
+
+| Feed | Frequency | Purpose |
+|------|-----------|---------|
+| `liquidations` WS | Real-time | Every forced liquidation event |
+| L2 book snapshot | ~100ms | Depth histogram, imbalance |
+| `trades` | Tick | Liquidation fill prices |
+| `open_interest` | Hourly | Cascade size normalization |
+| `funding_rate` | 1h | Leverage sentiment proxy |
+
+### Waterfall Model
+
+```python
+def estimate_liquidation_fraction(
+    price_traj,    # P_t over time
+    open_interest, # Total OI at start
+    book_depth_traj,
+) -> dict:
+    """
+    For each price step, estimate:
+    - cumulative % of OI liquidated
+    - liquidation rate (intensity per price level)
+    - remaining buy-side depth
+    - cascade pressure (L/D ratio)
+    """
+    cascade_pressure = alpha * L_t / D_t
+    P_next = P_t - cascade_pressure * P_t  # feedback loop
+    # Repeat until equilibrium or cascade exhausts
+```
+
+The key insight: **liquidations cluster at round numbers and recent support levels** (stop-losses concentrate). Build a PDF of liquidation density vs price from historical Hyperliquid data, then use it to predict cascade intensity.
+
+### Cascade Feedback Loop
+
+$$P_{t+1} = P_t - \alpha \cdot \frac{L_t}{D_t} \cdot P_t$$
+
+When $L_t / D_t$ is high, price moves disproportionately. When $D_t \to 0$, price collapses toward zero.
+
+---
+
+## 4. Distressed Auction Model
+
+When open market cannot absorb liquidation volume, the exchange liquidation engine runs a **Dutch auction**:
+
+1. Position taken over at **bankruptcy price** ($P_{\text{bankrupt}}$)
+2. Price lowered in steps until filled
+3. Max slippage tolerated: ~9.5% on Hyperliquid
+
+```python
+def simulate_auction(position_size, bankruptcy_price, book_depth,
+                     volatility, time_remaining, max_slippage_bps=950):
+    floor_price = bankruptcy_price * (1 - max_slippage_bps/10000)
+    step_size_bps = 10
+    remaining = position_size
+    current_price = bankruptcy_price
+    
+    while remaining > 0 and current_price >= floor_price and time > 0:
+        # Stochastic depth during cascade
+        depth_at_level = book_depth[idx] * np.exp(-volatility * np.sqrt(time))
+        filled = min(remaining, depth_at_level)
+        remaining -= filled
+        current_price *= (1 - step_size_bps/10000)
+        time -= 0.1
+    
+    return {
+        "cleared": remaining == 0,
+        "clearing_price": current_price,
+        "slippage_bps": (bankruptcy_price - current_price) / bankruptcy_price * 10000,
+        "residual": remaining,
+    }
+```
+
+The **cascade feedback** closes the loop: $P_{t+1} = P_t - \alpha L_t / D_t \cdot P_t$
+
+---
+
+## 5. Execution Algorithms
+
+### Four Algorithms
+
+| Algorithm | Strategy | Best For | AC λ |
+|-----------|----------|----------|------|
+| **VWAP** | Match market volume profile | Benchmark chasing | Static |
+| **TWAP** | Equal time slices | Illiquid large orders | Very low λ |
+| **IS (Implementation Shortfall)** | Front-load to beat arrival price | Urgent liquidation | High λ |
+| **Adaptive AC** | Recompute each step as vol evolves | Regime-aware agents | Dynamic λ(σ_t) |
+
+### IS Algorithm (Front-Loading)
+
+```python
+def execute_implementation_shortfall(total_qty, N, sigma, alpha, price_path, P0):
+    """
+    IS/Arrival Price algorithm.
+    ρ ∈ [-1, 1] controls front-loading:
+        ρ = 1  → all at start (maximum urgency)
+        ρ = 0  → TWAP
+        ρ = -1 → back-loaded
+    ρ(α) = tanh(α · (σ√T − risk_aversion))
+    """
+    t = np.arange(1, N + 1)
+    rho = np.tanh(alpha * (sigma * np.sqrt(N * dt) - 0.5))
+    v = (total_qty / N) * (1 + rho * (N + 1 - 2*t) / (N + 1))
+    v = np.maximum(v, 0.0)
+    v = v / v.sum() * total_qty
+    avg_exec = np.sum(v * price_path) / np.sum(v)
+    return {"exec_schedule": v, "IS_bps": (avg_exec/P0 - 1)*10000, "rho": rho}
+```
+
+### Archetype → Execution Mapping
+
+| Archetype | Algorithm | λ | Urgency Threshold | Slippage Tol |
+|-----------|-----------|---|-------------------|-------------|
+| `conservative_hoarder` | TWAP | 0.1 | 0.8 | 50 bps |
+| `balanced_allocator` | VWAP | 1.0 | 0.5 | 100 bps |
+| `aggressive_frontloader` | IS | 3.0 | 0.3 | 200 bps |
+| `regime_aware` | Adaptive AC | dynamic | 0.4 | dynamic |
+
+---
+
+## Integration with ESL Loop
+
+```
+Vol Regime Detector
+        ↓
+Liquidation Urgency Engine (U_t score)
+        ↓ (if threshold crossed)
+Waterfall Reconstructor (expected cascade depth)
+        ↓
+Execution Algorithm (per archetype: VWAP/TWAP/IS/Adaptive AC)
+        ↓
+Cascade Feedback: P_{t+1} = P_t − α·L_t/D_t · P_t
+        ↓
+Price Update → back to Vol Regime Detector
+```
+
+---
+
+## Key References
+
+- Almgren & Chriss (2000). *Optimal Execution of Portfolio Transactions.* Journal of Risk.
+- Almgren & Chriss (2001). *Bidding the Option Market.*
+- Cont & Wagalath (2016). *Institutional Investors and Stylized Properties of Equity Returns.*
+- Gatheral (2010). *No-Dynamic-Arbitrage and Market Impact.* CRC Press.
+- Hyperliquid Whitepaper (2024). Liquidation Engine Specification.
+
+---
+
+*End of Liquidation Engine Section*
