@@ -201,6 +201,43 @@ def fetch_crypto_5y(
     return results
 
 
+def load_or_fetch(
+    ticker: str,
+    period1: str | pd.Timestamp,
+    period2: str | pd.Timestamp,
+    interval: str = "1d",
+    write_dir: Optional[Path | str] = None,
+    force: bool = False,
+) -> OHLCVData:
+    """
+    Load cached OHLCV data if available, otherwise fetch from Yahoo Finance.
+
+    Cache file is keyed by ticker, start date, end date, and interval.
+    """
+    p1 = pd.Timestamp(period1)
+    p2 = pd.Timestamp(period2)
+    suffix = f"{ticker.replace('-', '_')}_{interval}_{p1.date()}_{p2.date()}.csv"
+    cache_path = (Path(write_dir) if write_dir else DEFAULT_RAW_DIR) / suffix
+
+    if cache_path.exists() and not force:
+        logger.info("Loading %s from cache: %s", ticker, cache_path.name)
+        df = pd.read_csv(cache_path, parse_dates=["timestamp"], index_col="timestamp")
+        start = df.index[0]
+        end = df.index[-1]
+        return OHLCVData(ticker=ticker, interval=interval, df=df, start=start, end=end)
+
+    logger.info("Fetching %s %s → %s from Yahoo Finance", ticker, p1.date(), p2.date())
+    data = fetch_yfinance(
+        ticker=ticker,
+        start=p1,
+        end=p2 + pd.Timedelta(days=1),
+        interval=interval,
+        write_dir=write_dir,
+        force=force,
+    )
+    return data
+
+
 def validate_data_quality(data: OHLCVData) -> dict:
     """
     Sanity-check an OHLCVData object.
