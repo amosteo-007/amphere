@@ -17,13 +17,20 @@
 ## Projects
 
 ### Augur / ORCA
-LLM-powered investment premise stress testing platform. Codename ORCA for data architecture phase.
+LLM-powered investment premise stress testing platform.
 
-**Phase 1 Status (2026-04-06):**
-- Oil price data: WTI 2000-2026 ✓, Brent 1987-2026 ✓ (FRED backfill completed)
-- Seed events: 4 events documented (Iran 2025, Russia 2022, OPEC 2024, Tanker War 1987)
-- Storage: SQLite operational, LanceDB/FalkorDBLite pending
-- Next: DB insertion scripts, 1970-1986 Brent backfill, Phase 2 causal reasoning
+**Architecture:** 3-phase build (Foundation → Intelligence → Synthesis)
+
+**Current: Phase 1 — Foundation (IN PROGRESS)**
+- 1.1 Infrastructure: ✅ Complete — directory structure, SQLite init
+- 1.2 Core tables: ✅ Complete — raw_oil_ohlcv_daily, raw_news_articles, volatility_snapshot
+- 1.3 Seed data: 🟡 Partial — raw data retrieved, **CSV/JSON not yet in database**
+  - Oil: WTI 2000-2026 ✓, Brent 2007-2026 ✓, Brent 1987-2006 (CSV only)
+  - Events: 4 events documented (Iran 2025, Russia 2022, OPEC 2024, Tanker War 1987)
+- 1.4 Ingestion adapters: ❌ Not started
+- 1.5 Acceptance: ❌ Not started
+
+**Next:** DB insertion scripts, backfill 1970-1986 Brent, Phase 2 prep
 
 **Key Decision:** Micro-task subagents > monolithic tasks for data retrieval
 
