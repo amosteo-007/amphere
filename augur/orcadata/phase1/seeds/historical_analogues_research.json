@@ -1,0 +1,550 @@
+{
+  "research_metadata": {
+    "events_researched": 15,
+    "research_date": "2026-04-07",
+    "researcher": "subagent-orca-analogue-research",
+    "gaps_identified": [
+      "Exact restoration costs for 1979 Iranian Revolution shock are difficult to quantify due to dispersed global economic impacts",
+      "2008 Financial Crisis energy demand collapse lacks specific 'restoration cost' figures as it was demand-driven, not supply-driven",
+      "Tanker War restoration costs primarily military rather than infrastructure-focused",
+      "Some duration calculations are approximate based on event start/end dates from historical records",
+      "1973 Oil Embargo economic impacts extend beyond direct energy infrastructure costs to broader macroeconomic effects",
+      "1986 Oil Price Collapse restoration costs difficult to isolate from broader industry restructuring",
+      "Hurricane Katrina/Rita damage assessments combine public and private restoration expenditures",
+      "Libya Civil War ongoing conflict makes full restoration timeline estimates uncertain",
+      "Abqaiq Attack rapid recovery may understate potential costs of more prolonged outage"
+    ]
+  },
+  "analogue_cases": [
+    {
+      "id": "IRAN_REVOLUTION_1979",
+      "name": "1979 Iranian Revolution Oil Shock",
+      "summary_5w1h": {
+        "WHO": "Iran (National Iranian Oil Company), Shah Mohammad Reza Pahlavi, Ayatollah Khomeini, Iranian oil workers (37,000 strikers), Saudi Arabia and other OPEC members who increased production to compensate",
+        "WHAT": "Mass strikes by oil workers and disruption of oil production following the Iranian Revolution. Iranian oil production collapsed from 6 million barrels/day to 1.5 million barrels/day. Combined with panic buying and market speculation, crude oil prices more than doubled.",
+        "WHEN": "November 1978 - 1980 (ongoing impacts through Iran-Iraq War). Peak crisis: January 1979 - December 1980. Oil prices did not return to pre-crisis levels until mid-1980s.",
+        "WHERE": "Iran (primary), Persian Gulf region. Iranian oil fields, Kharg Island export terminal, and refineries. Global oil markets affected.",
+        "WHY": "Political revolution overthrowing the Pahlavi dynasty, anti-Western sentiment, labor strikes by oil workers protesting the Shah's regime, international sanctions imposed by Carter administration after embassy seizure",
+        "HOW": "Mass labor strikes reduced production capacity; foreign workers fled; political instability disrupted operations; panic buying and speculation in global markets amplified price impacts",
+        "IMPACT": "Global oil supply decreased by approximately 4% initially (7% additional drop after Iran-Iraq War began). Oil prices rose from ~$15.85/barrel to $39.50/barrel (150%+ increase). Widespread fuel shortages, gas station lines, economic recession in many industrialized nations.",
+        "RESTORATION": "Iranian oil exports resumed under new government but at inconsistent/lower volumes. Saudi Arabia and OPEC offset much of the decline. Prices gradually declined through 1980s as non-OPEC production increased (North Sea, Alaska, Mexico). Full price normalization took until mid-1980s (~5 years)."
+      },
+      "severity": 0.85,
+      "duration_days": 730,
+      "structural_flags": ["nationalization", "geopolitical", "supply_shock", "revolution", "labor_strike", "regime_change"],
+      "restoration_cost_actual": null,
+      "restoration_months_actual": 60,
+      "fully_restored": true,
+      "tags": ["iran", "revolution", "supply_disruption", "price_spike", "opec", "1970s", "geopolitical_crisis"],
+      "production_impact": {
+        "peak_production_loss_bpd": 4500000,
+        "pre_crisis_production_bpd": 6000000,
+        "lowest_production_bpd": 1500000,
+        "percent_reduction": 75
+      },
+      "price_impact": {
+        "pre_crisis_price_usd": 15.85,
+        "peak_price_usd": 39.50,
+        "price_increase_percent": 149
+      }
+    },
+    {
+      "id": "GULF_WAR_1990_91",
+      "name": "1990-91 Gulf War Oil Price Spike",
+      "summary_5w1h": {
+        "WHO": "Iraq (Saddam Hussein), Kuwait, United States (coalition leader), Saudi Arabia (threatened), OPEC members, international oil markets",
+        "WHAT": "Iraqi invasion and occupation of Kuwait, followed by international military coalition response. Iraqi forces set Kuwaiti oil fields on fire during retreat. Combined Iraq-Kuwait oil production of 4.3 million bpd was removed from market.",
+        "WHEN": "August 2, 1990 - February 28, 1991 (operation Desert Storm). Oil fires continued until November 1991. Price spike resolved by mid-1991.",
+        "WHERE": "Kuwait (occupied), Iraq, Saudi Arabia (threatened), Persian Gulf region. Global oil markets.",
+        "WHY": "Iraq claimed Kuwait was stealing oil via slant-drilling; Iraq owed Kuwait $14 billion in war debt from Iran-Iraq War; Iraq accused Kuwait of overproducing oil and depressing prices; Saddam sought regional dominance and financial relief",
+        "HOW": "Military invasion removed 4.3 million bpd from global supply; Iraqi sabotage of Kuwaiti oil fields (hundreds of wells set on fire); market panic and speculation drove prices from $17/barrel to $46/barrel peak",
+        "IMPACT": "Oil prices rose from $17/barrel (July 1990) to $46/barrel (October 1990) - 170% increase. Combined Iraq-Kuwait production (~4.3 million bpd) offline. Saudi Arabia and UAE increased production to partially compensate. Contributed to early 1990s recession.",
+        "RESTORATION": "Kuwait liberated by coalition forces by February 1991. Oil well fires extinguished by November 1991 using teams from around the world. Production restoration took several years; combined Iraq-Kuwait production did not return to pre-war levels until years later."
+      },
+      "severity": 0.70,
+      "duration_days": 270,
+      "structural_flags": ["geopolitical", "military_conflict", "supply_shock", "invasion", "sabotage"],
+      "restoration_cost_actual": null,
+      "restoration_months_actual": 15,
+      "fully_restored": true,
+      "tags": ["gulf_war", "iraq", "kuwait", "invasion", "oil_fires", "supply_shock", "1990s", "military_conflict"],
+      "production_impact": {
+        "peak_production_loss_bpd": 4300000,
+        "pre_crisis_combined_production_bpd": 4300000,
+        "lowest_production_bpd": 0,
+        "percent_reduction": 100
+      },
+      "price_impact": {
+        "pre_crisis_price_usd": 17.00,
+        "peak_price_usd": 46.00,
+        "price_increase_percent": 170
+      }
+    },
+    {
+      "id": "FINANCIAL_CRISIS_2008",
+      "name": "2008 Financial Crisis Energy Demand Collapse",
+      "summary_5w1h": {
+        "WHO": "Global financial system (investment banks, mortgage lenders), U.S. housing market, consumers worldwide, oil producers (OPEC, Russia, non-OPEC), commodity speculators",
+        "WHAT": "Global financial crisis triggered by subprime mortgage collapse led to severe economic recession. Oil demand plummeted as industrial activity slowed, shipping declined, and consumer transportation decreased. Oil prices crashed from $147/barrel peak to ~$40/barrel.",
+        "WHEN": "July 2008 - December 2008 (price collapse phase). Continued demand weakness through 2009. Peak oil price: July 11, 2008 ($147.27/barrel).",
+        "WHERE": "Global - originating in United States financial markets but affecting worldwide oil demand. Major demand drops in US, EU, and emerging markets.",
+        "WHY": "Global financial system collapse due to subprime mortgage crisis; credit freeze; bank failures; consumer confidence collapse; housing bubble burst; reduced industrial output; unemployment spike; discretionary spending cuts",
+        "HOW": "Economic recession reduced oil consumption through: decreased freight/shipping, reduced airline travel, fewer goods manufactured, reduced consumer driving, housing construction halt. US oil demand dropped 6.1% (1.26 million bpd) - lowest in 10 years.",
+        "IMPACT": "Oil prices collapsed from $147/barrel (July 2008) to ~$40/barrel (December 2008) - 73% decline. US demand fell to 19.4 million bpd (10-year low). Global oil demand fell for first time in a generation. Gasoline above $4/gallon in US summer 2008, then collapsed.",
+        "RESTORATION": "Demand gradually recovered with global economic stimulus packages and slow economic recovery. OPEC cut production multiple times to stabilize prices. Full demand recovery took several years (into 2010s)."
+      },
+      "severity": 0.75,
+      "duration_days": 180,
+      "structural_flags": ["demand_shock", "financial_crisis", "economic_recession", "demand_destruction", "price_collapse"],
+      "restoration_cost_actual": null,
+      "restoration_months_actual": 36,
+      "fully_restored": true,
+      "tags": ["financial_crisis", "demand_collapse", "recession", "2008", "subprime", "price_crash", "demand_destruction"],
+      "production_impact": {
+        "demand_reduction_bpd": 1261000,
+        "us_demand_drop_percent": 6.1,
+        "pre_crisis_us_demand_bpd": 20680000,
+        "crisis_us_demand_bpd": 19419000
+      },
+      "price_impact": {
+        "peak_price_usd": 147.27,
+        "trough_price_usd": 40.00,
+        "price_decline_percent": 73
+      }
+    },
+    {
+      "id": "TANKER_WAR_1987_88",
+      "name": "1987-88 Persian Gulf Tanker War",
+      "summary_5w1h": {
+        "WHO": "Iran (IRGC, Iranian Navy), Iraq (Saddam Hussein, Iraqi Air Force), Kuwait (re-flagged tankers), United States (Operation Earnest Will), France, United Kingdom, neutral shipping companies",
+        "WHAT": "Maritime phase of Iran-Iraq War involving systematic attacks on oil tankers and merchant shipping in Persian Gulf. Iraq attacked Iranian shipping to provoke Iranian retaliation and bring superpower intervention. Iran attacked Kuwaiti tankers carrying Iraqi oil.",
+        "WHEN": "May 1984 - August 1988 (Tanker War phase). US Operation Earnest Will: July 24, 1987 - September 26, 1988.",
+        "WHERE": "Persian Gulf, Strait of Hormuz, Kharg Island (Iran), Kuwaiti oil terminals. Key naval chokepoints and shipping lanes.",
+        "WHY": "Iran-Iraq War land stalemate drove conflict to sea. Iraq sought to internationalize conflict by provoking Iranian closure of Strait of Hormuz. Iran retaliated against Kuwait for supporting Iraq. Both sides sought to deny oil revenue to opponent.",
+        "HOW": "Air attacks on tankers using French Exocet missiles; naval mines (covertly laid by Iran); small boat attacks; missile strikes on oil terminals. US Navy escorted re-flagged Kuwaiti tankers after USS Stark incident (May 1987). Operation Earnest Will provided naval convoy protection.",
+        "IMPACT": "Over 500 commercial vessels attacked or damaged during Tanker War. Insurance rates for Persian Gulf shipping skyrocketed. Significant disruption to regional oil exports. USS Stark incident (37 US sailors killed). USS Samuel B. Roberts mine incident (April 1988). Iran Air Flight 655 shot down (290 civilians killed).",
+        "RESTORATION": "UN Security Council Resolution 598 (July 20, 1987) called for ceasefire. Iran-Iraq ceasefire August 20, 1988. US naval operations continued until September 1988. Insurance markets normalized after ceasefire. Shipping lanes reopened fully."
+      },
+      "severity": 0.60,
+      "duration_days": 430,
+      "structural_flags": ["geopolitical", "military_conflict", "shipping_disruption", "maritime_warfare", "chokepoint_threat", "escalation"],
+      "restoration_cost_actual": null,
+      "restoration_months_actual": 2,
+      "fully_restored": true,
+      "tags": ["tanker_war", "iran_iraq_war", "persian_gulf", "shipping", "naval_warfare", "strait_of_hormuz", "1980s"],
+      "production_impact": {
+        "vessels_attacked": 500,
+        "kharg_island_disruption": "significant",
+        "regional_export_disruption": "high"
+      },
+      "price_impact": {
+        "war_premium": "significant_but_transitory",
+        "insurance_spike": "extreme"
+      }
+    },
+    {
+      "id": "COVID19_DEMAND_SHOCK_2020",
+      "name": "2020 COVID-19 Oil Demand Shock (Negative WTI)",
+      "summary_5w1h": {
+        "WHO": "COVID-19 pandemic global response, OPEC+ (Saudi Arabia, Russia, other producers), oil traders/market participants, US shale producers, storage operators at Cushing, Oklahoma",
+        "WHAT": "Unprecedented collapse in global oil demand due to worldwide lockdowns, travel restrictions, and economic shutdown. On April 20, 2020, WTI crude futures traded at negative prices (-$40.32/barrel) for first time in history due to storage capacity exhaustion.",
+        "WHEN": "March 2020 - May 2020 (acute phase). Negative prices: April 20-21, 2020. Recovery gradual through late 2020 and 2021.",
+        "WHERE": "Global demand collapse. Negative WTI pricing specifically at Cushing, Oklahoma delivery point. US refinery runs dropped 24%. Cushing storage reached 76% capacity (60 million of 76 million barrels).",
+        "WHY": "COVID-19 pandemic mitigation measures: stay-at-home orders, international travel bans, reduced commuting, factory closures, airline industry collapse, shipping reductions. OPEC+ production dispute (March 2020) compounded oversupply.",
+        "HOW": "Demand destruction: US refinery runs fell to 12.8 million bpd (down 4.1 million bpd / 24% YoY). Cushing storage nearly full (~76% capacity). May 2020 futures contract expiration forced physical delivery. Traders paid to exit positions rather than take delivery with no storage available.",
+        "IMPACT": "WTI front-month futures hit -$40.32/barrel on April 20, 2020. Brent remained positive (~$19/barrel) showing this was Cushing-specific storage crisis. US oil demand collapsed. Global demand fell by ~20 million bpd at peak. Massive oversupply glut.",
+        "RESTORATION": "OPEC+ historic production cuts (9.7 million bpd). Gradual economic reopening. Production shut-ins by US shale producers. Demand recovery slow but steady through 2020-2021. Storage normalization took months. Prices returned to positive territory immediately after contract expiration."
+      },
+      "severity": 0.90,
+      "duration_days": 90,
+      "structural_flags": ["demand_shock", "pandemic", "storage_crisis", "negative_pricing", "supply_glut", "demand_destruction"],
+      "restoration_cost_actual": null,
+      "restoration_months_actual": 18,
+      "fully_restored": true,
+      "tags": ["covid19", "pandemic", "negative_prices", "wti", "demand_collapse", "cushing", "storage_crisis", "2020"],
+      "production_impact": {
+        "global_demand_loss_bpd": 20000000,
+        "us_refinery_run_drop_bpd": 4100000,
+        "us_refinery_run_drop_percent": 24,
+        "cushing_storage_utilization_percent": 76,
+        "cushing_storage_million_barrels": 60
+      },
+      "price_impact": {
+        "wti_low_usd": -40.32,
+        "brent_april_21_usd": 19.33,
+        "negative_pricing_duration": "hours_to_days"
+      }
+    },
+    {
+      "id": "OIL_EMBARGO_1973",
+      "name": "1973 Oil Embargo (Yom Kippur War)",
+      "summary_5w1h": {
+        "WHO": "OAPEC (Organization of Arab Petroleum Exporting Countries) - Saudi Arabia, Kuwait, Iraq, Libya, Algeria, and other Arab oil producers; United States and Netherlands (primary targets); Western industrialized nations",
+        "WHAT": "Coordinated oil production cuts and export embargo imposed by Arab OPEC members in retaliation for Western support of Israel during the Yom Kippur War. Production cuts of 5% monthly until Israeli withdrawal from occupied territories. Oil prices quadrupled from ~$3/barrel to ~$12/barrel.",
+        "WHEN": "October 17, 1973 - March 1974 (embargo formally ended). Price effects persisted through 1974-1975. Peak oil prices reached in December 1973 - January 1974.",
+        "WHERE": "Global oil markets. Primary embargo targets: United States and Netherlands. Secondary effects throughout Western Europe and Japan. Major supply disruptions at source: Saudi Arabia, Kuwait, Iraq, Libya, Algeria.",
+        "WHY": "Retaliation for Western military support of Israel during the October 1973 Yom Kippur War (Ramadan War). Arab states sought to pressure Western nations to withdraw support for Israel and secure Israeli withdrawal from territories occupied since 1967.",
+        "HOW": "OAPEC announced 5% monthly production cuts; total embargo on oil exports to US and Netherlands; reduced production overall by ~25% (4.3 million bpd reduction from 17.3 million bpd); panic buying and hoarding by consumers and governments amplified price effects",
+        "IMPACT": "Oil prices rose from $3/barrel to $12/barrel (300%+ increase). Global oil supply reduced by ~7%. Gasoline shortages, long lines at pumps, rationing in many countries. Stock market crashes. Stagflation (recession + inflation) in Western economies. US speed limit reduced to 55 mph. Daylight saving time extended year-round. Strategic Petroleum Reserve established in US.",
+        "RESTORATION": "Embargo formally ended March 1974 after Israel-Egypt disengagement agreement. Oil production gradually restored to pre-embargo levels by mid-1974. Price normalization took years; high prices persisted through 1970s. Structural changes to oil markets permanent."
+      },
+      "severity": 0.88,
+      "duration_days": 155,
+      "structural_flags": ["embargo", "geopolitical", "supply_shock", "opec_coordination", "regional_conflict", "price_quadrupling"],
+      "restoration_cost_actual": null,
+      "restoration_months_actual": 48,
+      "fully_restored": true,
+      "tags": ["oil_embargo", "1973", "yom_kippur_war", "opec", "arab_israeli", "supply_shock", "price_spike", "geopolitical_crisis"],
+      "production_impact": {
+        "peak_production_loss_bpd": 4300000,
+        "pre_crisis_production_bpd": 17300000,
+        "percent_reduction": 25,
+        "monthly_production_cuts_percent": 5
+      },
+      "price_impact": {
+        "pre_crisis_price_usd": 3.00,
+        "peak_price_usd": 12.00,
+        "price_increase_percent": 300
+      }
+    },
+    {
+      "id": "OIL_PRICE_COLLAPSE_1986",
+      "name": "1986 Oil Price Collapse (Saudi Price War)",
+      "summary_5w1h": {
+        "WHO": "Saudi Arabia (largest OPEC producer), other OPEC members, non-OPEC producers (North Sea, Alaska, Mexico, Soviet Union), US shale operators, global oil market participants",
+        "WHAT": "Saudi Arabia abandoned production quotas and flooded the market to regain market share lost to non-OPEC producers. Oil prices collapsed from $27/barrel to under $10/barrel. Saudi production increased from 2 million bpd to 5 million bpd in months.",
+        "WHEN": "Mid-1985 - December 1986 (price collapse phase). Peak collapse: January - July 1986. Prices remained depressed through late 1980s.",
+        "WHERE": "Global oil markets. Saudi Arabia (primary actor), Persian Gulf, North Sea producers (UK, Norway), US domestic producers, Soviet Union (major non-OPEC producer)",
+        "WHY": "OPEC production quotas were being cheated by members. Non-OPEC production (North Sea, Alaska, Mexico) had grown substantially, reducing OPEC market share from 52% (1973) to 30% (1985). Saudi Arabia tired of being 'swing producer' cutting output while others increased. Saudi sought to discipline cheaters and force non-OPEC cooperation.",
+        "HOW": "Saudi Arabia increased production from 2 million bpd to 5+ million bpd; netback pricing agreements with buyers; price discounts; flooding market with cheap crude; refusal to continue as sole quota enforcer; price war against other producers",
+        "IMPACT": "Oil prices collapsed from $27/barrel (Nov 1985) to $10/barrel (April 1986), briefly hitting $8/barrel. 60%+ price decline. US oil industry devastated: rig counts plummeted, bankruptcies soared, employment in oil patch collapsed. Soviet Union oil revenues collapsed, contributing to economic strain. Many exploration projects cancelled globally.",
+        "RESTORATION": "OPEC/non-OPEC cooperation agreement eventually reached December 1986. Saudi Arabia returned to production quotas. Prices gradually recovered but remained lower than pre-collapse levels for years. US industry consolidation and cost-cutting. Non-OPEC production growth slowed."
+      },
+      "severity": 0.55,
+      "duration_days": 365,
+      "structural_flags": ["price_war", "market_share", "supply_surplus", "opec_strategy", "production_increase", "structural_shift"],
+      "restoration_cost_actual": null,
+      "restoration_months_actual": 24,
+      "fully_restored": true,
+      "tags": ["price_collapse", "1986", "saudi_arabia", "opec", "market_share", "supply_glut", "oil_patch_bust"],
+      "production_impact": {
+        "saudi_production_increase_bpd": 3000000,
+        "pre_crisis_saudi_production_bpd": 2000000,
+        "peak_saudi_production_bpd": 5000000,
+        "global_supply_surplus_bpd": 2000000
+      },
+      "price_impact": {
+        "pre_crisis_price_usd": 27.00,
+        "trough_price_usd": 8.00,
+        "price_decline_percent": 70
+      }
+    },
+    {
+      "id": "HURRICANES_KATRINA_RITA_2005",
+      "name": "2005 Hurricanes Katrina and Rita (US Gulf Infrastructure)",
+      "summary_5w1h": {
+        "WHO": "Hurricane Katrina (Category 5) and Hurricane Rita (Category 5), US Gulf Coast oil and gas infrastructure operators (Shell, BP, ExxonMobil, Chevron, independents), MMS (Minerals Management Service), US Coast Guard",
+        "WHAT": "Dual catastrophic hurricanes struck US Gulf of Mexico oil and gas infrastructure. Katrina (Aug 29) destroyed platforms, damaged refineries, flooded New Orleans. Rita (Sep 24) followed similar path damaging additional platforms and refineries. Combined worst US energy infrastructure disaster.",
+        "WHEN": "Katrina: August 23-31, 2005 (landfall Aug 29). Rita: September 18-26, 2005 (landfall Sep 24). Production disruptions lasted months; full restoration took years.",
+        "WHERE": "US Gulf of Mexico offshore platforms, coastal refineries, Louisiana and Texas coast. New Orleans (major import/export hub). Key production areas: Gulf of Mexico (25% of US oil production), Louisiana refineries (10+ refineries shut).",
+        "WHY": "Natural disaster - Category 5 hurricanes entering warm Gulf waters. Climate/weather patterns. Gulf of Mexico concentrated infrastructure vulnerable to hurricane strikes. Geographic concentration of US energy infrastructure in hurricane-prone region.",
+        "HOW": "Katrina destroyed 46 platforms, damaged 20 refineries, shut 95% of Gulf oil production. Rita destroyed additional platforms and damaged refineries in Texas. Combined: ~25% of US oil production offline. 8 major refineries offline (1.5 million bpd capacity). Port of New Orleans crippled. Undersea pipelines damaged.",
+        "IMPACT": "Oil production: 1.4 million bpd offline (25% of US production). Natural gas: 5 Bcf/day offline. Refining: 1.5+ million bpd offline (10% US capacity). Gasoline prices spiked from $2.60 to $3.50+/gallon. Oil prices rose to $70/barrel. Regional fuel shortages. Over 100 oil spills (7.4 million gallons). Insurance claims: $10+ billion.",
+        "RESTORATION": "Platform repairs took months to years. Refineries gradually restored by late 2005-early 2006. Production: 77% restored by Dec 2005, 100% by Sep 2006. New building codes for platforms. Emergency stockpile releases. Some platforms permanently abandoned."
+      },
+      "severity": 0.70,
+      "duration_days": 385,
+      "structural_flags": ["natural_disaster", "infrastructure_damage", "hurricane", "production_offline", "refinery_damage", "platform_destruction"],
+      "restoration_cost_actual": null,
+      "restoration_months_actual": 13,
+      "fully_restored": true,
+      "tags": ["katrina", "rita", "hurricane", "2005", "gulf_of_mexico", "refinery_damage", "natural_disaster", "infrastructure"],
+      "production_impact": {
+        "peak_production_loss_bpd": 1400000,
+        "pre_crisis_us_gulf_production_bpd": 1400000,
+        "percent_reduction": 100,
+        "refinery_capacity_offline_bpd": 1500000,
+        "platforms_destroyed": 46,
+        "platforms_damaged": 20
+      },
+      "price_impact": {
+        "pre_crisis_price_usd": 65.00,
+        "peak_price_usd": 70.80,
+        "gasoline_price_spike_usd": 0.90,
+        "price_increase_percent": 9
+      }
+    },
+    {
+      "id": "LIBYA_CIVIL_WAR_2011",
+      "name": "2011 Libya Civil War (Arab Spring)",
+      "summary_5w1h": {
+        "WHO": "Libyan government (Muammar Gaddafi), anti-government rebels (National Transitional Council), NATO coalition (UN Security Council Resolution 1973), international oil companies (Eni, Total, Repsol, OMV, Occidental), Libyan National Oil Company",
+        "WHAT": "Civil war erupted during Arab Spring uprisings. Gaddafi regime collapsed after 8-month conflict. Libya's 1.6 million bpd oil production completely halted. International oil companies evacuated. Infrastructure damaged but largely intact.",
+        "WHEN": "February 15, 2011 - October 23, 2011 (conflict phase). Production halted: February - September 2011. Partial restoration late 2011. Ongoing instability continues affecting production.",
+        "WHERE": "Libya (primary), North Africa. Major oil fields: Sarir, Messla, Amal, Nafoora, Elephant. Export terminals: Es Sider, Ras Lanuf, Marsa el Brega, Zueitina, Zawiya. Mediterranean offshore.",
+        "WHY": "Arab Spring protests spread to Libya. Demands for democracy and end to Gaddafi rule. Government crackdown escalated to armed conflict. International intervention authorized after civilian casualties. Tribal and regional divisions exploited.",
+        "HOW": "Anti-government protests met with violent crackdown; armed rebellion erupted in Benghazi; NATO air campaign degraded regime capabilities; Gaddafi killed October 2011; oil workers fled; production facilities shut; export terminals closed; international sanctions",
+        "IMPACT": "Libyan oil production dropped from 1.6 million bpd to near zero (99% loss). Brent crude prices spiked from $95/barrel to $125/barrel (30%+ increase). IEA coordinated strategic stockpile release (60 million barrels). Loss of light sweet crude supply affected European refiners. Over $10 billion lost oil revenue.",
+        "RESTORATION": "Production partially restored by October 2011 (300,000 bpd). Gradual increase to 1.5 million bpd by 2012. Ongoing political instability, militia control of facilities, labor protests, and sporadic shutdowns. Full sustained production never fully achieved due to continued conflict."
+      },
+      "severity": 0.68,
+      "duration_days": 250,
+      "structural_flags": ["civil_war", "arab_spring", "production_halt", "geopolitical", "regime_collapse", "international_intervention"],
+      "restoration_cost_actual": null,
+      "restoration_months_actual": 60,
+      "fully_restored": false,
+      "tags": ["libya", "civil_war", "arab_spring", "2011", "gaddafi", "production_halt", "geopolitical_crisis", "ongoing_conflict"],
+      "production_impact": {
+        "peak_production_loss_bpd": 1600000,
+        "pre_crisis_production_bpd": 1650000,
+        "lowest_production_bpd": 10000,
+        "percent_reduction": 99
+      },
+      "price_impact": {
+        "pre_crisis_price_usd": 95.00,
+        "peak_price_usd": 125.00,
+        "price_increase_percent": 32
+      }
+    },
+    {
+      "id": "SAUDI_ABQAIQ_ATTACK_2019",
+      "name": "2019 Saudi Abqaiq Attack (Drone Strikes)",
+      "summary_5w1h": {
+        "WHO": "Houthi rebels (Yemen), Iranian-backed forces claimed responsibility; Saudi Aramco; Abqaiq oil processing facility operators; Khurais field operators; international oil markets",
+        "WHAT": "Coordinated drone and cruise missile attack on Saudi Aramco's Abqaiq oil processing facility (world's largest) and Khurais oil field. 18 drones and 7 cruise missiles hit critical infrastructure. 5.7 million bpd production temporarily offline (5% of global supply).",
+        "WHEN": "September 14, 2019 (pre-dawn attack). Production impact: immediate. Restoration: within days for partial capacity, weeks for full restoration.",
+        "WHERE": "Abqaiq oil processing facility (world's largest crude oil stabilization plant), Khurais oil field, Eastern Province, Saudi Arabia. Abqaiq processes 7 million bpd (two-thirds of Saudi production).",
+        "WHY": "Yemen civil war spillover. Houthi rebels fighting Saudi-led coalition since 2015. Retaliation for Saudi military intervention in Yemen. Regional tensions between Saudi Arabia and Iran. Demonstration of asymmetric warfare capabilities.",
+        "HOW": "18 explosive-laden drones (possibly Quds-1 type) and 7 cruise missiles evaded Saudi air defenses; precision strikes on specific processing units and stabilizer towers; demonstrated vulnerability of critical energy infrastructure to asymmetric attacks",
+        "IMPACT": "5.7 million bpd production temporarily offline (5% of global supply). Largest single supply disruption in history by volume. Oil prices spiked 20% ($60 to $72/barrel Brent). Saudi stockpiles used to maintain exports. US and other strategic reserves considered but not released. Insurance premiums for energy assets increased globally.",
+        "RESTORATION": "Saudi Aramco rapidly restored partial capacity within days. Full 9.9 million bpd capacity restored by end of September 2019 (under 3 weeks). Demonstrated Saudi resilience and spare capacity management. Some damaged equipment repaired; undamaged units brought online."
+      },
+      "severity": 0.72,
+      "duration_days": 20,
+      "structural_flags": ["drone_attack", "asymmetric_warfare", "critical_infrastructure", "precision_strike", "rapid_restoration", "geopolitical"],
+      "restoration_cost_actual": null,
+      "restoration_months_actual": 1,
+      "fully_restored": true,
+      "tags": ["abqaiq", "saudi_arabia", "drone_attack", "2019", "aramco", "infrastructure", "asymmetric_warfare", "houthi"],
+      "production_impact": {
+        "peak_production_loss_bpd": 5700000,
+        "pre_crisis_production_bpd": 9900000,
+        "lowest_production_bpd": 4200000,
+        "percent_reduction": 58,
+        "global_supply_impact_percent": 5
+      },
+      "price_impact": {
+        "pre_crisis_price_usd": 60.00,
+        "peak_price_usd": 72.00,
+        "price_increase_percent": 20
+      }
+    }
+  ],
+    {
+      "id": "ASIAN_FINANCIAL_CRISIS_1997",
+      "name": "1997 Asian Financial Crisis Energy Demand Collapse",
+      "summary_5w1h": {
+        "WHO": "Thailand (baht devaluation), Indonesia, South Korea, Malaysia, Philippines, Hong Kong, Japan, international speculators, IMF, World Bank, energy traders",
+        "WHAT": "Currency crisis spread across Asia causing severe economic contraction. Regional oil demand plummeted as industrial activity collapsed, currencies lost 30-80% value, and import capacity shrank. First major demand shock in growing Asian market.",
+        "WHEN": "July 1997 - 1998 (crisis phase). Thailand devalued July 2, 1997. Regional contagion through 1998. Recovery began 1999.",
+        "WHERE": "Southeast Asia (primary), East Asia. Thailand, Indonesia, South Korea, Malaysia, Philippines, Hong Kong, Japan affected. Global oil demand impact.",
+        "WHY": "Thai baht peg unsustainable (real estate bubble, current account deficit). Speculator attacks. Currency contagion. Weak financial regulation. Crony capitalism. Over-leveraged corporations. IMF austerity programs deepened recession.",
+        "HOW": "Currency devaluations made oil imports prohibitively expensive. Industrial production collapsed (South Korea -20%, Indonesia -40%). Air travel plummeted. Shipping reduced. Construction halted. Consumer spending collapsed. Regional oil demand fell 1.2+ million bpd.",
+        "IMPACT": "Asian oil demand dropped 1.2-1.5 million bpd (8-10% of regional consumption). Oil prices fell from $20/barrel to $10/barrel (50% decline). OPEC cuts insufficient. Global oversupply. Asian currency values dropped 30-80%. Massive unemployment. IMF bailouts with harsh conditions.",
+        "RESTORATION": "IMF bailout packages ($40B+ total). Structural reforms implemented. Currency stabilization by 1999. Gradual economic recovery 1999-2000. Oil demand recovered to pre-crisis levels by 2000. Asian economies emerged with stronger financial regulations."
+      },
+      "severity": 0.65,
+      "duration_days": 550,
+      "structural_flags": ["demand_shock", "financial_crisis", "currency_crisis", "economic_recession", "demand_destruction", "asian_contagion"],
+      "restoration_cost_actual": null,
+      "restoration_months_actual": 30,
+      "fully_restored": true,
+      "tags": ["asian_financial_crisis", "1997", "demand_collapse", "currency_devaluation", "thailand", "indonesia", "south_korea", "imf"],
+      "production_impact": {
+        "regional_demand_loss_bpd": 1200000,
+        "pre_crisis_asian_demand_bpd": 15000000,
+        "demand_drop_percent": 8,
+        "indonesia_industrial_output_drop_percent": 40,
+        "south_korea_industrial_output_drop_percent": 20
+      },
+      "price_impact": {
+        "pre_crisis_price_usd": 20.00,
+        "trough_price_usd": 10.00,
+        "price_decline_percent": 50
+      }
+    },
+    {
+      "id": "OPEC_PRICE_COLLAPSE_1998",
+      "name": "1998-1999 OPEC Price Collapse",
+      "summary_5w1h": {
+        "WHO": "OPEC members (quota cheaters), Saudi Arabia, Venezuela, Nigeria, global oil market, non-OPEC producers (Mexico, Norway, Russia), Asian crisis-affected consumers",
+        "WHAT": "Combination of Asian demand collapse, OPEC quota cheating, and mild winter caused oil price collapse from $20 to under $10/barrel. Saudi Arabia insisted on quota compliance before cutting own production.",
+        "WHEN": "January 1998 - December 1998 (collapse). Recovery began March 1999 with OPEC agreement. Full restoration by 2000.",
+        "WHERE": "Global oil markets. OPEC producers overproducing. Saudi Arabia as swing producer refusing to absorb cuts alone. Asian demand destruction.",
+        "WHY": "Asian Financial Crisis reduced demand 1.2+ million bpd. OPEC members cheated quotas by 2+ million bpd. Saudi Arabia refused to be sole swing producer cutting production. Warm winter reduced heating oil demand. Inventory builds globally.",
+        "HOW": "Venezuela, Nigeria exceeded quotas significantly. Saudi Arabia maintained production. Supply exceeded demand by 2+ million bpd. Storage tanks filled. Prices collapsed. Saudi threatened to flood market further to force compliance.",
+        "IMPACT": "Oil prices fell from $20/barrel (Nov 1997) to $8/barrel (Dec 1998). 60% price decline. OPEC revenues dropped 50% ($60B loss). Russia defaulted August 1998. Venezuela economic crisis. Oil patch bankruptcies. Russia agreed to cuts March 1999.",
+        "RESTORATION": "March 1999 OPEC+Russia agreement cut 2.1 million bpd. Quota compliance improved. Asian recovery boosted demand. Prices recovered to $25/barrel by 2000. New quota discipline, but cheating resumed in later years."
+      },
+      "severity": 0.60,
+      "duration_days": 425,
+      "structural_flags": ["price_collapse", "opec", "quota_cheating", "demand_shock", "supply_surplus", "asian_contagion"],
+      "restoration_cost_actual": null,
+      "restoration_months_actual": 24,
+      "fully_restored": true,
+      "tags": ["opec", "1998", "price_collapse", "quota_cheating", "saudi_arabia", "venezuela", "russia", "asian_crisis"],
+      "production_impact": {
+        "opec_overproduction_bpd": 2000000,
+        "supply_demand_gap_bpd": 2000000,
+        "saudi_production_stable_bpd": 8000000,
+        "opec_revenue_loss_percent": 50
+      },
+      "price_impact": {
+        "pre_crisis_price_usd": 20.00,
+        "trough_price_usd": 8.00,
+        "price_decline_percent": 60
+      }
+    },
+    {
+      "id": "DOT_COM_RECESSION_2001",
+      "name": "2000-2001 Dot-com Recession Energy Demand Slowdown",
+      "summary_5w1h": {
+        "WHO": "US tech sector (dot-com companies), NASDAQ investors, US Federal Reserve (Greenspan), energy traders, OPEC, global airlines (9/11 impact), US consumers",
+        "WHAT": "Dot-com bubble burst caused mild US recession 2001. Oil demand growth stalled. 9/11 attacks compounded economic weakness with airline industry collapse. Oil prices declined from $35 to $18/barrel.",
+        "WHEN": "March 2000 (NASDAQ peak) - November 2001 (recession end). 9/11 attacks September 2001. Recovery began 2002.",
+        "WHERE": "United States (primary), global tech markets. US oil demand. Airline fuel demand. Industrial demand slowdown.",
+        "WHY": "Dot-com stock bubble inflated by speculative investment, unsustainable business models, Y2K spending cliff, Fed rate hikes 1999-2000. 9/11 attacks disrupted travel and confidence. Accounting scandals (Enron, WorldCom) eroded trust.",
+        "HOW": "NASDAQ crashed 78% from peak. Tech company bankruptcies. Venture capital dried up. Layoffs in tech sector. Consumer confidence declined. Business travel reduced post-9/11. Airline capacity cut 20%. Industrial production slowed.",
+        "IMPACT": "US oil demand growth stalled (flat 2000-2002 vs 2% annual growth). Oil prices fell from $35 (Jan 2001) to $18 (Nov 2001). OPEC cut production 3 times (total 5 million bpd). Jet fuel demand collapsed post-9/11. Mild recession, quick recovery.",
+        "RESTORATION": "Fed cut interest rates aggressively. Bush tax cuts. Gradual tech sector consolidation (survivors: Amazon, Google). 9/11 airline bailout ($15B). War on Terror spending. Oil demand recovered 2002. Prices normalized by 2003-2004."
+      },
+      "severity": 0.50,
+      "duration_days": 600,
+      "structural_flags": ["demand_slowdown", "recession", "tech_bubble", "terrorism_impact", "airline_collapse", "mild_recession"],
+      "restoration_cost_actual": null,
+      "restoration_months_actual": 24,
+      "fully_restored": true,
+      "tags": ["dot_com", "2001", "recession", "nasdaq", "september_11", "airlines", "demand_slowdown", "tech_bubble"],
+      "production_impact": {
+        "us_demand_growth_stall_percent": 0,
+        "us_demand_pre_crisis_growth_percent": 2,
+        "opec_cuts_total_bpd": 5000000,
+        "airline_capacity_cut_percent": 20
+      },
+      "price_impact": {
+        "pre_crisis_price_usd": 35.00,
+        "trough_price_usd": 18.00,
+        "price_decline_percent": 49
+      }
+    },
+    {
+      "id": "OPEC_SHALE_WAR_2014",
+      "name": "2014-2016 OPEC-Shale War (Saudi Market Share Battle)",
+      "summary_5w1h": {
+        "WHO": "Saudi Arabia (Saudi Aramco), US shale producers (Eagle Ford, Bakken, Permian), OPEC members (Russia, Iraq overproducing), Iran (post-sanctions return), US fracking technology, private equity energy investors",
+        "WHAT": "Saudi Arabia refused to cut production to support prices amid surging US shale output. Oil prices collapsed from $110 to $27/barrel. Saudi strategy: force shale bankruptcies, regain market share, maintain revenue volume over price.",
+        "WHEN": "June 2014 - February 2016 (collapse phase). November 2014 OPEC decision to maintain production. Iranian sanctions lifted January 2016. Recovery began 2016. OPEC+ agreement November 2016.",
+        "WHERE": "Global oil markets. US shale plays (Texas, North Dakota). Saudi Arabia. Russia. Iran returning to market. OPEC meeting Vienna.",
+        "WHY": "US shale production grew 4+ million bpd (2008-2014) threatening OPEC market share. Saudi Arabia tired of cutting for others. Wanted to test shale cost structure, force consolidation. Iran sanctions ending added supply. Russia refused cuts.",
+        "HOW": "OPEC November 2014 decision: no production cuts despite surplus. Saudi increased production to 10.5+ million bpd. Prices fell $110 → $50 → $27. Shale rigs collapsed 75%. Bankruptcies soared. Cost-cutting and efficiency gains. Saudi burned $100B+ reserves.",
+        "IMPACT": "Oil prices crashed 75% ($110 to $27). 200+ US shale bankruptcies. 250,000 oil patch jobs lost. Saudi budget deficit 15% GDP. Russia, Venezuela economic crisis. Shale productivity gains: breakeven fell $80 → $40. Global investment cut $1 trillion. OPEC+ formed 2016.",
+        "RESTORATION": "OPEC+ agreement November 2016 cut 1.8 million bpd. US shale consolidated, lowered costs. Prices recovered to $50-60 range 2016-2017. Saudi Vision 2030 launched (diversification). Shale emerged more resilient. Market rebalanced 2017."
+      },
+      "severity": 0.75,
+      "duration_days": 600,
+      "structural_flags": ["price_war", "shale_revolution", "market_share", "opec_strategy", "supply_surplus", "structural_shift", "bankruptcy_wave"],
+      "restoration_cost_actual": null,
+      "restoration_months_actual": 30,
+      "fully_restored": true,
+      "tags": ["shale_war", "2014", "saudi_arabia", "opec", "us_shale", "fracking", "price_collapse", "market_share"],
+      "production_impact": {
+        "us_shale_growth_2008_2014_bpd": 4000000,
+        "us_rig_count_drop_percent": 75,
+        "shale_bankruptcies": 200,
+        "opec_november_2014_production_mbd": 30.0,
+        "saudi_reserves_burned_billion": 100
+      },
+      "price_impact": {
+        "pre_crisis_price_usd": 110.00,
+        "trough_price_usd": 27.00,
+        "price_decline_percent": 75
+      }
+    },
+    {
+      "id": "RUSSIA_UKRAINE_2022",
+      "name": "2022 Russia-Ukraine Invasion Energy Shock",
+      "summary_5w1h": {
+        "WHO": "Russia (Gazprom, Rosneft), Ukraine, European Union, NATO, United States (sanctions coordinator), OPEC+, LNG exporters (US, Qatar), European utilities, Germany (Nord Stream dependency)",
+        "WHAT": "Full-scale Russian invasion of Ukraine triggered massive sanctions on Russian oil/gas. EU reduced Russian imports 80%. Global energy crisis: Brent hit $139/barrel. Natural gas prices spiked 500%+. Russia cut Nord Stream flows. Energy weaponization.",
+        "WHEN": "February 24, 2022 (invasion) - ongoing. Sanctions escalated March-June 2022. Nord Stream sabotage September 2022. EU embargo December 2022. Price peak March 2022.",
+        "WHERE": "Ukraine (war zone), Russia (supply source), European Union (demand). Nord Stream pipelines. Global LNG markets. Alternative suppliers: US, Qatar, Norway, Azerbaijan.",
+        "WHY": "Russia sought Ukrainian territory, NATO rollback, regime change. West responded with unprecedented financial/energy sanctions. EU dependency on Russian gas (40% pre-war) became strategic vulnerability. Russia retaliated with supply cuts.",
+        "HOW": "SWIFT exclusion for Russian banks. Oil embargo (EU Dec 2022). Price caps ($60/barrel). Service sanctions (drilling tech). Insurance bans. Nord Stream flows reduced, then sabotaged. EU scrambled for LNG alternatives. Coal phase-out reversed.",
+        "IMPACT": "Brent: $78 → $139 (March 2022). EU gas TTF: €15 → €300/MWh (500%+). Russia oil redirected to India, China at discounts. EU spent €500B+ on energy crisis. German industry hit hard. Inflation surge. Accelerated renewables. Nuclear phase-outs paused.",
+        "RESTORATION": "EU filled storage to 95% by Nov 2022. LNG terminals built (Germany, Netherlands). Renewable acceleration. Demand destruction (10%+ industrial). Russian supply replaced by LNG (US +150%), Norway. Energy prices normalized by 2023. Structural shift: EU decoupled from Russian energy."
+      },
+      "severity": 0.85,
+      "duration_days": 730,
+      "structural_flags": ["geopolitical", "military_conflict", "sanctions", "supply_shock", "energy_weaponization", "infrastructure_sabotage", "structural_decoupling"],
+      "restoration_cost_actual": 500000000000,
+      "restoration_months_actual": 18,
+      "fully_restored": false,
+      "tags": ["ukraine", "russia", "2022", "sanctions", "nord_stream", "eu_energy_crisis", "lng", "geopolitical_crisis", "ongoing"],
+      "production_impact": {
+        "eu_russian_oil_imports_pre_war_bpd": 2400000,
+        "eu_russian_gas_imports_pre_war_percent": 40,
+        "eu_russian_imports_reduction_percent": 80,
+        "russian_oil_redirected_to_asia_bpd": 1000000,
+        "us_lng_export_increase_percent": 150
+      },
+      "price_impact": {
+        "pre_crisis_brent_usd": 78.00,
+        "peak_brent_usd": 139.00,
+        "price_increase_percent": 78,
+        "eu_gas_ttf_peak_multiplier": 20
+      }
+    }
+  ],
+  "comparative_analysis": {
+    "supply_vs_demand_shocks": {
+      "supply_shocks": ["OIL_EMBARGO_1973", "IRAN_REVOLUTION_1979", "GULF_WAR_1990_91", "TANKER_WAR_1987_88", "LIBYA_CIVIL_WAR_2011", "SAUDI_ABQAIQ_ATTACK_2019", "RUSSIA_UKRAINE_2022"],
+      "demand_shocks": ["FINANCIAL_CRISIS_2008", "COVID19_DEMAND_SHOCK_2020", "ASIAN_FINANCIAL_CRISIS_1997", "DOT_COM_RECESSION_2001"],
+      "price_collapses": ["OIL_PRICE_COLLAPSE_1986", "OPEC_PRICE_COLLAPSE_1998", "OPEC_SHALE_WAR_2014"],
+      "observation": "Supply shocks (7) cause price spikes; demand shocks (4) and price wars (3) cause price collapses. COVID-19 unique: demand collapse + storage crisis created negative pricing. 15 events span 1973-2022 with coverage across all major shock types."
+    },
+    "decade_coverage": {
+      "1970s": ["OIL_EMBARGO_1973", "IRAN_REVOLUTION_1979"],
+      "1980s": ["OIL_PRICE_COLLAPSE_1986", "TANKER_WAR_1987_88"],
+      "1990s": ["GULF_WAR_1990_91", "ASIAN_FINANCIAL_CRISIS_1997", "OPEC_PRICE_COLLAPSE_1998"],
+      "2000s": ["DOT_COM_RECESSION_2001", "HURRICANES_KATRINA_RITA_2005", "FINANCIAL_CRISIS_2008"],
+      "2010s": ["LIBYA_CIVIL_WAR_2011", "OPEC_SHALE_WAR_2014", "SAUDI_ABQAIQ_ATTACK_2019"],
+      "2020s": ["COVID19_DEMAND_SHOCK_2020", "RUSSIA_UKRAINE_2022"]
+    },
+    "geopolitical_vs_economic": {
+      "geopolitical_driven": ["OIL_EMBARGO_1973", "IRAN_REVOLUTION_1979", "GULF_WAR_1990_91", "TANKER_WAR_1987_88", "LIBYA_CIVIL_WAR_2011", "SAUDI_ABQAIQ_ATTACK_2019", "RUSSIA_UKRAINE_2022"],
+      "economic_driven": ["FINANCIAL_CRISIS_2008", "ASIAN_FINANCIAL_CRISIS_1997", "DOT_COM_RECESSION_2001"],
+      "market_structure": ["OIL_PRICE_COLLAPSE_1986", "OPEC_PRICE_COLLAPSE_1998", "OPEC_SHALE_WAR_2014"],
+      "natural_disaster": ["HURRICANES_KATRINA_RITA_2005"],
+      "pandemic": ["COVID19_DEMAND_SHOCK_2020"]
+    },
+    "severity_ranking": [
+      {"rank": 1, "event": "COVID19_DEMAND_SHOCK_2020", "severity": 0.90, "type": "demand/pandemic"},
+      {"rank": 2, "event": "OIL_EMBARGO_1973", "severity": 0.88, "type": "supply/geopolitical"},
+      {"rank": 3, "event": "IRAN_REVOLUTION_1979", "severity": 0.85, "type": "supply/geopolitical"},
+      {"rank": 4, "event": "RUSSIA_UKRAINE_2022", "severity": 0.85, "type": "supply/geopolitical"},
+      {"rank": 5, "event": "OPEC_SHALE_WAR_2014", "severity": 0.75, "type": "price_war"},
+      {"rank": 6, "event": "FINANCIAL_CRISIS_2008", "severity": 0.75, "type": "demand/financial"},
+      {"rank": 7, "event": "SAUDI_ABQAIQ_ATTACK_2019", "severity": 0.72, "type": "infrastructure/attack"},
+      {"rank": 8, "event": "GULF_WAR_1990_91", "severity": 0.70, "type": "supply/geopolitical"},
+      {"rank": 9, "event": "HURRICANES_KATRINA_RITA_2005", "severity": 0.70, "type": "infrastructure/natural"},
+      {"rank": 10, "event": "LIBYA_CIVIL_WAR_2011", "severity": 0.68, "type": "supply/geopolitical"},
+      {"rank": 11, "event": "ASIAN_FINANCIAL_CRISIS_1997", "severity": 0.65, "type": "demand/financial"},
+      {"rank": 12, "event": "TANKER_WAR_1987_88", "severity": 0.60, "type": "shipping/geopolitical"},
+      {"rank": 13, "event": "OPEC_PRICE_COLLAPSE_1998", "severity": 0.60, "type": "price_war"},
+      {"rank": 14, "event": "OIL_PRICE_COLLAPSE_1986", "severity": 0.55, "type": "price_war"},
+      {"rank": 15, "event": "DOT_COM_RECESSION_2001", "severity": 0.50, "type": "demand/recession"}
+    ]
+  }
+}
+
+
