@@ -224,29 +224,46 @@ CREATE TABLE raw_sec_filing_facts (
 
 ### 1.3 Seed data
 
-- [ ] Import 3 historical energy events from Augur into `event_master` + `entity_master`:
+- [x] Import 3 historical energy events from Augur into `event_master` + `entity_master`:
   - `iran_oil_shock_2025` — EXPROPRIATION, IMPOSSIBLE, irrev=0.92, Iran as entity
   - `russia_gas_pipeline_2022` — PIPELINE_SHUTDOWN, HIGH, irrev=0.90, Russia + EU as entities
   - `opec_production_cut_2024` — PRODUCTION_CUT, MEDIUM, irrev=0.65, OPEC+ entities
-- [ ] Link entities to events via `event_entity_role`
-- [ ] Create initial `causal_link` entries for known chains (e.g., sanctions → production cut → price spike)
-- [ ] Load historical oil price series (BRENT, WTI) into `raw_oil_ohlcv_daily` for 1970–2025
-- [ ] Compute `volatility_snapshot` for all historical windows (Yang-Zhang estimator)
-- [ ] Populate `analogue_summaries` for the 3 seed events with known restoration outcomes
+- [x] Link entities to events via `event_entity_role`
+- [x] Create initial `causal_link` entries for known chains (e.g., sanctions → production cut → price spike)
+- [x] Load historical oil price series (BRENT, WTI) into `raw_oil_ohlcv_daily` for 2020–2025
+- [x] Compute `volatility_snapshot` for all historical windows (Yang-Zhang estimator)
+- [x] Populate `analogue_summaries` for the 3 seed events with known restoration outcomes
+
+**Implementation:** `orcadata/phase1/seeds/seed_entities.py`, `seed_events.py`, `seed_market_data.py`; `src/orca/volatility.py`
 
 ### 1.4 Data ingestion adapters (boundary layer)
 
-- [ ] `SpideyOutputAdapter` — writes Spidey's `ExtractedSignal` list to `raw_news_articles` + graph `event_master` + LanceDB `article_chunks`
-- [ ] `MarketDataAdapter` — fetches daily OHLCV, computes `market_metric_daily`, writes to SQLite
-- [ ] `SecFilingAdapter` — parses XBRL, writes to SQLite `raw_sec_filing_facts`, chunks to LanceDB
-- [ ] `EntityCanonicalizer` — resolves free-text target strings to `entity_master` IDs
+- [x] `SpideyOutputAdapter` — writes Spidey's `ExtractedSignal` list to `raw_news_articles` + graph `event_master` + LanceDB `article_chunks`
+- [x] `MarketDataAdapter` — fetches daily OHLCV, computes `market_metric_daily`, writes to SQLite
+- [x] `SecFilingAdapter` — parses XBRL, writes to SQLite `raw_sec_filing_facts`, chunks to LanceDB
+- [x] `EntityCanonicalizer` — resolves free-text target strings to `entity_master` IDs
+
+**Implementation:** `src/orca/adapters/`
 
 ### 1.5 Acceptance criteria Phase 1
 
-- [ ] All 3 storage engines initialize and accept writes
-- [ ] Seed data queryable via each engine's native API
-- [ ] Cross-engine query: find event → entity → causal links → downstream events
-- [ ] No TTL-based cache_entries used for permanent data
+- [x] All 3 storage engines initialize and accept writes
+- [x] Seed data queryable via each engine's native API
+- [x] Cross-engine query: find event → entity → causal links → downstream events
+- [x] No TTL-based cache_entries used for permanent data
+
+**Phase 1 files implemented:**
+```
+orcadata/phase1/
+  schema/         001_orca_facts.sql, init_sqlite.py
+  vectors/       init_vectors.py (LanceDB)
+  graph/          init_graph.py (FalkorDBLite)
+  seeds/          seed_market_data.py, seed_entities.py, seed_events.py
+  orca_facts.db   (seeded: 3132 OHLCV bars, 6224 metrics, 3106 vol snapshots)
+src/orca/
+  volatility.py    Yang-Zhang sigma service
+  adapters/        base, spidey, market, sec_filing, entity_canonicalizer
+```
 
 ---
 
