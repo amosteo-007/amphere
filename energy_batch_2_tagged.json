@@ -1,0 +1,524 @@
+[
+  {
+    "article_index": 0,
+    "title": "Turkey Weighs Raising Energy Prices",
+    "url": "https://www.rigzone.com/news/wire/turkey_weighs_raising_energy_prices-04-apr-2026-183374-article/?rss=true",
+    "signals": [],
+    "cross_pollination_insight": "Turkey's price consideration signals broader regional energy cost pressures but no specific taxonomy signal triggered"
+  },
+  {
+    "article_index": 1,
+    "title": "Delhi government mandates PNG shift for commercial LPG users: All you need to know",
+    "url": "https://www.livemint.com/news/india/delhi-government-mandates-png-shift-for-commercial-lpg-users-all-you-need-to-know-11775300317864.html",
+    "signals": [],
+    "cross_pollination_insight": "Policy-driven fuel substitution indicates infrastructure adaptation to supply constraints"
+  },
+  {
+    "article_index": 2,
+    "title": "Taiwan says it has assurances over LNG supplies from 'major' country",
+    "url": "https://www.channelnewsasia.com/east-asia/taiwan-lng-supply-assurance-major-country-energy-middle-east-iran-us-6036531",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.72,
+        "excerpt": "assurances over LNG supplies",
+        "tier": "MEDIUM",
+        "rationale": "Diplomatic supply assurances imply underlying supply risk requiring state-level intervention"
+      }
+    ],
+    "cross_pollination_insight": "State-level LNG supply diplomacy reveals strategic energy security concerns in East Asian markets"
+  },
+  {
+    "article_index": 3,
+    "title": "A Billionaire's Pitch To Cut Power Bills Collides With California's Real Costs",
+    "url": "https://www.forbes.com/sites/alanohnsman/2026/04/04/a-billionaires-pitch-to-cut-power-bills-collides-with-californias-real-costs/",
+    "signals": [],
+    "cross_pollination_insight": "Domestic policy debate shows disconnect between political energy pricing promises and infrastructure cost realities"
+  },
+  {
+    "article_index": 4,
+    "title": "Countryside drivers hit hardest by fuel crisis as prices soar by up to 10% MORE than in cities",
+    "url": "https://www.thesun.co.uk/money/38724420/countryside-drivers-hit-hardest-fuel-crisis-prices-soar/",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.76,
+        "excerpt": "fuel crisis as prices soar",
+        "tier": "MEDIUM",
+        "rationale": "Acknowledged fuel crisis with 10% regional price divergence indicates supply disruption severity"
+      }
+    ],
+    "cross_pollination_insight": "Rural-urban price divergence signals distribution network stress beyond crude supply issues"
+  },
+  {
+    "article_index": 5,
+    "title": "India denies that Iranian crude oil ship diverted to China over payment issues, cites 'trade optimisation' as reason",
+    "url": "https://www.hindustantimes.com/india-news/india-denies-that-iranian-crude-oil-ship-diverted-to-china-over-payment-issues-cites-trade-optimisation-as-reason-101775292851691.html",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_004",
+        "confidence": 0.82,
+        "excerpt": "amid the Middle East crisis, Indian refiners have secured crude oil from Iran",
+        "tier": "HIGH",
+        "rationale": "Iranian crude purchases amid crisis with payment denial context suggests OFAC/sanctions navigation"
+      },
+      {
+        "signal_id": "ENE_HIGH_006",
+        "confidence": 0.75,
+        "excerpt": "Iranian crude oil ship diverted",
+        "tier": "HIGH",
+        "rationale": "Tanker diversion implies maritime logistics disruption"
+      }
+    ],
+    "cross_pollination_insight": "Payment issue denials often mask sanctions compliance workarounds - watch for SWIFT alternatives emergence"
+  },
+  {
+    "article_index": 6,
+    "title": "Five EU nations push for energy windfall tax amid 70% gas price spike - Reuters",
+    "url": "https://www.investing.com/news/economy-news/five-eu-nations-push-for-energy-windfall-tax-amid-70-gas-price-spike--reuters-4597532",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_002",
+        "confidence": 0.88,
+        "excerpt": "Five EU nations push for energy windfall tax amid 70% gas price spike",
+        "tier": "HIGH",
+        "rationale": "EU-level policy intervention on energy firms during crisis - direct sector impact"
+      },
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.78,
+        "excerpt": "70% gas price spike",
+        "tier": "MEDIUM",
+        "rationale": "70% price shock indicates severe market disruption conditions"
+      }
+    ],
+    "cross_pollination_insight": "70% price spike exceeds typical volatility - suggests supply shock rather than speculative movement"
+  },
+  {
+    "article_index": 7,
+    "title": "Jack Middleton: Qatar's LNG crisis proves Canada must build now",
+    "url": "https://nationalpost.com/opinion/jack-middleton-qatars-lng-crisis-proves-canada-must-build-now",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.73,
+        "excerpt": "Qatar's LNG crisis",
+        "tier": "MEDIUM",
+        "rationale": "Acknowledged LNG crisis affecting major exporter indicates supply chain stress"
+      }
+    ],
+    "cross_pollination_insight": "Qatar crisis reference signals global LNG supply tightness beyond just Hormuz crude disruptions"
+  },
+  {
+    "article_index": 8,
+    "title": "India procuring Iranian crude, diversion of cargo not because of payment issue: Govt clarifies",
+    "url": "https://www.thehindu.com/business/Economy/india-procuring-iranian-crude-diversion-of-cargo-not-because-of-payment-issue-govt-clarifies/article70822758.ece",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_004",
+        "confidence": 0.85,
+        "excerpt": "procuring Iranian crude, diversion of cargo not because of payment issue",
+        "tier": "HIGH",
+        "rationale": "Iranian crude procurement with payment denial - sanctions workaround context"
+      }
+    ],
+    "cross_pollination_insight": "Repeated official denials of payment issues suggest active sanctions evasion mechanics in play"
+  },
+  {
+    "article_index": 9,
+    "title": "India-bound Green Sanvi safely crosses Strait of Hormuz with 46,650 MT LPG cargo: Report",
+    "url": "https://www.livemint.com/news/india/indiabound-green-sanvi-safely-crosses-strait-of-hormuz-with-46-650-mt-lpg-cargo-report-11775293360389.html",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.92,
+        "excerpt": "safely crosses Strait of Hormuz",
+        "tier": "HIGH",
+        "rationale": "Hormuz transit with explicit safety framing implies active chokepoint risk"
+      },
+      {
+        "signal_id": "ENE_HIGH_006",
+        "confidence": 0.86,
+        "excerpt": "Green Sanvi safely crosses",
+        "tier": "HIGH",
+        "rationale": "Named vessel transit through conflict zone - maritime risk signal"
+      }
+    ],
+    "cross_pollination_insight": "Safe transit reporting convention indicates Hormuz passage no longer routine but newsworthy"
+  },
+  {
+    "article_index": 10,
+    "title": "India Acknowledges Iranian Oil Purchases, Dismisses Payment Woes",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-04/india-acknowledges-iranian-oil-purchases-dismisses-payment-woes",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_004",
+        "confidence": 0.88,
+        "excerpt": "dismisses payment woes",
+        "tier": "HIGH",
+        "rationale": "Bloomberg confirmation of Iranian oil purchases with payment denial - OFAC context"
+      },
+      {
+        "signal_id": "ENE_HIGH_002",
+        "confidence": 0.75,
+        "excerpt": "navigate the current energy crisis",
+        "tier": "HIGH",
+        "rationale": "Crisis navigation via Iranian purchases implies sanctions workaround necessity"
+      }
+    ],
+    "cross_pollination_insight": "Bloomberg coverage of payment denials suggests market scrutiny of India's sanctions compliance"
+  },
+  {
+    "article_index": 11,
+    "title": "Petrol pump shortage warning for Easter weekend as drivers threaten to fill up twice to mitigate 'truly eye-watering' prices",
+    "url": "https://www.dailymail.co.uk/news/article-15705915/Petrol-pump-shortage-warning-Easter-weekend-drivers-threaten-twice-prices.html",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.74,
+        "excerpt": "shortage warning for Easter weekend",
+        "tier": "MEDIUM",
+        "rationale": "Retail shortage warning during holiday surge period"
+      }
+    ],
+    "cross_pollination_insight": "Hoarding behavior threat indicates consumer panic in retail fuel markets"
+  },
+  {
+    "article_index": 12,
+    "title": "European drivers choke on rising diesel prices due to Iran conflict",
+    "url": "https://www.france24.com/en/europe/20260404-european-drivers-choke-on-rising-diesel-prices-due-to-iran-conflict",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.85,
+        "excerpt": "due to Iran conflict",
+        "tier": "HIGH",
+        "rationale": "Explicit attribution of price spike to Iran conflict - geopolitical supply risk"
+      },
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.80,
+        "excerpt": "price of diesel fuel has rocketed by more than 30 percent since the start of the Middle East war",
+        "tier": "MEDIUM",
+        "rationale": "30% war-driven price increase confirms market shock conditions"
+      }
+    ],
+    "cross_pollination_insight": "30% diesel-specific spike suggests refining capacity constraints, not just crude disruption"
+  },
+  {
+    "article_index": 13,
+    "title": "Uba Sani leads regional power push, seals N15bn deal in London",
+    "url": "https://businessday.ng/news/article/uba-sani-leads-regional-power-push-seals-n15bn-deal-in-london/",
+    "signals": [],
+    "cross_pollination_insight": "International energy financing deals signal continued investment despite regional crisis context"
+  },
+  {
+    "article_index": 14,
+    "title": "Asia governments pour billions into fuel subsidies as prices surge",
+    "url": "https://theindependent.sg/asia-governments-pour-billions-into-fuel-subsidies-as-prices-surge/",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.77,
+        "excerpt": "energy emergency brought on by Middle East War",
+        "tier": "MEDIUM",
+        "rationale": "Acknowledged energy emergency triggering multi-billion subsidy response"
+      }
+    ],
+    "cross_pollination_insight": "Multi-country subsidy coordination suggests systemic price crisis beyond normal market volatility"
+  },
+  {
+    "article_index": 15,
+    "title": "India makes first Iranian oil buy in 7 years",
+    "url": "https://economictimes.indiatimes.com/industry/energy/oil-gas/india-makes-first-iranian-oil-buy-in-seven-years-with-no-payment-problems/articleshow/130016488.cms",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_004",
+        "confidence": 0.90,
+        "excerpt": "first Iranian oil buy in 7 years",
+        "tier": "HIGH",
+        "rationale": "Resumption of Iranian purchases after 7-year gap since US sanctions - explicit OFAC context"
+      },
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.82,
+        "excerpt": "Middle East conflict that has disrupted supplies through the Strait of Hormuz",
+        "tier": "HIGH",
+        "rationale": "Confirmed Hormuz supply disruption driving alternative sourcing"
+      }
+    ],
+    "cross_pollination_insight": "7-year gap resumption reveals severity of Hormuz disruption - India willing to risk US sanctions exposure"
+  },
+  {
+    "article_index": 16,
+    "title": "India makes first Iranian oil buy in seven years with no payment problems",
+    "url": "https://www.investing.com/news/commodities-news/india-makes-first-iranian-oil-buy-in-seven-years-with-no-payment-problems-4597529",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_004",
+        "confidence": 0.88,
+        "excerpt": "Iranian oil buy in seven years with no payment problems",
+        "tier": "HIGH",
+        "rationale": "Seven-year resumption with payment denial - sanctions workaround"
+      }
+    ],
+    "cross_pollination_insight": "Repeated 'no payment problems' messaging suggests strategic communications campaign to manage sanctions perception"
+  },
+  {
+    "article_index": 17,
+    "title": "Delhi govt tightens noose: Businesses to get LPG only if they apply for PNG connection",
+    "url": "https://timesofindia.indiatimes.com/business/india-business/delhi-govt-tightens-noose-for-fuel-supply-businesses-to-get-lpg-only-if-they-apply-for-png-connection/articleshow/130016174.cms",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.71,
+        "excerpt": "tightens noose for fuel supply",
+        "tier": "MEDIUM",
+        "rationale": "Supply tightening policy response indicates underlying shortage conditions"
+      }
+    ],
+    "cross_pollination_insight": "PNG transition mandate reveals government anticipating prolonged LPG supply constraints"
+  },
+  {
+    "article_index": 18,
+    "title": "New North Sea drilling would barely reduce UK gas imports at all, data shows",
+    "url": "https://www.theguardian.com/environment/2026/apr/04/new-north-sea-drilling-jackdaw-rosebank-uk-gas-imports",
+    "signals": [],
+    "cross_pollination_insight": "Domestic production inadequacy highlights structural import dependence during crisis"
+  },
+  {
+    "article_index": 19,
+    "title": "India says crude supplies secure",
+    "url": "https://economictimes.indiatimes.com/industry/energy/oil-gas/india-says-crude-supplies-secure-no-payment-hurdles-for-iranian-imports/articleshow/130016129.cms",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_004",
+        "confidence": 0.86,
+        "excerpt": "no payment hurdles for such imports",
+        "tier": "HIGH",
+        "rationale": "Official denial of payment hurdles for Iranian imports - sanctions context"
+      }
+    ],
+    "cross_pollination_insight": "Secure supply assurances amid crisis suggest diversification including sanctioned sources"
+  },
+  {
+    "article_index": 20,
+    "title": "Proxy adviser ISS recommends vote against BP board over attempt to scrap some climate reporting",
+    "url": "https://www.investing.com/news/stock-market-news/proxy-adviser-iss-recommends-vote-against-bp-board-over-attempt-to-scrap-some-climate-reporting-4597528",
+    "signals": [],
+    "cross_pollination_insight": "Governance debate signals shift in investor priorities during energy crisis period"
+  },
+  {
+    "article_index": 21,
+    "title": "Iran's Mahshahr petrochemical zone hit by strikes",
+    "url": "https://economictimes.indiatimes.com/news/international/world-news/west-asia-war-irans-mahshahr-petrochemical-zone-hit-by-us-israeli-strikes-casualties-feared/articleshow/130015937.cms",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_001",
+        "confidence": 0.94,
+        "excerpt": "Mahshahr petrochemical zone hit by US-Israeli strikes",
+        "tier": "HIGH",
+        "rationale": "Critical petrochemical facility attacked with clear state attribution (US-Israeli)"
+      },
+      {
+        "signal_id": "ENE_HIGH_003",
+        "confidence": 0.89,
+        "excerpt": "petrochemical zone hit by strikes",
+        "tier": "HIGH",
+        "rationale": "Industrial facility damage with state-level attack attribution"
+      }
+    ],
+    "cross_pollination_insight": "Petrochemical targeting expands conflict beyond oil extraction to downstream processing capacity"
+  },
+  {
+    "article_index": 22,
+    "title": "Thai contractors warn of wave of abandoned projects amid rising costs of raw materials, fuel",
+    "url": "https://www.straitstimes.com/asia/se-asia/thai-contractors-warn-of-wave-of-abandoned-projects-amid-rising-costs-of-raw-materials-fuel",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.73,
+        "excerpt": "rising costs of raw materials, fuel",
+        "tier": "MEDIUM",
+        "rationale": "Fuel cost-driven project abandonment indicates supply shock economic impact"
+      }
+    ],
+    "cross_pollination_insight": "Construction sector project halts demonstrate energy crisis cascading to broader economy"
+  },
+  {
+    "article_index": 23,
+    "title": "Brits fear soaring fuel and energy bills most as Iran war rages, poll shows",
+    "url": "https://www.thesun.co.uk/news/38724126/brits-fear-soaring-fuel-energy-bills-iran-war/",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.80,
+        "excerpt": "Iran war rages",
+        "tier": "HIGH",
+        "rationale": "Ongoing Iran war context - geopolitical supply risk"
+      },
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.75,
+        "excerpt": "soaring fuel and energy bills",
+        "tier": "MEDIUM",
+        "rationale": "Consumer cost concerns reflect market shock conditions"
+      }
+    ],
+    "cross_pollination_insight": "Public polling on war-cost nexus signals anticipated prolonged crisis duration"
+  },
+  {
+    "article_index": 24,
+    "title": "Fuel restocked but farmers 'running on empty' leaders warn",
+    "url": "https://www.9news.com.au/national/iran-israel-usa-war-petrol-crisis-diesel/87e69c4c-8166-4484-ba06-ab03c4004002",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_006",
+        "confidence": 0.84,
+        "excerpt": "Australia looks to its neighbours to keep the tankers coming",
+        "tier": "HIGH",
+        "rationale": "Tanker supply dependency on regional neighbors - maritime supply chain"
+      },
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.76,
+        "excerpt": "farmers 'running on empty'",
+        "tier": "MEDIUM",
+        "rationale": "Critical sector supply shortage indicates crisis severity"
+      }
+    ],
+    "cross_pollination_insight": "Agricultural sector fuel shortages threaten food security - cascading crisis risk"
+  },
+  {
+    "article_index": 25,
+    "title": "Delhi links commercial LPG to PNG connection",
+    "url": "https://economictimes.indiatimes.com/industry/energy/oil-gas/delhi-tightens-lpg-supply-norms-links-commercial-access-to-png-transition/articleshow/130015623.cms",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.72,
+        "excerpt": "tightened norms governing the supply of commercial LPG",
+        "tier": "MEDIUM",
+        "rationale": "Supply tightening regulations imply shortage conditions"
+      }
+    ],
+    "cross_pollination_insight": "PNG linkage policy reveals anticipatory planning for prolonged LPG supply constraints"
+  },
+  {
+    "article_index": 26,
+    "title": "India-flagged Green Sanvi vessel with 46,650 metric tonnes of LPG safely transits Strait of Hormuz",
+    "url": "https://www.hindustantimes.com/india-news/india-flagged-green-sanvi-vessel-with-46-650-metric-tonnes-of-lpg-safely-transits-strait-of-hormuz-101775289021586.html",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.93,
+        "excerpt": "safely transits Strait of Hormuz",
+        "tier": "HIGH",
+        "rationale": "Critical chokepoint transit with safety framing - active risk"
+      },
+      {
+        "signal_id": "ENE_HIGH_006",
+        "confidence": 0.87,
+        "excerpt": "India-flagged Green Sanvi vessel",
+        "tier": "HIGH",
+        "rationale": "Named India-flagged vessel - maritime risk with flag state context"
+      }
+    ],
+    "cross_pollination_insight": "India-flagged vessel mention suggests flag-state protection strategy for Hormuz transits"
+  },
+  {
+    "article_index": 27,
+    "title": "British Gas urges UK households to buy food for three days and sleeping bags",
+    "url": "https://www.mirror.co.uk/news/uk-news/storm-dave-snow-british-gas-36968144",
+    "signals": [],
+    "cross_pollination_insight": "Weather-related emergency prep unrelated to energy taxonomy signals"
+  },
+  {
+    "article_index": 28,
+    "title": "NSW refills diesel stocks",
+    "url": "https://www.smh.com.au/national/nsw-refills-diesel-stocks-20260404-p5zlby.html",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.78,
+        "excerpt": "150 are still without supply as Australia looks to its neighbours to keep the tankers coming",
+        "tier": "MEDIUM",
+        "rationale": "Diesel stock refill needed with 150 stations still dry - shortage recovery"
+      },
+      {
+        "signal_id": "ENE_HIGH_006",
+        "confidence": 0.80,
+        "excerpt": "keep the tankers coming",
+        "tier": "HIGH",
+        "rationale": "Tanker-dependent supply chain - maritime risk"
+      }
+    ],
+    "cross_pollination_insight": "Regional diesel recovery shows supply chain fragility - tanker dependency for island nations"
+  },
+  {
+    "article_index": 29,
+    "title": "Exclusive-Five EU finance ministers call for windfall profit tax on energy companies",
+    "url": "https://www.investing.com/news/stock-market-news/exclusivefive-eu-finance-ministers-call-for-windfall-profit-tax-on-energy-companies-4597521",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_002",
+        "confidence": 0.90,
+        "excerpt": "Five EU finance ministers call for windfall profit tax on energy companies",
+        "tier": "HIGH",
+        "rationale": "EU ministerial-level policy intervention on energy sector"
+      }
+    ],
+    "cross_pollination_insight": "Finance minister involvement signals fiscal revenue motive alongside policy objectives"
+  },
+  {
+    "article_index": 30,
+    "title": "Indian LPG vessel Green Sanvi transits Hormuz",
+    "url": "https://economictimes.indiatimes.com/industry/energy/oil-gas/indian-lpg-carrier-transits-strait-of-hormuz-supplies-seafarers-under-watch-report/articleshow/130015005.cms",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.91,
+        "excerpt": "transits Strait of Hormuz",
+        "tier": "HIGH",
+        "rationale": "Hormuz chokepoint transit - critical location"
+      },
+      {
+        "signal_id": "ENE_HIGH_006",
+        "confidence": 0.85,
+        "excerpt": "Indian LPG carrier transits",
+        "tier": "HIGH",
+        "rationale": "LPG carrier through conflict zone - maritime vessel risk"
+      }
+    ],
+    "cross_pollination_insight": "LPG-specific carrier focus reveals gas/LNG supply chain disruptions parallel to crude"
+  },
+  {
+    "article_index": 31,
+    "title": "You can start home solar for under £200 right now – before UK rule change (aff)",
+    "url": "https://www.scotsman.com/recommended/plug-in-solar-panels-uk-6553414",
+    "signals": [],
+    "cross_pollination_insight": "Consumer solar adoption signals price-driven demand destruction in traditional energy"
+  },
+  {
+    "article_index": 32,
+    "title": "India news: New Delhi turns back to Iranian crude after seven years",
+    "url": "https://www.dw.com/en/india-news-new-delhi-turns-back-to-iranian-crude-after-seven-years/live-76658437",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_004",
+        "confidence": 0.89,
+        "excerpt": "turns back to Iranian crude after seven years",
+        "tier": "HIGH",
+        "rationale": "7-year gap resumption since 2019 US pressure - explicit sanctions/OFAC context"
+      },
+      {
+        "signal_id": "ENE_HIGH_002",
+        "confidence": 0.78,
+        "excerpt": "following U.S. pressure not to buy Iranian crude",
+        "tier": "HIGH",
+        "rationale": "US pressure/sanctions context explicitly stated"
+      }
+    ],
+    "cross_pollination_insight": "DW framing of 'US pressure' highlights geopolitical friction in sanctions enforcement"
+  }
+]

@@ -1,0 +1,470 @@
+[
+  {
+    "article_index": 0,
+    "title": "As fuel prices soar, voters tell Miliband to ditch his Net Zero obsession and lift ban on North Sea oil and gas that would make ALL our lives easier",
+    "url": "https://www.dailymail.co.uk/news/article-15706747/fuel-prices-soar-voters-Miliband-ditch-Net-Zero-obsession-lift-ban-North-Sea-oil-gas.html",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_002",
+        "confidence": 0.82,
+        "excerpt": "lift ban on North Sea oil and gas",
+        "tier": "HIGH",
+        "rationale": "UK policy discussion around lifting energy production bans - relates to EU/UK sanctions/policy context"
+      }
+    ],
+    "cross_pollination_insight": "Political pressure mounting to reverse production restrictions signals potential policy volatility in Western energy markets"
+  },
+  {
+    "article_index": 1,
+    "title": "Kuwaiti Oil Headquarters Set Ablaze by Iranian Drone Strike",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-04/kuwait-petroleum-says-headquarters-set-ablaze-by-by-drone-strike",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_001",
+        "confidence": 0.95,
+        "excerpt": "headquarters caught fire after a strike by unmanned drones in the latest Iranian attack",
+        "tier": "HIGH",
+        "rationale": "Critical energy infrastructure (Kuwait Petroleum Corp HQ) attacked by drones - clear state-proxy attribution"
+      },
+      {
+        "signal_id": "ENE_HIGH_003",
+        "confidence": 0.90,
+        "excerpt": "headquarters set ablaze",
+        "tier": "HIGH",
+        "rationale": "Major facility fire at national oil company headquarters - triggers investigation and operational disruption"
+      }
+    ],
+    "cross_pollination_insight": "Direct attack on NOC headquarters signals escalation beyond oil infrastructure to corporate governance centers"
+  },
+  {
+    "article_index": 2,
+    "title": "Global oil supplies at risk of \"1970s-style\" breakdown as Hormuz flows plummet",
+    "url": "https://www.investing.com/news/economy-news/global-oil-supplies-at-risk-of-1970sstyle-breakdown-as-hormuz-flows-plummet-4597569",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.93,
+        "excerpt": "Hormuz flows plummet",
+        "tier": "HIGH",
+        "rationale": "Strait of Hormuz is the critical energy chokepoint; flow disruption = pipeline-equivalent blockage"
+      },
+      {
+        "signal_id": "ENE_MED_001",
+        "confidence": 0.78,
+        "excerpt": "Global oil supplies at risk",
+        "tier": "MEDIUM",
+        "rationale": "Supply risk implies insurance market stress and war risk premium increases"
+      }
+    ],
+    "cross_pollination_insight": "1970s-style breakdown language suggests systemic supply crisis that insurance markets may not be capitalized to cover"
+  },
+  {
+    "article_index": 3,
+    "title": "Climate Degradation Will Have Consequences For \"Hundreds And Thousands Of Years\"",
+    "url": "https://cleantechnica.com/2026/04/04/climate-degradation-will-have-consequences-for-hundreds-and-thousands-of-years/",
+    "signals": [],
+    "cross_pollination_insight": "Long-term climate narrative may shift investment away from fossil infrastructure maintenance, increasing cascade failure risk"
+  },
+  {
+    "article_index": 4,
+    "title": "Korea-based Green Climate Fund helps developing countries access direct finance",
+    "url": "https://www.koreatimes.co.kr/southkorea/environment-animals/20260405/korea-based-green-climate-fund-helps-developing-countries-access-direct-finance",
+    "signals": [],
+    "cross_pollination_insight": "Climate finance flows may accelerate energy transition in developing markets, creating stranded asset risk in traditional energy"
+  },
+  {
+    "article_index": 5,
+    "title": "Iran says Iraqi ships are allowed to use Strait of Hormuz",
+    "url": "https://fortune.com/2026/04/04/iran-war-crude-oil-tankers-iraqi-ships-strait-of-hormuz/",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_006",
+        "confidence": 0.88,
+        "excerpt": "Iraqi ships are allowed to use Strait of Hormuz",
+        "tier": "HIGH",
+        "rationale": "Tanker transit permissions being negotiated - implies prior restriction and ongoing maritime risk"
+      },
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.85,
+        "excerpt": "Strait of Hormuz",
+        "tier": "HIGH",
+        "rationale": "Critical chokepoint with Iranian control over transit permissions"
+      }
+    ],
+    "cross_pollination_insight": "Iran selectively allowing tanker passage reveals Hormuz as active leverage point, not just threatened"
+  },
+  {
+    "article_index": 6,
+    "title": "Superfund Site Still On Track For Solar Power & Green Hydrogen",
+    "url": "https://cleantechnica.com/2026/04/04/superfund-site-still-on-track-for-solar-power-green-hydrogen/",
+    "signals": [],
+    "cross_pollination_insight": "Green hydrogen projects on contaminated sites show dual-use infrastructure resilience planning"
+  },
+  {
+    "article_index": 7,
+    "title": "Surge in demand for biogas units amid LPG crisis",
+    "url": "https://www.thehindu.com/news/national/kerala/surge-in-demand-for-biogas-units-amid-lpg-crisis/article70823062.ece",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.72,
+        "excerpt": "LPG crisis",
+        "tier": "MEDIUM",
+        "rationale": "Crisis-level supply disruption triggering alternative fuel demand"
+      }
+    ],
+    "cross_pollination_insight": "Household-level fuel substitution cascades signal systemic LPG shortage penetrating consumer markets"
+  },
+  {
+    "article_index": 8,
+    "title": "Fuel lines and fault lines: How the Iran war triggered a global energy shortage crisis",
+    "url": "https://www.premiumtimesng.com/opinion/869386-fuel-lines-and-fault-lines-how-the-iran-war-triggered-a-global-energy-shortage-crisis-by-dan-d-kunle.html",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.95,
+        "excerpt": "Strait of Hormuz, a narrow maritime chokepoint through which one-fifth of global oil shipments pass",
+        "tier": "HIGH",
+        "rationale": "Explicit Hormuz chokepoint disruption - critical infrastructure blockage"
+      },
+      {
+        "signal_id": "ENE_HIGH_003",
+        "confidence": 0.80,
+        "excerpt": "war triggered a global energy shortage crisis",
+        "tier": "HIGH",
+        "rationale": "War-driven crisis causing systemic infrastructure damage"
+      },
+      {
+        "signal_id": "ENE_MED_001",
+        "confidence": 0.75,
+        "excerpt": "global energy shortage crisis",
+        "tier": "MEDIUM",
+        "rationale": "Shortage crisis implies insurance and supply chain stress"
+      }
+    ],
+    "cross_pollination_insight": "Dangote refinery mention shows regional arbitrage emerging as global supply chains fracture"
+  },
+  {
+    "article_index": 9,
+    "title": "Syrian Petroleum says 500,000 tons of Iraqi fuel to transit monthly to Baniyas",
+    "url": "https://www.middleeastmonitor.com/20260404-syrian-petroleum-says-500000-tons-of-iraqi-fuel-to-transit-monthly-to-baniyas/",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.78,
+        "excerpt": "fuel to transit monthly to Baniyas",
+        "tier": "HIGH",
+        "rationale": "Large-scale fuel transit via pipeline/refinery route in conflict zone"
+      }
+    ],
+    "cross_pollination_insight": "Sanctions evasion routing through Baniyas reveals shadow energy infrastructure building parallel supply chains"
+  },
+  {
+    "article_index": 10,
+    "title": "Five EU nations reportedly propose windfall tax on energy firms",
+    "url": "https://seekingalpha.com/news/4572527-eu-nations-propose-windfall-tax-energy-firms",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_002",
+        "confidence": 0.85,
+        "excerpt": "Five EU nations reportedly propose windfall tax on energy firms",
+        "tier": "HIGH",
+        "rationale": "EU-level energy policy intervention affecting firm operations and investment"
+      }
+    ],
+    "cross_pollination_insight": "Windfall taxes during supply crisis may discourage production investment, exacerbating shortage"
+  },
+  {
+    "article_index": 11,
+    "title": "Israel preparing for attacks on Iranian energy sites, awaits US green light, official says",
+    "url": "https://www.investing.com/news/commodities-news/israel-preparing-for-attacks-on-iranian-energy-sites-awaits-us-green-light-official-says-4597562",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_001",
+        "confidence": 0.96,
+        "excerpt": "Israel preparing for attacks on Iranian energy sites",
+        "tier": "HIGH",
+        "rationale": "State-level attribution (Israel) planning critical infrastructure sabotage - imminent threat"
+      },
+      {
+        "signal_id": "ENE_HIGH_003",
+        "confidence": 0.88,
+        "excerpt": "attacks on Iranian energy sites",
+        "tier": "HIGH",
+        "rationale": "Planned facility attacks with clear state attribution"
+      }
+    ],
+    "cross_pollination_insight": "US green light requirement shows attack authorization is diplomatic bargaining chip, not just military decision"
+  },
+  {
+    "article_index": 12,
+    "title": "LPG crunch pushes states to fast-track PNG rollout",
+    "url": "https://economictimes.indiatimes.com/industry/energy/oil-gas/lpg-crunch-pushes-states-to-fast-track-png-rollout/articleshow/130024539.cms",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.73,
+        "excerpt": "LPG crunch",
+        "tier": "MEDIUM",
+        "rationale": "Supply crunch forcing infrastructure policy response"
+      }
+    ],
+    "cross_pollination_insight": "Infrastructure substitution at state level reveals LPG shortage severity triggering long-term pipeline investment"
+  },
+  {
+    "article_index": 13,
+    "title": "Bushehr: Iran's only nuclear power plant",
+    "url": "https://www.al-monitor.com/originals/2026/04/bushehr-irans-only-nuclear-power-plant",
+    "signals": [],
+    "cross_pollination_insight": "Sole nuclear facility concentration creates single-point-of-failure risk for Iranian grid stability"
+  },
+  {
+    "article_index": 14,
+    "title": "The power sector conundrum: Perspectives on gas",
+    "url": "https://businessday.ng/opinion/article/the-power-sector-conundrum-perspectives-on-gas/",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.72,
+        "excerpt": "repair of the gas pipelines",
+        "tier": "HIGH",
+        "rationale": "Pipeline damage requiring repair with timeline implications"
+      }
+    ],
+    "cross_pollination_insight": "Gas pipeline repairs on 2-week timeline suggest temporary field repairs rather than permanent infrastructure restoration"
+  },
+  {
+    "article_index": 15,
+    "title": "Does The Difference Between 87 And 88 Octane Even Matter?",
+    "url": "https://www.jalopnik.com/2135652/difference-between-unleaded-88-and-87/",
+    "signals": [],
+    "cross_pollination_insight": "Consumer-grade fuel content discussion signals supply chain stress manifesting in product specification changes"
+  },
+  {
+    "article_index": 16,
+    "title": "Kenya: Energy executives step down amid fuel manipulation probe",
+    "url": "https://www.dw.com/en/kenya-energy-executives-step-down-amid-fuel-manipulation-probe/a-76663649",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.74,
+        "excerpt": "fuel crisis caused by the war in Iran",
+        "tier": "MEDIUM",
+        "rationale": "Crisis conditions triggering emergency procurement at inflated prices"
+      }
+    ],
+    "cross_pollination_insight": "Executive resignations over emergency procurement corruption show crisis profiteering at national level"
+  },
+  {
+    "article_index": 17,
+    "title": "China looks better placed than most in this oil shock. Here's why",
+    "url": "https://www.investing.com/news/economy-news/china-looks-better-placed-than-most-in-this-oil-shock-heres-why-4597556",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_001",
+        "confidence": 0.75,
+        "excerpt": "oil shock",
+        "tier": "MEDIUM",
+        "rationale": "Acknowledged oil shock implies insurance market and supply chain stress"
+      }
+    ],
+    "cross_pollination_insight": "China's relative resilience suggests strategic stockpiling success, may indicate market manipulation capability"
+  },
+  {
+    "article_index": 18,
+    "title": "Seplat workers suspend strike after fresh talks",
+    "url": "https://www.premiumtimesng.com/news/top-news/869352-seplat-workers-suspend-strike-after-fresh-talks.html",
+    "signals": [],
+    "cross_pollination_insight": "Labor action suspension at Nigerian E&P signals wage pressure in producing regions amid crisis premium"
+  },
+  {
+    "article_index": 19,
+    "title": "UK's 'most expensive' petrol pump where a tank costs £240",
+    "url": "https://metro.co.uk/2026/04/04/uks-most-expensive-petrol-pump-a-tank-costs-240-27852350/",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.71,
+        "excerpt": "prices have skyrocketed since the start of the Iran war",
+        "tier": "MEDIUM",
+        "rationale": "War-driven price shock affecting retail markets"
+      }
+    ],
+    "cross_pollination_insight": "Retail price divergence shows supply disruption creating geographically fragmented fuel markets"
+  },
+  {
+    "article_index": 20,
+    "title": "Slovak PM says EU should drop sanctions on Russian oil and gas to boost energy security",
+    "url": "https://www.al-monitor.com/originals/2026/04/slovak-pm-says-eu-should-drop-sanctions-russian-oil-and-gas-boost-energy-security",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_002",
+        "confidence": 0.92,
+        "excerpt": "European Union should end sanctions on Russian oil and gas imports",
+        "tier": "HIGH",
+        "rationale": "Direct challenge to EU sanctions regime on energy - political reversal risk"
+      },
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.78,
+        "excerpt": "restore Druzhba oil flows",
+        "tier": "HIGH",
+        "rationale": "Major pipeline (Druzhba) flow restoration proposal - infrastructure unblocking"
+      }
+    ],
+    "cross_pollination_insight": "Slovak PM linking Iran crisis to Russian sanctions relief reveals policy contagion pathway"
+  },
+  {
+    "article_index": 21,
+    "title": "Once lost, now found: Five 'missing' bird species rediscovered in 2025, offering hope",
+    "url": "https://news.mongabay.com/2026/04/once-lost-now-found-five-missing-bird-species-rediscovered-in-2025-offering-hope/",
+    "signals": [],
+    "cross_pollination_insight": "Environmental monitoring capacity in energy-producing regions may be degraded during conflict"
+  },
+  {
+    "article_index": 22,
+    "title": "European drivers choke on rising diesel prices",
+    "url": "https://www.thelocal.ch/20260404/european-drivers-choke-on-rising-diesel-prices",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.76,
+        "excerpt": "price of diesel fuel has rocketed by more than 30 percent across Europe since the start of the Middle East war",
+        "tier": "MEDIUM",
+        "rationale": "War-driven 30% price increase shows market shock conditions"
+      }
+    ],
+    "cross_pollination_insight": "Diesel-specific spike reveals refining capacity constraints beyond crude supply issues"
+  },
+  {
+    "article_index": 23,
+    "title": "Are Landfills The Wrong Place To Dispose Of Food Waste?",
+    "url": "https://cleantechnica.com/2026/04/04/are-landfills-the-wrong-place-to-dispose-of-food-waste/",
+    "signals": [],
+    "cross_pollination_insight": "Methane emissions from waste parallel to gas supply disruption - alternative fuel source potential"
+  },
+  {
+    "article_index": 24,
+    "title": "Why Iran war is an energy shock, not just an oil shock",
+    "url": "https://www.investing.com/news/economy-news/why-iran-war-is-an-energy-shock-not-just-an-oil-shock-4597541",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.90,
+        "excerpt": "Iran war is an energy shock",
+        "tier": "HIGH",
+        "rationale": "Systemic energy infrastructure disruption beyond just oil production"
+      },
+      {
+        "signal_id": "ENE_MED_001",
+        "confidence": 0.82,
+        "excerpt": "energy shock",
+        "tier": "MEDIUM",
+        "rationale": "Broad energy shock implies insurance market stress across multiple carriers"
+      }
+    ],
+    "cross_pollination_insight": "Gas/LNG disruption alongside oil shows Iran conflict targeting full energy spectrum, not just crude"
+  },
+  {
+    "article_index": 25,
+    "title": "Fuel stations bracing for demand surge after Easter breaks amid 'shortage' threat",
+    "url": "https://www.mirror.co.uk/news/uk-news/petrol-prices-shortage-easter-iran-36969102",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.88,
+        "excerpt": "one-fifth of the world's oil and liquefied natural gas supplies reportedly remain trapped in the Gulf following Iran's near closure of the Strait of Hormuz",
+        "tier": "HIGH",
+        "rationale": "Hormuz closure trapping 20% of global oil/LNG - critical chokepoint blockage"
+      },
+      {
+        "signal_id": "ENE_HIGH_006",
+        "confidence": 0.82,
+        "excerpt": "liquefied natural gas supplies reportedly remain trapped in the Gulf",
+        "tier": "HIGH",
+        "rationale": "LNG tanker trapping implies maritime vessel blockade"
+      }
+    ],
+    "cross_pollination_insight": "20% supply trap figure quantifies Hormuz closure severity - exceeds most contingency planning scenarios"
+  },
+  {
+    "article_index": 26,
+    "title": "Biggest ever Komatsu PC9000-12 electric excavator goes global",
+    "url": "https://electrek.co/2026/04/04/biggest-ever-komatsu-pc9000-12-electric-excavator-goes-global/",
+    "signals": [],
+    "cross_pollination_insight": "Electrification of heavy mining equipment signals shift in energy demand patterns for extraction industries"
+  },
+  {
+    "article_index": 27,
+    "title": "Avylo Introduces the ADC018 Super Energy Efficient Dehumidifier for High-Performance, Low-Maintenance Home Humidity Control",
+    "url": "https://web3wire.org/web3/avylo-introduces-the-adc018-super-energy-efficient-dehumidifier-for-high-performance-low-maintenance-home-humidity-control-2/",
+    "signals": [],
+    "cross_pollination_insight": "Energy efficiency product launches signal consumer price sensitivity and demand destruction in residential sector"
+  },
+  {
+    "article_index": 28,
+    "title": "Trump tells allies to 'get your own oil' — Hormuz tensions could push gas prices even higher",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/trump-tells-allies-own-oil-123000192.html",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.89,
+        "excerpt": "Hormuz tensions could push gas prices even higher",
+        "tier": "HIGH",
+        "rationale": "Hormuz tensions explicitly threatening supply routes"
+      },
+      {
+        "signal_id": "ENE_MED_001",
+        "confidence": 0.75,
+        "excerpt": "get your own oil",
+        "tier": "MEDIUM",
+        "rationale": "Policy shift toward energy independence implies supply chain reconfiguration"
+      }
+    ],
+    "cross_pollination_insight": "Allied self-sufficiency messaging signals breakdown of collective energy security frameworks"
+  },
+  {
+    "article_index": 29,
+    "title": "Major energy supplier giving away 64hrs of free electricity — but there's just hours left to sign up",
+    "url": "https://www.thesun.co.uk/money/38725046/free-electricity-deal-nears-end/",
+    "signals": [],
+    "cross_pollination_insight": "Demand-side incentives reveal utility-level surplus capacity or demand destruction countermeasures"
+  },
+  {
+    "article_index": 30,
+    "title": "UN nuclear agency chief 'deeply concerned' by reports of latest attack on Iran power plant",
+    "url": "https://news.un.org/feed/view/en/story/2026/04/1167250",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_001",
+        "confidence": 0.94,
+        "excerpt": "latest attack on Iran power plant",
+        "tier": "HIGH",
+        "rationale": "Attack on nuclear power plant (Bushehr) - critical infrastructure with IAEA concern"
+      },
+      {
+        "signal_id": "ENE_HIGH_003",
+        "confidence": 0.91,
+        "excerpt": "projectile strike near the Bushehr nuclear power plant",
+        "tier": "HIGH",
+        "rationale": "Nuclear facility damage with international agency response - extreme severity"
+      }
+    ],
+    "cross_pollination_insight": "IAEA involvement signals nuclear safety concerns that could trigger international intervention escalation"
+  },
+  {
+    "article_index": 31,
+    "title": "This Week in Agribusiness, April 4, 2026",
+    "url": "https://www.farmprogress.com/week-agribusiness/this-week-in-agribusiness-april-4-2026",
+    "signals": [],
+    "cross_pollination_insight": "Renewable fuel mentions in agribusiness show biofuel supply chain interdependence with food security"
+  },
+  {
+    "article_index": 32,
+    "title": "The US should shape the global climate adaptation market",
+    "url": "https://thehill.com/opinion/energy-environment/5814681-climate-adaptation-investment-gap/",
+    "signals": [],
+    "cross_pollination_insight": "Climate adaptation capital flows may redirect from traditional energy infrastructure resilience investment"
+  }
+]

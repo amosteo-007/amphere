@@ -1,0 +1,1331 @@
+[
+  {
+    "url": "https://www.bloomberg.com/news/videos/2026-04-05/opec-plans-symbolic-oil-quota-hike-for-may-video",
+    "title": "OPEC+ Plans Symbolic Oil Quota Hike for May",
+    "summary": "Bloomberg News Equities Reporter Natalia Kniazhevich joins Joe Mathieu and Christina Ruffini on Bloomberg This Weekend to discuss the latest impact the war in Iran is having on the energy markets. Watch the show LIVE every Saturday and Sunday morning. (Source: Bloomberg)",
+    "category": "energy",
+    "source_feed": "https://feeds.bloomberg.com/markets/news.rss",
+    "published": "Sun, 05 Apr 2026 13:56:34 GMT",
+    "timestamp": "1775397394000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "Natalia Kniazhevich",
+        "Joe Mathieu",
+        "Christina Ruffini"
+      ],
+      "tickers": [],
+      "companies": [
+        "OPEC+",
+        "Bloomberg News",
+        "Bloomberg"
+      ],
+      "locations": [
+        "Iran"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.ft.com/content/53db0c3d-c897-4ccd-8517-5ad392dfa252",
+    "title": "Iran allows Iraqi ships through Hormuz strait",
+    "summary": "Tehran\u2019s decision could allow 3mn b/d of oil to be released to international markets",
+    "category": "energy",
+    "source_feed": "https://www.ft.com/rss/home",
+    "published": "Sun, 05 Apr 2026 13:24:43 GMT",
+    "timestamp": "1775395483000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "Iraqi ships",
+        "international markets"
+      ],
+      "locations": [
+        "Iran",
+        "Hormuz strait",
+        "Tehran"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.thehindu.com/news/national/government-steps-up-lpg-supply-urges-calm-amid-hormuz-concerns/article70826745.ece",
+    "title": "Government steps up LPG supply, urges calm amid Hormuz concerns",
+    "summary": "Unlike the subsidised domestic 14.2-kg cylinders, the 5 kg bottles, called FTL cylinders, are priced at market rates and do not require any address proof for procurement from a nearby LPG distributorship",
+    "category": "energy",
+    "source_feed": "https://www.thehindu.com/news/feeder/default.rss",
+    "published": "Sun, 05 Apr 2026 18:54:27 +0530",
+    "timestamp": "1775395467000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "Government",
+        "LPG distributors"
+      ],
+      "locations": [
+        "Hormuz"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.thehindu.com/news/national/kerala/deadline-for-completing-three-regional-packages-under-electricity-efficiency-scheme-extended/article70826633.ece",
+    "title": "Deadline for completing three regional packages under electricity efficiency scheme extended",
+    "summary": "The Revamped Distribution Sector Scheme (RDSS) is meant for reducing losses and improving power supply; as per the original agreements, the date of completion for all three packages was January 31",
+    "category": "energy",
+    "source_feed": "https://www.thehindu.com/news/feeder/default.rss",
+    "published": "Sun, 05 Apr 2026 18:48:57 +0530",
+    "timestamp": "1775395137000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "RDSS"
+      ],
+      "locations": []
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.channelnewsasia.com/world/iran-attack-energy-infrastructure-middle-east-6037606",
+    "title": "Iran attacks energy infrastructure across Gulf states",
+    "summary": "Iran's attacks on Gulf energy infrastructure as well as its effective closure of the Strait of Hormuz have convulsed the global economy.",
+    "category": "energy",
+    "source_feed": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml",
+    "published": "Sun, 05 Apr 2026 20:51:00 +0800",
+    "timestamp": "1775393460000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "global economy"
+      ],
+      "locations": [
+        "Iran",
+        "Gulf states",
+        "Strait of Hormuz"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.forbes.com/sites/rrapier/2026/04/05/debunking-a-persistent-myth-us-refineries-cant-handle-shale-oil/",
+    "title": "Debunking A Persistent Myth: U.S. Refineries Can\u2019t Handle Shale Oil",
+    "summary": "U.S. refineries can process shale oil, but economics\u2014not capability\u2014drive imports and exports. Here\u2019s why the system works and why export bans miss the mark.",
+    "category": "energy",
+    "source_feed": "https://www.forbes.com/business/feed/",
+    "published": "Sun, 05 Apr 2026 08:00:00 -0400",
+    "timestamp": "1775390400000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "Refineries",
+        "refineries"
+      ],
+      "locations": [
+        "U.S."
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.motherjones.com/politics/2026/04/china-leads-renewables-dependent-coal-fired-plants/",
+    "title": "China Leads the World on Renewables, But It\u2019s Still Addicted to Burning Rocks",
+    "summary": "This story was originally published by Yale e360 and is reproduced here as part of the Climate Desk collaboration. In 2021, China\u2019s leader Xi Jinping made two important promises intended to signal China\u2018s commitment to fighting climate change. At the Leaders Climate Summit in that April, he announce",
+    "category": "energy",
+    "source_feed": "https://www.motherjones.com/feed/",
+    "published": "Sun, 05 Apr 2026 11:30:00 +0000",
+    "timestamp": "1775388600000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "unknown",
+    "credibility_tier": 3,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "Xi Jinping"
+      ],
+      "tickers": [],
+      "companies": [
+        "Yale e360",
+        "Climate Desk collaboration"
+      ],
+      "locations": [
+        "China",
+        "Chi"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.thesun.co.uk/money/38731712/britains-most-expensive-petrol-station-easter-pump-prices/",
+    "title": "Fuel hits \u00a33 a litre at Britain\u2019s most expensive petrol station as Easter travellers face \u2018eye-watering\u2019 pump prices",
+    "summary": "DRIVERS were being charged a whopping \u00a33 a litre for fuel at the UK's \"most expensive\" petrol station over Easter weekend. Prices have skyrocketed since the Middle East conflict broke out, with petrol prices at a two-year high and diesel prices up 30%. One London petrol station was seen charging 299",
+    "category": "energy",
+    "source_feed": "https://www.thesun.co.uk/feed/",
+    "published": "Sun, 05 Apr 2026 12:28:30 +0100",
+    "timestamp": "1775388510000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "low",
+    "credibility_tier": 4,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "DRIVERS"
+      ],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "Britain",
+        "UK",
+        "petrol station"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.smh.com.au/national/new-rules-force-wa-service-stations-to-report-prices-or-face-fines-20260405-p5zlgn.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
+    "title": "New rules force WA service stations to report prices or face fines",
+    "summary": "As the global fuel crisis continues to drive prices higher, every petrol station in WA is being put under the microscope.",
+    "category": "energy",
+    "source_feed": "https://www.smh.com.au/rss/feed.xml",
+    "published": "Sun, 05 Apr 2026 21:19:11 +1000",
+    "timestamp": "1775387951000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "WA"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.freemalaysiatoday.com/category/business/2026/04/05/opec-to-discuss-oil-production-rise-as-iran-war-weighs-on-markets",
+    "title": "Opec+ to discuss oil production rise as Iran war weighs on markets",
+    "summary": "The eight-strong V8 group in the alliance will decide whether to increase production as prices rise.",
+    "category": "energy",
+    "source_feed": "https://www.freemalaysiatoday.com/feed",
+    "published": "Sun, 05 Apr 2026 11:17:18 +0000",
+    "timestamp": "1775387838000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [
+        "TRX"
+      ],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "Opec+",
+        "V8 group"
+      ],
+      "locations": [
+        "Iran",
+        "markets"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.theguardian.com/business/2026/apr/05/coal-reliance-iran-war-fossil-fuels",
+    "title": "How Trump\u2019s Iran war could make the world more reliant on coal",
+    "summary": "The energy crisis sparked by the war is making some countries consider ramping up their use of dirty fuelsNot two months in office, as the price of west Texas crude approached $14 a barrel, President Jimmy Carter donned a cardigan to speak candidly about his strategy to face the permanent energy sho",
+    "category": "energy",
+    "source_feed": "http://www.theguardian.com/business/economics/rss",
+    "published": "Sun, 05 Apr 2026 11:00:49 GMT",
+    "timestamp": "1775386849000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "Trump",
+        "President"
+      ],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "west Texas"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.theguardian.com/environment/2026/apr/05/rice-whales-extinction-trump-gulf-mexico",
+    "title": "Rice\u2019s whales predate modern humans. Now Trump could make them extinct",
+    "summary": "The US has invoked national security to remove protections for the endangered cetacean, of which only about 50 are leftSince before modern humans existed Rice\u2019s whales have been diving to the depths of the ocean to gorge on fat-rich fish while growing to leviathan proportions, their bodies spanning ",
+    "category": "energy",
+    "source_feed": "https://www.theguardian.com/environment/rss",
+    "published": "Sun, 05 Apr 2026 11:00:49 GMT",
+    "timestamp": "1775386849000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "Trump"
+      ],
+      "tickers": [],
+      "companies": [
+        "Rice\u2019s whales",
+        "modern humans"
+      ],
+      "locations": [
+        "US"
+      ]
+    },
+    "tags": [
+      "environment",
+      "europe",
+      "uk"
+    ]
+  },
+  {
+    "url": "https://www.rigzone.com/news/bp_adnoc_approve_harmattan_gas_project_offshore_egypt-05-apr-2026-183371-article/?rss=true",
+    "title": "BP, ADNOC Approve Harmattan Gas Project offshore Egypt",
+    "summary": "'The investment, estimated at approximately half a billion USD, will help support and increase natural gas production to meet domestic market needs'.",
+    "category": "energy",
+    "source_feed": "https://www.rigzone.com/news/rss/rigzone_latest.aspx",
+    "published": "Sun, 05 Apr 2026 11:00:00 GMT",
+    "timestamp": "1775386800000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "unknown",
+    "credibility_tier": 3,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "BP",
+        "ADNOC"
+      ],
+      "locations": [
+        "Egypt"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.investing.com/news/economy-news/is-the-world-running-out-of-oil-goldman-sachs-weighs-in-4597603",
+    "title": "Is the world running out of oil? Goldman Sachs weighs in",
+    "summary": "",
+    "category": "energy",
+    "source_feed": "https://www.investing.com/rss/news_14.rss",
+    "published": "2026-04-05 10:54:04",
+    "timestamp": "1775386444000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [
+        "GS"
+      ],
+      "companies": [],
+      "locations": [
+        "world"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://gulfnews.com/world/gulf/kuwait/kuwait-petroleum-reports-drone-attack-on-facilities-no-casualties-1.500496960",
+    "title": "Kuwait Petroleum reports drone attack on facilities, no casualties",
+    "summary": "Dubai: Kuwait Petroleum Corporation (KPC) confirmed on Sunday that several of its operational facilities, including those of Kuwait National Petroleum Company (KNPC) and Petrochemical Industries Company (PIC), were targeted in a drone attack. The assault caused fires and significant material damage.",
+    "category": "energy",
+    "source_feed": "https://gulfnews.com/feed",
+    "published": "Sun, 05 Apr 2026 14:45:31 +0400",
+    "timestamp": "1775385931000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "Kuwait Petroleum",
+        "Kuwait Petroleum Corporation",
+        "Kuwait National Petroleum Company",
+        "Petrochemical Industries Compa"
+      ],
+      "locations": [
+        "Dubai"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://economictimes.indiatimes.com/news/international/world-news/iran-drone-strike-hits-kuwait-oil-giant-severe-damage-reported-as-fires-erupt/articleshow/130037664.cms",
+    "title": "Fires at Kuwait oil facilities after Iran strike",
+    "summary": "",
+    "category": "energy",
+    "source_feed": "https://economictimes.indiatimes.com/rssfeedstopstories.cms",
+    "published": "Sun, 05 Apr 2026 16:12:21 +0530",
+    "timestamp": "1775385741000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "Kuwait",
+        "Iran"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.scmp.com/news/asia/australasia/article/3349087/australia-receives-fuel-export-guarantees-singapore-japan?utm_source=rss_feed",
+    "title": "Australia receives fuel export guarantees from Singapore, Japan",
+    "summary": "Australia\u2019s government has received guarantees from major fuel exporting nations in Asia that supplies will proceed as normal despite the disruptions caused by the war in Iran, Assistant Foreign Affairs and Trade Minister Matt Thistlethwaite said. In an interview with Sky News on Sunday, Thistlethwa",
+    "category": "energy",
+    "source_feed": "https://www.scmp.com/rss/91/feed",
+    "published": "Sun, 05 Apr 2026 10:31:34 +0000",
+    "timestamp": "1775385094000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "Assistant Foreign Affai"
+      ],
+      "tickers": [],
+      "companies": [
+        "government",
+        "major fuel exporting nations"
+      ],
+      "locations": [
+        "Australia",
+        "Singapore",
+        "Japan",
+        "Asia",
+        "Iran"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://timesofindia.indiatimes.com/business/india-business/state-run-oil-firms-to-pay-discounted-refinery-rates-as-fuel-prices-stay-frozen-despite-crude-surge/articleshow/130036866.cms",
+    "title": "In a first, OMCs to pay refiners discounted rates to offset rising crude costs",
+    "summary": "",
+    "category": "energy",
+    "source_feed": "https://timesofindia.indiatimes.com/rssfeedstopstories.cms",
+    "published": "Sun, 05 Apr 2026 15:06:26 +0530",
+    "timestamp": "1775381786000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "OMCs",
+        "refiners"
+      ],
+      "locations": []
+    },
+    "tags": []
+  },
+  {
+    "url": "https://globalvoices.org/2026/04/05/drc-urban-trees-are-natural-co%e2%82%82-stores-that-merit-closer-attention/",
+    "title": "DRC: Urban trees are natural CO\u2082 stores that merit closer attention",
+    "summary": "Urban trees are not just landscaping features. They are natural carbon sinks, capable of offsetting human activity-related carbon dioxide (CO\u2082) emissions.",
+    "category": "energy",
+    "source_feed": "https://globalvoices.org/-/world/sub-saharan-africa/feed/",
+    "published": "Sun, 05 Apr 2026 09:00:29 +0000",
+    "timestamp": "1775379629000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "unknown",
+    "credibility_tier": 3,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "DRC"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://insideclimatenews.org/news/05042026/vermont-defends-climate-superfund-law/",
+    "title": "As Vermont Defends Its Law to Make Fossil Fuel Firms Pay for Climate Adaptation, the Bill Is Already Coming Due",
+    "summary": "RUTLAND, Vt.\u2014Eighteen years after the first \u201cclimate tort\u201d lawsuit was filed, no U.S. plaintiff has collected damages for the harms of global warming. Now, Vermont\u2019s different legal strategy to make fossil fuel companies pay is facing its first real test. On Monday, the state defended its \u201cclimate s",
+    "category": "energy",
+    "source_feed": "https://insideclimatenews.org/feed/",
+    "published": "Sun, 05 Apr 2026 08:55:00 +0000",
+    "timestamp": "1775379300000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "unknown",
+    "credibility_tier": 3,
+    "entities": {
+      "crypto": [
+        "SUI"
+      ],
+      "people": [
+        "U.S. plaintiff"
+      ],
+      "tickers": [],
+      "companies": [
+        "Fossil Fuel Firms"
+      ],
+      "locations": [
+        "Vermont",
+        "RUTLAND"
+      ]
+    },
+    "tags": [
+      "climate"
+    ]
+  },
+  {
+    "url": "https://economictimes.indiatimes.com/industry/energy/oil-gas/opec-debates-theoretical-oil-output-hike-amid-iran-war-paralysis/articleshow/130036309.cms",
+    "title": "OPEC+ debates theoretical oil output hike",
+    "summary": "MOSCOW/LONDON: OPEC+ may approve an oil output increase on Sunday, four sources from the group said, a rise that \u200cwill largely \u2060exist on \u2060paper as its key members are unable to raise production due to the U.S.-Israeli war with Iran.The \u200bwar has effectively shut the Strait of Hormuz - the world's mos",
+    "category": "energy",
+    "source_feed": "https://economictimes.indiatimes.com/rssfeedstopstories.cms",
+    "published": "Sun, 05 Apr 2026 14:21:44 +0530",
+    "timestamp": "1775379104000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "OPEC+"
+      ],
+      "locations": [
+        "MOSCOW",
+        "LONDON"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.investing.com/news/commodities-news/opec-debates-theoretical-oil-output-hike-amid-iran-war-paralysis-sources-say-4597595",
+    "title": "OPEC+ debates theoretical oil output hike amid Iran war paralysis, sources say",
+    "summary": "",
+    "category": "energy",
+    "source_feed": "https://www.investing.com/rss/news_11.rss",
+    "published": "2026-04-05 08:42:31",
+    "timestamp": "1775378551000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "OPEC+",
+        "sources"
+      ],
+      "locations": [
+        "Iran"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.jpost.com/middle-east/article-892070",
+    "title": "Gulf countries continue to face Iran attacks as criticial energy infrastructure at risk",
+    "summary": "UAE, Bahrain, Kuwait, and Saudi Arabia continue to face Iranian missile and drone attacks, targeting energy and infrastructure sites despite growing defenses.",
+    "category": "energy",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsfrontpage.aspx",
+    "published": "Sun, 05 Apr 2026 10:11:09 GMT",
+    "timestamp": "1775377961029",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [
+        "TGT"
+      ],
+      "companies": [],
+      "locations": [
+        "Gulf countries",
+        "Iran",
+        "UAE",
+        "Bahrain",
+        "Kuwait",
+        "Saudi Arabia"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://fortune.com/2026/04/05/doge-fired-state-department-energy-resources-bureau-key-personnel-insights-iran-war/",
+    "title": "\u2018It\u2019s shocking how poorly prepared the administration is\u2019: DOGE gutted major energy personnel who warn the U.S. has lost key insights amid Iran war",
+    "summary": "Last year, the Trump administration eliminated the Bureau of Energy Resources, which maintained close relationships with private sector oil companies and foreign energy ministries.",
+    "category": "energy",
+    "source_feed": "https://fortune.com/feed/",
+    "published": "Sun, 05 Apr 2026 08:21:00 +0000",
+    "timestamp": "1775377260000",
+    "sentiment": "bearish",
+    "sentiment_score": -1,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [
+        "DOGE"
+      ],
+      "people": [
+        "Trump administration"
+      ],
+      "tickers": [],
+      "companies": [
+        "DOGE",
+        "Bureau of Energy Resources",
+        "private sector oil companies",
+        "foreign energy ministries"
+      ],
+      "locations": [
+        "U.S."
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.thesun.co.uk/money/38698935/best-supermarket-loyalty-schemes-save-fuel/",
+    "title": "Best supermarket loyalty schemes to save up to 5p a litre on fuel as prices soar amid Iran war",
+    "summary": "PRICES at Britain's pumps are soaring as the crisis in the Middle East rumbles on, with diesel prices hitting \u00a32 a litre at some stations this week. Fuel prices increased by record amounts in March, according to the RAC but there are still savings to be made when filling up, if you know where to...",
+    "category": "energy",
+    "source_feed": "https://www.thesun.co.uk/feed/",
+    "published": "Sun, 05 Apr 2026 09:00:00 +0100",
+    "timestamp": "1775376000000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "low",
+    "credibility_tier": 4,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "Britain",
+        "Middle East"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://gulfnews.com/world/gulf/bahrain/fires-erupt-at-bahrain-petrochemical-and-energy-facilities-after-drone-strikes-1.500496850",
+    "title": "Fires erupt at Bahrain petrochemical and energy facilities after drone strikes",
+    "summary": "Two petrochemical and energy facilities in Bahrain were hit by Iranian drones early Sunday, sparking fires at operational units and storage tanks.Gulf Petrochemical Industries Company (GPIC) confirmed that several of its units were affected. All fires have now been extinguished, and the situation is",
+    "category": "energy",
+    "source_feed": "https://gulfnews.com/feed",
+    "published": "Sun, 05 Apr 2026 11:59:03 +0400",
+    "timestamp": "1775375943000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "Gulf Petrochemical Industries Company"
+      ],
+      "locations": [
+        "Bahrain"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.investing.com/news/stock-market-news/fuel-reservoir-hit-at-russias-primorsk-norsi-refinery-on-fire-after-drone-attacks-4597592",
+    "title": "Fuel reservoir hit at Russia\u2019s Primorsk, NORSI refinery on fire after drone attacks",
+    "summary": "",
+    "category": "energy",
+    "source_feed": "https://www.investing.com/rss/news.rss",
+    "published": "2026-04-05 07:48:09",
+    "timestamp": "1775375289000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "NORSI refinery"
+      ],
+      "locations": [
+        "Primorsk"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://businessday.ng/life/article/radio-lagos-addresses-power-disruptions-with-150kva-solar-project/",
+    "title": "Radio Lagos addresses power disruptions with 150KVA solar project",
+    "summary": "A 150KVA outdoor solar power system has been commissioned at Radio Lagos/Eko FM in a joint effort between Alternatio Navitas Ltd and the Lagos State Government. The project aims to improve power supply and support uninterrupted broadcasting at the state-owned media station. Olajide Lawal, General Ma",
+    "category": "energy",
+    "source_feed": "https://businessday.ng/feed/",
+    "published": "Sun, 05 Apr 2026 07:06:06 +0000",
+    "timestamp": "1775372766000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "Alternatio Navitas Ltd",
+        "Lagos State Government"
+      ],
+      "locations": [
+        "Radio Lagos",
+        "Eko FM"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.stuff.co.nz/politics/360960671/seymour-optimistic-about-continuity-fuel-supply-without-restrictions",
+    "title": "Seymour optimistic about \u2018continuity of fuel supply without restrictions\u2019",
+    "summary": "But it comes amid a warning from the construction sector that builders are at breaking point.",
+    "category": "energy",
+    "source_feed": "https://www.stuff.co.nz/rss",
+    "published": "2026-04-05T06:53:34Z",
+    "timestamp": "1775372014000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "Seymour"
+      ],
+      "tickers": [],
+      "companies": [
+        "construction sector",
+        "builders"
+      ],
+      "locations": []
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.hindustantimes.com/india-news/oil-india-ramps-up-crude-production-from-rajasthans-thar-desert-101775370388410.html",
+    "title": "Oil India ramps up crude production from Rajasthan's Thar desert",
+    "summary": "The state-run company has increased production by around 70 per cent compared to last year's 705 barrels per day.",
+    "category": "energy",
+    "source_feed": "https://www.hindustantimes.com/feeds/rss/india-news/rssfeed.xml",
+    "published": "Sun, 05 Apr 2026 12:05:00 +0530",
+    "timestamp": "1775370900000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "Oil India"
+      ],
+      "locations": [
+        "Rajasthan",
+        "Thar desert"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.bbc.com/news/articles/cql70rlkk27o?at_medium=RSS&at_campaign=rss",
+    "title": "'Elderly couple had to find \u00a31k for home heating oil'",
+    "summary": "One elderly couple had to find \u00a31,000 for an oil delivery and suppliers are not giving quotes, a councillor says.",
+    "category": "energy",
+    "source_feed": "https://feeds.bbci.co.uk/news/business/rss.xml",
+    "published": "Sun, 05 Apr 2026 06:29:52 GMT",
+    "timestamp": "1775370592000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "unknown",
+    "credibility_tier": 3,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "Elderly couple",
+        "elderly couple",
+        "councillor"
+      ],
+      "tickers": [],
+      "companies": [
+        "suppliers"
+      ],
+      "locations": []
+    },
+    "tags": []
+  },
+  {
+    "url": "https://gulfnews.com/world/gulf/bahrain/bahrain-energy-facility-fire-contained-after-drone-strike-1.500496782",
+    "title": "Bahrain energy facility fire contained after drone strike",
+    "summary": "Bahrain\u2019s BAPCO Energies has confirmed that a tank fire broke out earlier on Sunday at one of its storage facilities, following a hostile Iranian drone attack.In a statement BAPCO Energies said: \"Energies confirms an incident occurred at one of its storage facilities earlier today resulting in a tan",
+    "category": "energy",
+    "source_feed": "https://gulfnews.com/feed",
+    "published": "Sun, 05 Apr 2026 10:05:06 +0400",
+    "timestamp": "1775369106000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "BAPCO Energies"
+      ],
+      "locations": [
+        "Bahrain",
+        "storage facilities"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://businessday.ng/life/article/oyo-opens-electricity-market-targets-300-mw-by-q2-2027/",
+    "title": "Oyo opens electricity market, targets 300 MW by Q2, 2027",
+    "summary": "\u2026As 30 investors show interest The Oyo State Government says it is opening up the electricity market with almost 30 investors willing to come through the Oyo State Electricity Regulatory Commission, which has an integrated electricity resource plan, 2026 to 2036. While saying that the minimum electr",
+    "category": "energy",
+    "source_feed": "https://businessday.ng/feed/",
+    "published": "Sun, 05 Apr 2026 05:59:44 +0000",
+    "timestamp": "1775368784000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [
+        "TGT"
+      ],
+      "companies": [],
+      "locations": [
+        "Oyo"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.smh.com.au/business/markets/australia-s-high-petrol-prices-face-long-recovery-to-pre-war-levels-20260331-p5zkcy.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
+    "title": "Australia\u2019s high petrol prices face \u2018long recovery\u2019 to pre-war levels",
+    "summary": "Donald Trump says oil prices will fall rapidly. Australian fuel companies are preparing for a longer setback.",
+    "category": "energy",
+    "source_feed": "https://www.smh.com.au/rss/feed.xml",
+    "published": "Sun, 05 Apr 2026 15:46:30 +1000",
+    "timestamp": "1775367990000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "Donald Trump"
+      ],
+      "tickers": [],
+      "companies": [
+        "Australian fuel companies"
+      ],
+      "locations": [
+        "Australia"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://timesofindia.indiatimes.com/business/international-business/us-iran-conflict-middle-east-war-sends-us-fuel-prices-soaring-surcharges-kick-in/articleshow/130033611.cms",
+    "title": "US-Iran conflict: Middle East war sends US fuel prices soaring, surcharges kick in",
+    "summary": "Escalating Middle East tensions are driving up fuel costs in the US, impacting daily life and business operations. Petrol prices have surged over a dollar, with diesel seeing an even steeper increase, prompting companies like Amazon and airlines to implement surcharges. Experts warn of broader econo",
+    "category": "energy",
+    "source_feed": "https://timesofindia.indiatimes.com/rssfeedstopstories.cms",
+    "published": "Sun, 05 Apr 2026 11:15:34 +0530",
+    "timestamp": "1775367934000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "Middle East",
+        "US"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.koreatimes.co.kr/business/tech-science/20260405/renewable-waste-bag-plan-faces-question-amid-legal-loopholes?utm_source=rss",
+    "title": "Renewable waste bag plan faces question amid legal loopholes",
+    "summary": "As the war in Iran is disrupting Korea's imports of naphtha and other oil products, the nation is grappling with public concerns over a shortage of plastic waste bags, prompting President Lee Jae Myung on March 25 to order the government to find ways to replace imported oils with renewable materials",
+    "category": "energy",
+    "source_feed": "https://feed.koreatimes.co.kr/k/allnews.xml",
+    "published": "Sun, 05 Apr 2026 05:42:03 GMT",
+    "timestamp": "1775367723000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "President Lee Jae Myun"
+      ],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "Iran",
+        "Korea"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.livemint.com/news/india/petrol-diesel-prices-on-5-april-check-fuel-rates-in-your-city-today-delhi-mumbai-bengaluru-kolkata-others-11775366858290.html",
+    "title": "Petrol, diesel prices on 5 April: Check fuel rates in your city today \u2014 Delhi, Mumbai, Bengaluru, Kolkata, others",
+    "summary": "Crude oil prices continue to experience volatility as the US-Iran war enters its second month, with the Strait of Hormuz remaining shut to trade. However, despite the global supply crunch, India has managed to maintain stable price levels. Check petrol &amp; diesel rates in your city on Sunday, 5 Ap",
+    "category": "energy",
+    "source_feed": "https://www.livemint.com/rss/news",
+    "published": "Sun, 05 Apr 2026 11:10:23 +0530",
+    "timestamp": "1775367623000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "Delhi",
+        "Mumbai",
+        "Bengaluru",
+        "Kolkata",
+        "Strait of Hormuz"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.livemint.com/news/india/lpg-cylinder-price-today-5-april-how-costly-is-domestic-commercial-cooking-gas-in-delhi-mumbai-bengaluru-kolkata-11775362359755.html",
+    "title": "LPG cylinder price today, 5 April \u2014 How costly is domestic, commercial cooking gas in Delhi, Mumbai, Bengaluru, Kolkata",
+    "summary": "LPG cylinder price today, 5 April: While the Centre maintains that LPG supplies remain stable and adequate despite supply disruptions due to ongoing Middle East, check city-wise updated domestic and commercial LPG prices on 5 April.",
+    "category": "energy",
+    "source_feed": "https://www.livemint.com/rss/news",
+    "published": "Sun, 05 Apr 2026 10:47:57 +0530",
+    "timestamp": "1775366277000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "Centre"
+      ],
+      "locations": [
+        "Delhi",
+        "Mumbai",
+        "Bengaluru",
+        "Kolkata"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.theguardian.com/business/2026/apr/05/its-all-fear-and-headlines-energy-traders-race-to-keep-pace-with-volatile-oil-markets",
+    "title": "\u2018It\u2019s all fear and headlines\u2019: energy traders race to keep pace with volatile oil markets",
+    "summary": "Market volatility caused by Middle East conflict exposes energy traders to heavy losses and rumours of insider trading at the highest levelOn the weekend that US-Israeli drones first began to rain down on Tehran, energy traders across the world\u2019s major financial centres began to redraw their strateg",
+    "category": "energy",
+    "source_feed": "https://www.theguardian.com/business/rss",
+    "published": "Sun, 05 Apr 2026 05:00:43 GMT",
+    "timestamp": "1775365243000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "energy traders"
+      ],
+      "locations": []
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.smh.com.au/national/western-australia/wa-outlets-face-hefty-fines-as-labor-expands-fuelwatch-coverage-20260405-p5zlf7.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
+    "title": "WA outlets face hefty fines as Labor expands FuelWatch coverage",
+    "summary": "All West Australian fuel retailers must report their prices to FuelWatch or face hefty fines under changes announced by the state government on Sunday.",
+    "category": "energy",
+    "source_feed": "https://www.smh.com.au/rss/feed.xml",
+    "published": "Sun, 05 Apr 2026 14:59:37 +1000",
+    "timestamp": "1775365177000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "Labor",
+        "FuelWatch",
+        "state government"
+      ],
+      "locations": [
+        "WA"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.investing.com/news/economy-news/can-the-energy-price-shock-push-the-uk-into-recession-4597583",
+    "title": "Can the energy price shock push the UK into recession?",
+    "summary": "",
+    "category": "energy",
+    "source_feed": "https://www.investing.com/rss/news_14.rss",
+    "published": "2026-04-05 04:52:30",
+    "timestamp": "1775364750000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "UK"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.thehindu.com/news/international/south-korea-asks-gulf-nations-for-steady-energy-supply-safety-of-korean-vessels/article70825849.ece",
+    "title": "South Korea asks Gulf nations for steady energy supply, safety of Korean vessels",
+    "summary": "The \u200cenvoys said South Korea \u200bis a \"top priority\" nation and pledged to communicate closely with \u2060Seoul to ensure stable supply",
+    "category": "energy",
+    "source_feed": "https://www.thehindu.com/news/feeder/default.rss",
+    "published": "Sun, 05 Apr 2026 10:11:12 +0530",
+    "timestamp": "1775364072000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "South Korea",
+        "Seoul"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://reneweconomy.com.au/the-ev-battery-scandal-that-threatens-to-derail-election-hopes-of-eus-most-far-right-government/?utm_source=rss&utm_medium=rss&utm_campaign=the-ev-battery-scandal-that-threatens-to-derail-election-hopes-of-eus-most-far-right-government",
+    "title": "The EV battery scandal that threatens to derail election hopes of EU\u2019s most far right government",
+    "summary": "Hungary has rapidly become an EV battery manufacturing \u201csuperpower\u201d, but lax environmental controls have become a major liability for the government. The post The EV battery scandal that threatens to derail election hopes of EU\u2019s most far right government appeared first on Renew Economy.",
+    "category": "energy",
+    "source_feed": "https://reneweconomy.com.au/feed/",
+    "published": "Sun, 05 Apr 2026 04:31:14 +0000",
+    "timestamp": "1775363474000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "EU",
+        "government"
+      ],
+      "locations": [
+        "Hungary"
+      ]
+    },
+    "tags": [
+      "australia",
+      "oceania"
+    ]
+  },
+  {
+    "url": "https://www.scmp.com/week-asia/politics/article/3349063/india-turns-trusted-friend-russia-oil-lng-supply-iran-war-energises-ties?utm_source=rss_feed",
+    "title": "India turns to \u2018trusted friend\u2019 Russia for oil, LNG supply as Iran war energises ties",
+    "summary": "As Russia comes to India\u2019s aid amid the global energy crisis, a familiar mantra has resurfaced among officials and political analysts \u2013 that Moscow is New Delhi\u2019s \u201call weather-friend\u201d. Such a stance is anchored by deep strategic interests, with both countries viewing each other as vital to their bal",
+    "category": "energy",
+    "source_feed": "https://www.scmp.com/rss/91/feed",
+    "published": "Sun, 05 Apr 2026 04:29:34 +0000",
+    "timestamp": "1775363374000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "officials"
+      ],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "Moscow",
+        "New Delhi"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.theamericanconservative.com/the-uk-biomess/",
+    "title": "The UK Biomess",
+    "summary": "Wishcasting is not a viable energy policy. The post The UK Biomess appeared first on The American Conservative.",
+    "category": "energy",
+    "source_feed": "https://www.theamericanconservative.com/feed/",
+    "published": "Sun, 05 Apr 2026 04:05:00 +0000",
+    "timestamp": "1775361900000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "unknown",
+    "credibility_tier": 3,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "The UK Biomess",
+        "The American Conservative"
+      ],
+      "locations": []
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.malaymail.com/news/malaysia/2026/04/05/dont-cut-frontline-fuel-ex-minister-moots-300-litre-subsidy-carve-out-for-healthcare-workers/215170",
+    "title": "Don\u2019t cut frontline fuel: Ex-minister moots 300-litre subsidy carve-out for healthcare workers",
+    "summary": "KUALA LUMPUR, April 5 &mdash; A targeted petrol subsidy of up to 300 litres for healthcare workers should be considered,...",
+    "category": "energy",
+    "source_feed": "https://www.malaymail.com/feed/rss/malaysia",
+    "published": "Sun, 05 Apr 2026 12:04:17 +0800",
+    "timestamp": "1775361857000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "Ex-minister",
+        "healthcare workers"
+      ],
+      "tickers": [
+        "TGT"
+      ],
+      "companies": [],
+      "locations": [
+        "KUALA LUMPUR"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.thehindu.com/business/Economy/iran-war-starts-pinching-us-gas-prices-transport-costs-surge/article70825791.ece",
+    "title": "Iran war starts pinching U.S.; gas prices, transport costs surge",
+    "summary": "The average price of petrol in the U.S. has increased to $4.09 a gallon on Friday (April 3, 2026), up more than one dollar from just before the war and the highest level since August 2022",
+    "category": "energy",
+    "source_feed": "https://www.thehindu.com/news/feeder/default.rss",
+    "published": "Sun, 05 Apr 2026 09:12:09 +0530",
+    "timestamp": "1775360529000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "Iran",
+        "U.S."
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://timesofindia.indiatimes.com/business/international-business/india-makes-first-oil-purchase-from-iran-in-7-years-with-no-payment-hurdle/articleshow/130032606.cms",
+    "title": "India makes first oil purchase from Iran in 7 years with no payment hurdle",
+    "summary": "Amid Middle East supply disruptions, Indian refiners have resumed Iranian crude oil purchases after a seven-year hiatus, securing their energy needs. The government confirmed no payment hurdles exist for these imports, assuring India's crude oil requirements for the coming months are fully met. This",
+    "category": "energy",
+    "source_feed": "https://timesofindia.indiatimes.com/rssfeedstopstories.cms",
+    "published": "Sun, 05 Apr 2026 08:41:41 +0530",
+    "timestamp": "1775358701000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "Indian refiners",
+        "government"
+      ],
+      "locations": [
+        "India",
+        "Iran",
+        "Middle East"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.ft.com/content/9e47e3b8-fae1-4c1c-b79c-22dda42bc2b1",
+    "title": "Countries must not hoard fuel during Iran war, warns IEA",
+    "summary": "Fatih Birol makes veiled reference to China as he urges nations to avoid export bans despite worsening supply shock",
+    "category": "energy",
+    "source_feed": "https://www.ft.com/rss/home",
+    "published": "Sun, 05 Apr 2026 03:00:20 GMT",
+    "timestamp": "1775358020000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "Fatih Birol"
+      ],
+      "tickers": [],
+      "companies": [
+        "IEA"
+      ],
+      "locations": [
+        "Iran",
+        "China"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://cleantechnica.com/2026/04/04/vinfast-sells-over-3520-vehicles-in-a-day-markets-move-in-india-indonesia/",
+    "title": "VinFast Sells Over 3,520 Vehicles In A Day, Markets Move In India & Indonesia",
+    "summary": "VinFast sold 3,520 electric vehicles in a single day in Vietnam \u2014 an operational benchmark that matters less for its volume than for what it reveals. This was not a sales spike. It was a systems test. Production, logistics, and delivery aligned at scale, without visible friction. For a relatively ..",
+    "category": "energy",
+    "source_feed": "https://cleantechnica.com/feed/",
+    "published": "Sun, 05 Apr 2026 02:50:06 +0000",
+    "timestamp": "1775357406000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "VinFast"
+      ],
+      "locations": [
+        "India",
+        "Indonesia",
+        "Vietnam"
+      ]
+    },
+    "tags": []
+  }
+]

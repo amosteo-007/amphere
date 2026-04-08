@@ -1,0 +1,868 @@
+[
+  {
+    "url": "https://www.thehindu.com/news/national/telangana/3699-domestic-lpg-cylinders-seized-in-telangana-from-march-12/article70820802.ece",
+    "title": "3,699 domestic LPG cylinders seized in Telangana from March 12",
+    "summary": "",
+    "category": "energy",
+    "source_feed": "https://www.thehindu.com/news/feeder/default.rss",
+    "published": "Sat, 04 Apr 2026 12:26:23 +0530",
+    "timestamp": "1775285783000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "Telangana"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.channelnewsasia.com/asia/malaysia-singapore-rts-link-anthony-loke-2027-launch-6036446",
+    "title": "RTS Link on track for Jan 2027 launch despite global energy pressures, says Malaysia transport minister",
+    "summary": "Speaking to local media during a site visit on Friday (Apr 3), Malaysia\u2019s Transport Minister Anthony Loke said the Johor Bahru-Singapore RTS Link is now in the system installation phase, which involves limited fuel costs and is unlikely to be affected by the global energy situation.",
+    "category": "energy",
+    "source_feed": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml",
+    "published": "Sat, 04 Apr 2026 14:42:49 +0800",
+    "timestamp": "1775284969000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "Anthony Loke"
+      ],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "Johor Bahru-Singapore"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://finance.yahoo.com/sectors/energy/articles/lost-gas-fields-could-power-060000296.html",
+    "title": "The lost gas fields that could power Britain for decades",
+    "summary": "",
+    "category": "energy",
+    "source_feed": "https://finance.yahoo.com/news/rssindex",
+    "published": "2026-04-04T06:00:00Z",
+    "timestamp": "1775282400000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "The lost gas fields",
+        "Britain"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.thehindu.com/news/international/bangladesh-cuts-office-hours-turns-off-wedding-lights-to-save-energy/article70822389.ece",
+    "title": "Bangladesh cuts office hours, turns off wedding lights to save energy",
+    "summary": "Bangladesh imports 95% of its oil and gas needs, mostly from West Asia and said that, while there are adequate stocks of petrol and diesel, it hopes to mitigate the effects of \"unsecured\" supply lines",
+    "category": "energy",
+    "source_feed": "https://www.thehindu.com/news/feeder/default.rss",
+    "published": "Sat, 04 Apr 2026 10:30:43 +0530",
+    "timestamp": "1775278843000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "Bangladesh",
+        "West Asia"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.straitstimes.com/singapore/environment/with-energy-prices-rising-taman-jurong-pilots-lighting-system-that-can-reap-savings-of-over-70",
+    "title": "With energy prices rising, Taman Jurong pilots lighting system that can reap savings of over 70%",
+    "summary": "The pilot has seen over 70 per cent reduction in energy consumption, allowing Taman Jurong CC and the HDB block to reap cost savings.",
+    "category": "energy",
+    "source_feed": "https://www.straitstimes.com/news/singapore/rss.xml",
+    "published": "Sat, 04 Apr 2026 13:00:00 +0800",
+    "timestamp": "1775278800000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [
+        "SQ"
+      ],
+      "companies": [],
+      "locations": [
+        "Taman Jurong",
+        "HDB block"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.koreatimes.co.kr/business/20260404/korea-restarts-operation-of-gori-2-nuclear-reactor?utm_source=rss",
+    "title": "Korea restarts operation of Gori-2 nuclear reactor",
+    "summary": "Korea restarted the Gori-2 reactor on Saturday three years after the suspension for safety checks and facility improvement, the country's nuclear reactor operator said. The nuclear reactor at the Gori Nuclear Power Plant, located in Busan, 325 kilometers southeast of Seoul, began commercial operatio",
+    "category": "energy",
+    "source_feed": "https://feed.koreatimes.co.kr/k/allnews.xml",
+    "published": "Sat, 04 Apr 2026 04:27:02 GMT",
+    "timestamp": "1775276822000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "nuclear reactor operator"
+      ],
+      "locations": [
+        "Korea",
+        "Gori-2",
+        "Gori"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.livemint.com/news/india/lpg-cylinder-price-on-4-april-check-domestic-and-commercial-gas-rates-in-delhi-bengaluru-mumbai-kolkata-today-11775273700849.html",
+    "title": "LPG cylinder price on 4 April: Check domestic and commercial gas rates in Delhi, Bengaluru, Mumbai, Kolkata today",
+    "summary": "The Middle East conflict has led to increased LPG cylinder prices, with a notable hike in commercial LPG cylinders in April. Domestic LPG prices saw a smaller increase last month. Check LPG rates in your city today.",
+    "category": "energy",
+    "source_feed": "https://www.livemint.com/rss/news",
+    "published": "Sat, 04 Apr 2026 09:55:27 +0530",
+    "timestamp": "1775276727000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "Delhi",
+        "Bengaluru",
+        "Mumbai",
+        "Kolkata"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://economictimes.indiatimes.com/industry/energy/oil-gas/israel-iran-war-torrent-gas-raises-cng-price-by-rs-2-50/kg-locals-flag-rising-cost-burden/articleshow/130012788.cms",
+    "title": "Torrent Gas raises CNG price by Rs 2.50/kg",
+    "summary": "",
+    "category": "energy",
+    "source_feed": "https://economictimes.indiatimes.com/rssfeedstopstories.cms",
+    "published": "Sat, 04 Apr 2026 09:46:55 +0530",
+    "timestamp": "1775276215000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "Torrent Gas"
+      ],
+      "locations": []
+    },
+    "tags": []
+  },
+  {
+    "url": "https://timesofindia.indiatimes.com/business/international-business/petrol-shock-free-rides-more-how-is-pakistan-dealing-with-hormuz-energy-crisis/articleshow/130012629.cms",
+    "title": "Petrol shock, free rides & more: How is Pakistan dealing with Hormuz energy crisis",
+    "summary": "Pakistan grapples with soaring fuel prices, prompting free public transport in Islamabad and Punjab for 30 days. Despite a revised petrol price, public anger persists. The government aims to ease economic burdens amid global energy disruptions and IMF pressure, with similar measures seen in Karachi ",
+    "category": "energy",
+    "source_feed": "https://timesofindia.indiatimes.com/rssfeedstopstories.cms",
+    "published": "Sat, 04 Apr 2026 09:43:27 +0530",
+    "timestamp": "1775276007000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [
+        "AAPL"
+      ],
+      "companies": [
+        "government"
+      ],
+      "locations": [
+        "Pakistan",
+        "Islamabad",
+        "Punjab"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.theamericanconservative.com/the-british-energy-crunch/",
+    "title": "The British Energy Crunch",
+    "summary": "No UK political party has an answer to the crisis. The post The British Energy Crunch appeared first on The American Conservative.",
+    "category": "energy",
+    "source_feed": "https://www.theamericanconservative.com/feed/",
+    "published": "Sat, 04 Apr 2026 04:03:00 +0000",
+    "timestamp": "1775275380000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "unknown",
+    "credibility_tier": 3,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "The American Conservative"
+      ],
+      "locations": [
+        "UK"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://cleantechnica.com/2026/04/03/ford-ev-sales-drop-off-a-cliff/",
+    "title": "Ford EV Sales Drop Off A Cliff",
+    "summary": "Unsurprisingly, given what we\u2019ve seen from the company in recent months, Ford\u2019s EV business took a big hit in the first quarter year over year in the United States. The company\u2019s best selling electric vehicle, the Mustang Mach-E, is still a great buy \u2014 but it\u2019s harder getting consumers to ... [conti",
+    "category": "energy",
+    "source_feed": "https://cleantechnica.com/feed/",
+    "published": "Sat, 04 Apr 2026 03:57:18 +0000",
+    "timestamp": "1775275038000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [
+        "F"
+      ],
+      "companies": [],
+      "locations": [
+        "United States"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://cleantechnica.com/2026/04/03/rooftop-solar-photovoltaic-systems-account-for-20-of-puerto-ricos-capacity-mix/",
+    "title": "Rooftop Solar Photovoltaic Systems Account for 20% of Puerto Rico\u2019s Capacity Mix",
+    "summary": "Rooftop solar generating capacity in Puerto Rico totaled 1,456 megawatts (MW) at the end of 2025, 20% of the overall capacity mix. Rooftop solar capacity has increased faster than other sources over the past decade. Between 2016 and 2025 rooftop solar installations accounted for 81% of the new gener",
+    "category": "energy",
+    "source_feed": "https://cleantechnica.com/feed/",
+    "published": "Sat, 04 Apr 2026 03:55:57 +0000",
+    "timestamp": "1775274957000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "Puerto Rico"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://cleantechnica.com/2026/04/03/sierra-club-wisconsin-slams-we-energies-for-rate-increase-and-once-again-delaying-oak-creek-coal-plant-retirement/",
+    "title": "Sierra Club Wisconsin Slams We Energies for Rate Increase and Once Again Delaying Oak Creek Coal Plant Retirement",
+    "summary": "This week, We Energies has announced that it will once again delay closing its Oak Creek coal plant and that it intends to raise residential and small business rates by 4.7% in 2027 and 4.5% in 2028. The Oak Creek power plant was originally scheduled to close in 2023, but ... [continued] The post Si",
+    "category": "energy",
+    "source_feed": "https://cleantechnica.com/feed/",
+    "published": "Sat, 04 Apr 2026 03:53:48 +0000",
+    "timestamp": "1775274828000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "Sierra Club Wisconsin",
+        "We Energies"
+      ],
+      "locations": [
+        "Oak Creek"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.thehindu.com/news/international/pakistan-government-slashes-petrol-price-by-pkr-80-per-litre-day-after-sharp-hike-met-severe-backlash/article70822285.ece",
+    "title": "Pakistan government slashes petrol price by PKR 80 per litre, day after sharp hike met severe backlash",
+    "summary": "The government on Thursday (April 2) announced an unprecedented hike of 43% and 55% in the prices of petrol and high-speed diesel (HSD), respectively",
+    "category": "energy",
+    "source_feed": "https://www.thehindu.com/news/feeder/default.rss",
+    "published": "Sat, 04 Apr 2026 09:09:07 +0530",
+    "timestamp": "1775273947000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "Pakistan government",
+        "government"
+      ],
+      "locations": []
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.livemint.com/news/india/petrol-diesel-rates-on-4-april-check-fuel-prices-today-in-delhi-mumbai-chennai-kolkata-bangalore-and-others-11775269897566.html",
+    "title": "Petrol, diesel rates on 4 April \u2014 Check fuel prices today in Delhi, Mumbai, Chennai, Kolkata, Bangalore and others",
+    "summary": "Petrol, diesel price today, 4 April: The government has indicated that it is likely to keep the prices of petrol and diesel steady for the time being despite the global supply crisis, as oil marketing companies continue to take a hit to absorb any sudden price changes for the customers.",
+    "category": "energy",
+    "source_feed": "https://www.livemint.com/rss/news",
+    "published": "Sat, 04 Apr 2026 08:45:54 +0530",
+    "timestamp": "1775272554000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "government",
+        "oil marketing"
+      ],
+      "locations": [
+        "Delhi",
+        "Mumbai",
+        "Chennai",
+        "Kolkata",
+        "Bangalore"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.bbc.com/news/articles/c4g8k8vq8gno",
+    "title": "Europe asks if reviving nuclear is the answer to energy shocks",
+    "summary": "Comments",
+    "category": "energy",
+    "source_feed": "https://news.ycombinator.com/rss",
+    "published": "Sat, 04 Apr 2026 02:44:00 +0000",
+    "timestamp": "1775270640000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "Europe"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.thisdaylive.com/2026/04/04/nuprc-nigerias-oil-production-climbed-to-1-84mbpd-in-recent-days/",
+    "title": "NUPRC: Nigeria\u2019s Oil Production Climbed to 1.84mbpd in \u2018Recent Days\u2019",
+    "summary": "Emmanuel Addeh in Abuja The Nigerian Upstream Petroleum Regulatory Commission (NUPRC) has said Nigeria\u2019s crude oil production rose to 1.84 million barrels per day (bpd) in \u2018recent days\u2019, as operational challenges",
+    "category": "energy",
+    "source_feed": "https://www.thisdaylive.com/feed/",
+    "published": "Sat, 04 Apr 2026 02:26:07 +0000",
+    "timestamp": "1775269567000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "unknown",
+    "credibility_tier": 3,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "Emmanuel Addeh"
+      ],
+      "tickers": [],
+      "companies": [
+        "NUPRC",
+        "Nigerian Upstream Petroleum Regulatory Commission"
+      ],
+      "locations": [
+        "Nigeria",
+        "Abuja"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.sbs.com.au/news/article/chris-bowen-says-fuel-supply-strong-urges-easter-travellers-not-to-cancel-plans/stbxkj0z4",
+    "title": "Bowen says fuel supply 'strong', tells Easter travellers not to cancel plans",
+    "summary": "The energy minister said fuel supplies were holding steady, with dozens of shipments en route and service station shortages declining.",
+    "category": "energy",
+    "source_feed": "https://www.sbs.com.au/news/feed",
+    "published": "Sat, 4 Apr 2026 02:04:41 +0000",
+    "timestamp": "1775268281000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "unknown",
+    "credibility_tier": 3,
+    "entities": {
+      "crypto": [
+        "TRX"
+      ],
+      "people": [
+        "Bowen",
+        "energy minister"
+      ],
+      "tickers": [],
+      "companies": [],
+      "locations": []
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.channelnewsasia.com/business/vietnam-q1-growth-slows-costlier-middle-east-energy-tests-2026-target-6036236",
+    "title": "Vietnam Q1 growth slows as costlier Middle East energy tests 2026 target",
+    "summary": "",
+    "category": "energy",
+    "source_feed": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml",
+    "published": "Sat, 04 Apr 2026 09:51:19 +0800",
+    "timestamp": "1775267479000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [
+        "TGT"
+      ],
+      "companies": [],
+      "locations": [
+        "Vietnam",
+        "Middle East"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.rappler.com/newsbreak/explainers/can-solar-save-philippines-how-much-gaps-promise/",
+    "title": "Can solar save the Philippines? How much, what are its gaps and promise?",
+    "summary": "While households and major industries increasingly adopt solar to combat high electricity costs and grid instability, the transition remains shaped by significant upfront investments and technical needs to manage efficiency drops caused by extreme tropical heat",
+    "category": "energy",
+    "source_feed": "https://www.rappler.com/feed/",
+    "published": "Sat, 04 Apr 2026 08:59:44 +0800",
+    "timestamp": "1775264384000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "households",
+        "major industries"
+      ],
+      "locations": [
+        "Philippines"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.thisdaylive.com/2026/04/04/one-year-of-bayo-ojulari-at-nnpc/",
+    "title": "One Year of Bayo Ojulari at NNPC",
+    "summary": "Obinna Chima April 2, 2026, marked one year since Bayo Ojulari assumed office as Group Chief Executive Officer (GCEO) of the Nigerian National Petroleum Company Limited (NNPC), a tenure that",
+    "category": "energy",
+    "source_feed": "https://www.thisdaylive.com/feed/",
+    "published": "Sat, 04 Apr 2026 00:58:14 +0000",
+    "timestamp": "1775264294000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "unknown",
+    "credibility_tier": 3,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "Bayo Ojulari",
+        "Obinna Chima"
+      ],
+      "tickers": [],
+      "companies": [
+        "NNPC",
+        "Nigerian National Petroleum Company Limited"
+      ],
+      "locations": []
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.straitstimes.com/asia/australianz/stick-to-easter-travel-australians-told-though-hundreds-of-petrol-stations-dry",
+    "title": "Stick to Easter travel, Australians told, though hundreds of petrol stations dry",
+    "summary": "The nation has 39 days' worth of petrol, said energy minister Bowen.",
+    "category": "energy",
+    "source_feed": "https://www.straitstimes.com/news/asia/rss.xml",
+    "published": "Sat, 04 Apr 2026 08:54:32 +0800",
+    "timestamp": "1775264072000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "Bowen"
+      ],
+      "tickers": [],
+      "companies": [
+        "Australians"
+      ],
+      "locations": [
+        "petrol stations"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.dailymail.co.uk/debate/article-15705101/KEMI-BADENOCH-oil-gas-ground.html?ns_mchannel=rss&ito=1490&ns_campaign=1490",
+    "title": "KEMI BADENOCH: We MUST get our oil and gas out of the ground",
+    "summary": "Deep under the North Sea, in sites controlled by Britain, are around 3 billion barrels of oil and gas - about \u00a3165 billion-worth.",
+    "category": "energy",
+    "source_feed": "https://www.dailymail.co.uk/articles.rss",
+    "published": "Sat, 04 Apr 2026 01:39:18 +0100",
+    "timestamp": "1775263158000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "KEMI BADENOCH"
+      ],
+      "tickers": [],
+      "companies": [
+        "Britain"
+      ],
+      "locations": [
+        "North Sea"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.bbc.com/news/articles/c4g8k8vq8gno?at_medium=RSS&at_campaign=rss",
+    "title": "Faced with new energy shock, Europe asks if reviving nuclear is the answer",
+    "summary": "As war drives up gas and fuel prices, Europeans turn again to the issue of energy independence.",
+    "category": "energy",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/europe/rss.xml",
+    "published": "Fri, 03 Apr 2026 23:14:04 GMT",
+    "timestamp": "1775258044000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "unknown",
+    "credibility_tier": 3,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "Europeans"
+      ],
+      "locations": [
+        "Europe"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://fortune.com/2026/04/03/checked-bag-fees-united-airlines-10-dollars-iran-war-jet-fuel-costs-oil-prices/",
+    "title": "Checking a bag on United Airlines now costs $10 more as Iran war sends jet fuel costs up nearly 100% in major hubs",
+    "summary": "The average price for a gallon of jet fuel in Chicago, Houston, Los Angeles and New York reached $4.88 on Thursday, up from $2.50 before the conflict began on Feb. 28.",
+    "category": "energy",
+    "source_feed": "https://fortune.com/feed/",
+    "published": "Fri, 03 Apr 2026 22:28:06 +0000",
+    "timestamp": "1775255286000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "United Airlines"
+      ],
+      "locations": [
+        "major hubs",
+        "Chicago",
+        "Houston",
+        "Los Angeles",
+        "New York"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.atlanticcouncil.org/blogs/energysource/how-the-iran-war-could-shift-energy-policies-around-the-world/",
+    "title": "How the Iran war could shift energy policies around the world",
+    "summary": "The Strait of Hormuz closure has sparked fuel shortages and soaring energy costs, but also new opportunities for energy producers. How different regions respond to these disruptions could reshape the future of energy markets and security. The post How the Iran war could shift energy policies around ",
+    "category": "energy",
+    "source_feed": "https://www.atlanticcouncil.org/feed/",
+    "published": "Fri, 03 Apr 2026 22:22:17 +0000",
+    "timestamp": "1775254937000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "unknown",
+    "credibility_tier": 3,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "energy producers"
+      ],
+      "locations": [
+        "Iran"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.seattletimes.com/business/trump-administration-to-rejoin-offshore-drilling-agencies-separated-after-2010-gulf-oil-spill/?utm_source=RSS&utm_medium=Referral&utm_campaign=RSS_all",
+    "title": "Trump administration to rejoin offshore drilling agencies separated after 2010 Gulf oil spill",
+    "summary": "The Trump administration said Friday it is rejoining two agencies that were split up in the aftermath of the 2010 Gulf oil spill.",
+    "category": "energy",
+    "source_feed": "https://www.seattletimes.com/feed/",
+    "published": "Fri, 03 Apr 2026 14:43:05 -0700",
+    "timestamp": "1775252585000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "Trump administration",
+        "offshore drilling agencies"
+      ],
+      "locations": []
+    },
+    "tags": []
+  },
+  {
+    "url": "https://electrek.co/2026/04/03/ohio-solar-farm-powered-by-ohio-made-panels/",
+    "title": "This new Ohio solar farm is powered by Ohio-made panels",
+    "summary": "A new utility-scale solar farm just came online in Ohio, and it\u2019s generating power with panels manufactured in-state. more\u2026",
+    "category": "energy",
+    "source_feed": "https://electrek.co/feed/",
+    "published": "Fri, 03 Apr 2026 21:36:47 +0000",
+    "timestamp": "1775252207000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "Ohio"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://web3wire.org/web3/climatetech-connect-announces-global-pitch-competition-finalists-ahead-of-next-weeks-conference/",
+    "title": "ClimateTech Connect Announces Global Pitch Competition Finalists Ahead of Next Week\u2019s Conference",
+    "summary": "WASHINGTON, April 03, 2026 (GLOBE NEWSWIRE) \u2014 ClimateTech Connect has announced the six finalists selected...",
+    "category": "energy",
+    "source_feed": "https://web3wire.org/feed/gn",
+    "published": "Fri, 03 Apr 2026 21:33:23 +0000",
+    "timestamp": "1775252003000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "ClimateTech Connect",
+        "GLOBE NEWSWIRE"
+      ],
+      "locations": [
+        "WASHINGTON"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://natlawreview.com/article/new-mexico-environmental-improvement-board-approves-proposed-pfas-rule-labeling",
+    "title": "New Mexico Environmental Improvement Board Approves Proposed PFAS Rule; Labeling Requirement Would Apply to Products Manufactured after January 1, 2027",
+    "summary": "",
+    "category": "energy",
+    "source_feed": "https://www.natlawreview.com/recent-contributions/feed",
+    "published": "Fri, 03 Apr 2026 16:11:26 -0500",
+    "timestamp": "1775250686000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "New Mexico"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.straitstimes.com/asia/east-asia/fuel-shock-bites-in-china-but-no-panic-yet",
+    "title": "Fuel shock bites in China, but no panic yet",
+    "summary": "China\u2019s top economic planner has stepped in to soften the blow of surging oil prices through an emergency provision.",
+    "category": "energy",
+    "source_feed": "https://www.straitstimes.com/news/asia/rss.xml",
+    "published": "Sat, 04 Apr 2026 05:00:00 +0800",
+    "timestamp": "1775250000000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "top economic planner"
+      ],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "China"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://finance.yahoo.com/sectors/energy/articles/mother-energy-crises-just-beginning-203108138.html",
+    "title": "The Mother Of All Energy Crises Is Just Beginning, IEA Warns \u2014 April Will Be 'Much Worse'",
+    "summary": "",
+    "category": "energy",
+    "source_feed": "https://finance.yahoo.com/news/rssindex",
+    "published": "2026-04-03T20:31:08Z",
+    "timestamp": "1775248268000",
+    "sentiment": "bearish",
+    "sentiment_score": -1,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [],
+      "tickers": [],
+      "companies": [
+        "IEA"
+      ],
+      "locations": []
+    },
+    "tags": []
+  },
+  {
+    "url": "https://www.9news.com.au/national/fuel-shortage-rising-petrol-prices-biodiesel-aussies-making-diesel-from-cooking-oil/3c203d33-f5c5-415c-8f9e-4edf636f64aa",
+    "title": "Some Aussies are making diesel at home. Here's why that's a bad idea",
+    "summary": "One of the common ingredients used in the DIY diesel recipe has \"killed a lot of people\", an expert said.",
+    "category": "energy",
+    "source_feed": "https://www.9news.com.au/rss",
+    "published": "Fri, 03 Apr 2026 20:03:45 +0000",
+    "timestamp": "1775246625000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "medium",
+    "credibility_tier": 2,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "expert"
+      ],
+      "tickers": [],
+      "companies": [],
+      "locations": [
+        "home"
+      ]
+    },
+    "tags": []
+  },
+  {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/fuelcell-energy-stockholders-back-5-200228760.html",
+    "title": "FuelCell Energy Stockholders Back All 5 Proposals at 2026 AGM, Approve Director Slate and Plans",
+    "summary": "",
+    "category": "energy",
+    "source_feed": "https://finance.yahoo.com/news/rssindex",
+    "published": "2026-04-03T20:02:28Z",
+    "timestamp": "1775246548000",
+    "sentiment": "neutral",
+    "sentiment_score": 0,
+    "credibility": "high",
+    "credibility_tier": 1,
+    "entities": {
+      "crypto": [],
+      "people": [
+        "Director Slate"
+      ],
+      "tickers": [
+        "GM"
+      ],
+      "companies": [
+        "FuelCell Energy"
+      ],
+      "locations": []
+    },
+    "tags": []
+  }
+]

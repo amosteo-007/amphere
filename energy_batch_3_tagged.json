@@ -1,0 +1,412 @@
+[
+  {
+    "article_index": 0,
+    "title": "3,699 domestic LPG cylinders seized in Telangana from March 12",
+    "url": "https://www.thehindu.com/news/national/telangana/3699-domestic-lpg-cylinders-seized-in-telangana-from-march-12/article70820802.ece",
+    "signals": [],
+    "cross_pollination_insight": "LPG cylinder seizures indicate supply diversion issues in Indian market, potentially linked to regional shortage arbitrage"
+  },
+  {
+    "article_index": 1,
+    "title": "RTS Link on track for Jan 2027 launch despite global energy pressures, says Malaysia transport minister",
+    "url": "https://www.channelnewsasia.com/asia/malaysia-singapore-rts-link-anthony-loke-2027-launch-6036446",
+    "signals": [],
+    "cross_pollination_insight": "Infrastructure projects claiming immunity from energy pressures may face cost overruns as fuel hedge contracts expire"
+  },
+  {
+    "article_index": 2,
+    "title": "The lost gas fields that could power Britain for decades",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/lost-gas-fields-could-power-060000296.html",
+    "signals": [],
+    "cross_pollination_insight": "North Sea gas field discussions signal political pressure to reverse production bans amid supply crisis"
+  },
+  {
+    "article_index": 3,
+    "title": "Bangladesh cuts office hours, turns off wedding lights to save energy",
+    "url": "https://www.thehindu.com/news/international/bangladesh-cuts-office-hours-turns-off-wedding-lights-to-save-energy/article70822389.ece",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.75,
+        "excerpt": "unsecured supply lines",
+        "tier": "MEDIUM",
+        "rationale": "Supply insecurity with 95% import dependency triggering emergency conservation measures"
+      }
+    ],
+    "cross_pollination_insight": "95% import dependency with unsecured supply lines shows systemic vulnerability to Hormuz disruptions"
+  },
+  {
+    "article_index": 4,
+    "title": "With energy prices rising, Taman Jurong pilots lighting system that can reap savings of over 70%",
+    "url": "https://www.straitstimes.com/singapore/environment/with-energy-prices-rising-taman-jurong-pilots-lighting-system-that-can-reap-savings-of-over-70",
+    "signals": [],
+    "cross_pollination_insight": "70% efficiency improvements in pilot programs signal demand destruction response to price shock"
+  },
+  {
+    "article_index": 5,
+    "title": "Korea restarts operation of Gori-2 nuclear reactor",
+    "url": "https://www.koreatimes.co.kr/business/20260404/korea-restarts-operation-of-gori-2-nuclear-reactor",
+    "signals": [],
+    "cross_pollination_insight": "Nuclear reactor restarts after 3-year suspension show policy pivot toward baseload security over phase-out plans"
+  },
+  {
+    "article_index": 6,
+    "title": "LPG cylinder price on 4 April: Check domestic and commercial gas rates in Delhi, Bengaluru, Mumbai, Kolkata today",
+    "url": "https://www.livemint.com/news/india/lpg-cylinder-price-on-4-april-check-domestic-and-commercial-gas-rates-in-delhi-bengaluru-mumbai-kolkata-today-11775273700849.html",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.78,
+        "excerpt": "Middle East conflict has led to increased LPG cylinder prices",
+        "tier": "MEDIUM",
+        "rationale": "Conflict-driven LPG price hikes showing supply chain stress"
+      }
+    ],
+    "cross_pollination_insight": "Commercial LPG larger increase than domestic suggests rationing priority toward households over industry"
+  },
+  {
+    "article_index": 7,
+    "title": "Torrent Gas raises CNG price by Rs 2.50/kg",
+    "url": "https://economictimes.indiatimes.com/industry/energy/oil-gas/israel-iran-war-torrent-gas-raises-cng-price-by-rs-2-50/kg-locals-flag-rising-cost-burden/articleshow/130012788.cms",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.76,
+        "excerpt": "Israel-Iran war",
+        "tier": "MEDIUM",
+        "rationale": "War-driven price increase on compressed natural gas"
+      }
+    ],
+    "cross_pollination_insight": "URL indicates Iran-Israel conflict context for CNG pricing, showing war premium cascading to alternative fuels"
+  },
+  {
+    "article_index": 8,
+    "title": "Petrol shock, free rides & more: How is Pakistan dealing with Hormuz energy crisis",
+    "url": "https://timesofindia.indiatimes.com/business/international-business/petrol-shock-free-rides-more-how-is-pakistan-dealing-with-hormuz-energy-crisis/articleshow/130012629.cms",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.91,
+        "excerpt": "Hormuz energy crisis",
+        "tier": "HIGH",
+        "rationale": "Explicit Hormuz chokepoint crisis affecting national energy supply"
+      },
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.82,
+        "excerpt": "soaring fuel prices",
+        "tier": "MEDIUM",
+        "rationale": "Price shock triggering government emergency response"
+      }
+    ],
+    "cross_pollination_insight": "Free public transport subsidies show crisis severity reaching consumer protection policy level"
+  },
+  {
+    "article_index": 9,
+    "title": "The British Energy Crunch",
+    "url": "https://www.theamericanconservative.com/the-british-energy-crunch/",
+    "signals": [],
+    "cross_pollination_insight": "Conservative media framing of UK energy crisis may influence policy response toward production over conservation"
+  },
+  {
+    "article_index": 10,
+    "title": "Ford EV Sales Drop Off A Cliff",
+    "url": "https://cleantechnica.com/2026/04/03/ford-ev-sales-drop-off-a-cliff/",
+    "signals": [],
+    "cross_pollination_insight": "EV sales collapse amid energy crisis suggests consumers prioritizing immediate fuel access over transition investments"
+  },
+  {
+    "article_index": 11,
+    "title": "Rooftop Solar Photovoltaic Systems Account for 20% of Puerto Rico's Capacity Mix",
+    "url": "https://cleantechnica.com/2026/04/03/rooftop-solar-photovoltaic-systems-account-for-20-of-puerto-ricos-capacity-mix/",
+    "signals": [],
+    "cross_pollination_insight": "Island grid resilience through distributed solar shows pathway for import-dependent regions"
+  },
+  {
+    "article_index": 12,
+    "title": "Sierra Club Wisconsin Slams We Energies for Rate Increase and Once Again Delaying Oak Creek Coal Plant Retirement",
+    "url": "https://cleantechnica.com/2026/04/03/sierra-club-wisconsin-slams-we-energies-for-rate-increase-and-once-again-delaying-oak-creek-coal-plant-retirement/",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.74,
+        "excerpt": "delaying Oak Creek coal plant retirement",
+        "tier": "MEDIUM",
+        "rationale": "Coal plant retirement delays signal supply security taking priority over transition timeline"
+      }
+    ],
+    "cross_pollination_insight": "Coal plant life extensions show grid operators prioritizing reliability over emissions commitments"
+  },
+  {
+    "article_index": 13,
+    "title": "Pakistan government slashes petrol price by PKR 80 per litre, day after sharp hike met severe backlash",
+    "url": "https://www.thehindu.com/news/international/pakistan-government-slashes-petrol-price-by-pkr-80-per-litre-day-after-sharp-hike-met-severe-backlash/article70822285.ece",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.81,
+        "excerpt": "unprecedented hike of 43% and 55% in the prices of petrol and high-speed diesel",
+        "tier": "MEDIUM",
+        "rationale": "43-55% price shock triggering emergency policy reversal"
+      }
+    ],
+    "cross_pollination_insight": "Price hike reversal within 24 hours shows political limits of cost-passing during crisis"
+  },
+  {
+    "article_index": 14,
+    "title": "Petrol, diesel rates on 4 April — Check fuel prices today in Delhi, Mumbai, Chennai, Kolkata, Bangalore and others",
+    "url": "https://www.livemint.com/news/india/petrol-diesel-rates-on-4-april-check-fuel-prices-today-in-delhi-mumbai-chennai-kolkata-bangalore-and-others-11775269897566.html",
+    "signals": [],
+    "cross_pollination_insight": "Government absorbing price changes indicates fiscal stress from energy subsidies"
+  },
+  {
+    "article_index": 15,
+    "title": "Europe asks if reviving nuclear is the answer to energy shocks",
+    "url": "https://www.bbc.com/news/articles/c4g8k8vq8gno",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_001",
+        "confidence": 0.76,
+        "excerpt": "energy shocks",
+        "tier": "MEDIUM",
+        "rationale": "Regional energy shock prompting infrastructure policy reconsideration"
+      }
+    ],
+    "cross_pollination_insight": "Nuclear revival discourse signals breakdown of post-Fukushima consensus under supply pressure"
+  },
+  {
+    "article_index": 16,
+    "title": "NUPRC: Nigeria's Oil Production Climbed to 1.84mbpd in 'Recent Days'",
+    "url": "https://www.thisdaylive.com/2026/04/04/nuprc-nigerias-oil-production-climbed-to-1-84mbpd-in-recent-days/",
+    "signals": [],
+    "cross_pollination_insight": "Nigerian production increases may indicate OPEC+ quota flexibility during supply crisis"
+  },
+  {
+    "article_index": 17,
+    "title": "Bowen says fuel supply 'strong', tells Easter travellers not to cancel plans",
+    "url": "https://www.sbs.com.au/news/article/chris-bowen-says-fuel-supply-strong-urges-easter-travellers-not-to-cancel-plans/stbxkj0z4",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.73,
+        "excerpt": "service station shortages declining",
+        "tier": "MEDIUM",
+        "rationale": "Acknowledged shortages being managed shows supply stress conditions"
+      }
+    ],
+    "cross_pollination_insight": "Government reassurance on holiday travel reveals consumer anxiety levels about supply availability"
+  },
+  {
+    "article_index": 18,
+    "title": "Vietnam Q1 growth slows as costlier Middle East energy tests 2026 target",
+    "url": "https://www.channelnewsasia.com/business/vietnam-q1-growth-slows-costlier-middle-east-energy-tests-2026-target-6036236",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.79,
+        "excerpt": "costlier Middle East energy",
+        "tier": "MEDIUM",
+        "rationale": "Import cost shock affecting macroeconomic growth targets"
+      }
+    ],
+    "cross_pollination_insight": "GDP impact from energy costs shows crisis transmission from commodity markets to real economy"
+  },
+  {
+    "article_index": 19,
+    "title": "Can solar save the Philippines? How much, what are its gaps and promise?",
+    "url": "https://www.rappler.com/newsbreak/explainers/can-solar-save-philippines-how-much-gaps-promise/",
+    "signals": [],
+    "cross_pollination_insight": "Solar adoption discussion in import-dependent archipelago shows alternative pathway exploration"
+  },
+  {
+    "article_index": 20,
+    "title": "One Year of Bayo Ojulari at NNPC",
+    "url": "https://www.thisdaylive.com/2026/04/04/one-year-of-bayo-ojulari-at-nnpc/",
+    "signals": [],
+    "cross_pollination_insight": "Nigerian NOC leadership anniversary review amid crisis suggests production accountability pressures"
+  },
+  {
+    "article_index": 21,
+    "title": "Stick to Easter travel, Australians told, though hundreds of petrol stations dry",
+    "url": "https://www.straitstimes.com/asia/australianz/stick-to-easter-travel-australians-told-though-hundreds-of-petrol-stations-dry",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.88,
+        "excerpt": "hundreds of petrol stations dry",
+        "tier": "HIGH",
+        "rationale": "Widespread retail fuel outages indicate supply chain disruption"
+      },
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.80,
+        "excerpt": "The nation has 39 days' worth of petrol",
+        "tier": "MEDIUM",
+        "rationale": "39-day reserve disclosure shows supply stress and inventory concerns"
+      }
+    ],
+    "cross_pollination_insight": "Hundreds of dry stations with 39-day reserves suggests distribution breakdown rather than crude shortage"
+  },
+  {
+    "article_index": 22,
+    "title": "KEMI BADENOCH: We MUST get our oil and gas out of the ground",
+    "url": "https://www.dailymail.co.uk/debate/article-15705101/KEMI-BADENOCH-oil-gas-ground.html",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_002",
+        "confidence": 0.83,
+        "excerpt": "get our oil and gas out of the ground",
+        "tier": "HIGH",
+        "rationale": "Policy push to reverse production restrictions - sanctions/policy reversal context"
+      }
+    ],
+    "cross_pollination_insight": "North Sea production revival rhetoric signals political shift from climate commitments to supply security"
+  },
+  {
+    "article_index": 23,
+    "title": "Faced with new energy shock, Europe asks if reviving nuclear is the answer",
+    "url": "https://www.bbc.com/news/articles/c4g8k8vq8gno?at_medium=RSS&at_campaign=rss",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.77,
+        "excerpt": "new energy shock",
+        "tier": "MEDIUM",
+        "rationale": "Regional energy shock prompting policy pivot"
+      }
+    ],
+    "cross_pollination_insight": "Duplicate coverage of nuclear revival shows momentum in European energy policy discourse"
+  },
+  {
+    "article_index": 24,
+    "title": "Checking a bag on United Airlines now costs $10 more as Iran war sends jet fuel costs up nearly 100% in major hubs",
+    "url": "https://fortune.com/2026/04/03/checked-bag-fees-united-airlines-10-dollars-iran-war-jet-fuel-costs-oil-prices/",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.85,
+        "excerpt": "Iran war sends jet fuel costs up nearly 100%",
+        "tier": "MEDIUM",
+        "rationale": "100% jet fuel cost increase from war - extreme price shock"
+      }
+    ],
+    "cross_pollination_insight": "Bag fee increases show aviation industry passing war premium to consumers, may suppress air travel demand"
+  },
+  {
+    "article_index": 25,
+    "title": "How the Iran war could shift energy policies around the world",
+    "url": "https://www.atlanticcouncil.org/blogs/energysource/how-the-iran-war-could-shift-energy-policies-around-the-world/",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_005",
+        "confidence": 0.94,
+        "excerpt": "Strait of Hormuz closure has sparked fuel shortages",
+        "tier": "HIGH",
+        "rationale": "Hormuz closure causing fuel shortages - critical chokepoint blockage"
+      },
+      {
+        "signal_id": "ENE_MED_001",
+        "confidence": 0.82,
+        "excerpt": "soaring energy costs",
+        "tier": "MEDIUM",
+        "rationale": "Cost shock implying insurance market stress"
+      }
+    ],
+    "cross_pollination_insight": "Atlantic Council framing signals policy elite consensus building around energy security pivot"
+  },
+  {
+    "article_index": 26,
+    "title": "Trump administration to rejoin offshore drilling agencies separated after 2010 Gulf oil spill",
+    "url": "https://www.seattletimes.com/business/trump-administration-to-rejoin-offshore-drilling-agencies-separated-after-2010-gulf-oil-spill/",
+    "signals": [
+      {
+        "signal_id": "ENE_HIGH_002",
+        "confidence": 0.80,
+        "excerpt": "rejoining two agencies that were split up in the aftermath of the 2010 Gulf oil spill",
+        "tier": "HIGH",
+        "rationale": "Regulatory agency merger post-crisis signals policy shift toward production expansion"
+      }
+    ],
+    "cross_pollination_insight": "Agency recombination shows regulatory streamlining prioritizing supply over safety post-reform"
+  },
+  {
+    "article_index": 27,
+    "title": "This new Ohio solar farm is powered by Ohio-made panels",
+    "url": "https://electrek.co/2026/04/03/ohio-solar-farm-powered-by-ohio-made-panels/",
+    "signals": [],
+    "cross_pollination_insight": "Domestic manufacturing for energy projects signals supply chain localization trend"
+  },
+  {
+    "article_index": 28,
+    "title": "ClimateTech Connect Announces Global Pitch Competition Finalists Ahead of Next Week's Conference",
+    "url": "https://web3wire.org/web3/climatetech-connect-announces-global-pitch-competition-finalists-ahead-of-next-weeks-conference/",
+    "signals": [],
+    "cross_pollination_insight": "Climate tech investment activity continues despite crisis, showing capital divergence from fossil dependency"
+  },
+  {
+    "article_index": 29,
+    "title": "New Mexico Environmental Improvement Board Approves Proposed PFAS Rule",
+    "url": "https://natlawreview.com/article/new-mexico-environmental-improvement-board-approves-proposed-pfas-rule-labeling",
+    "signals": [],
+    "cross_pollination_insight": "Environmental regulation proceeding amid crisis suggests policy layering rather than single-priority focus"
+  },
+  {
+    "article_index": 30,
+    "title": "Fuel shock bites in China, but no panic yet",
+    "url": "https://www.straitstimes.com/asia/east-asia/fuel-shock-bites-in-china-but-no-panic-yet",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.84,
+        "excerpt": "Fuel shock bites in China",
+        "tier": "MEDIUM",
+        "rationale": "Fuel shock affecting major economy with emergency provisions activated"
+      },
+      {
+        "signal_id": "ENE_HIGH_002",
+        "confidence": 0.77,
+        "excerpt": "emergency provision",
+        "tier": "HIGH",
+        "rationale": "Emergency price intervention shows policy response to crisis"
+      }
+    ],
+    "cross_pollination_insight": "China's 'no panic' stance with emergency provisions shows strategic stockpile deployment masking crisis severity"
+  },
+  {
+    "article_index": 31,
+    "title": "The Mother Of All Energy Crises Is Just Beginning, IEA Warns — April Will Be 'Much Worse'",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/mother-energy-crises-just-beginning-203108138.html",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.88,
+        "excerpt": "Mother Of All Energy Crises",
+        "tier": "MEDIUM",
+        "rationale": "IEA warning of extreme crisis conditions ahead"
+      }
+    ],
+    "cross_pollination_insight": "IEA escalation language signals international organization preparing for extended supply disruption"
+  },
+  {
+    "article_index": 32,
+    "title": "Some Aussies are making diesel at home. Here's why that's a bad idea",
+    "url": "https://www.9news.com.au/national/fuel-shortage-rising-petrol-prices-biodiesel-aussies-making-diesel-from-cooking-oil/3c203d33-f5c5-415c-8f9e-4edf636f64aa",
+    "signals": [
+      {
+        "signal_id": "ENE_MED_002",
+        "confidence": 0.81,
+        "excerpt": "fuel shortage",
+        "tier": "MEDIUM",
+        "rationale": "Shortage driving DIY fuel production attempts"
+      }
+    ],
+    "cross_pollination_insight": "DIY biodiesel warnings indicate consumer desperation levels reaching safety-compromising thresholds"
+  },
+  {
+    "article_index": 33,
+    "title": "FuelCell Energy Stockholders Back All 5 Proposals at 2026 AGM, Approve Director Slate and Plans",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/fuelcell-energy-stockholders-back-5-200228760.html",
+    "signals": [],
+    "cross_pollination_insight": "Fuel cell company governance amid crisis suggests alternative energy investment resilience"
+  }
+]
