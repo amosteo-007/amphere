@@ -1,0 +1,17 @@
+{
+  "event_number": 1,
+  "name": "Post-9/11 Demand Shock and Aviation Collapse",
+  "episode": "Post-9/11 (Global War on Terror)",
+  "episode_code": "POST-911",
+  "node_id": "POST-911-01",
+  "event_date": "September 11, 2001",
+  "rolling_window": {
+    "t_minus_14": "August 28, 2001",
+    "t_plus_14": "September 25, 2001"
+  },
+  "shock_category": "Demand collapse",
+  "parent_node_id": null,
+  "child_node_ids": [],
+  "status": "pending",
+  "guide_version": "2.0"
+}
