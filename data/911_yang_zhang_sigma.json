@@ -1,0 +1,23 @@
+{
+  "CL=F": {
+    "pre_attack_avg": 0.29030048367676486,
+    "post_attack_avg": 0.6773238671677113,
+    "peak_sigma": 1.0220809399490052,
+    "peak_date": "2001-09-25",
+    "records": 17
+  },
+  "LUV": {
+    "pre_attack_avg": 0.43077019197727595,
+    "post_attack_avg": 1.8232720755712482,
+    "peak_sigma": 1.919076947833059,
+    "peak_date": "2001-09-25",
+    "records": 16
+  },
+  "^GSPC": {
+    "pre_attack_avg": 0.20558127769157175,
+    "post_attack_avg": 0.28618257777848655,
+    "peak_sigma": 0.43407911520691317,
+    "peak_date": "2001-09-25",
+    "records": 16
+  }
+}
